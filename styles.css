@@ -496,7 +496,6 @@ button:hover {
     font-size: clamp(1.9rem, 2.9vw, 2.9rem);
     line-height: 7vh;
     font-family: 'Amiri', serif;
-    letter-spacing: 0.03em;
 }
 
 .arabe-only{

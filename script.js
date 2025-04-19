@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
             surahTitle.textContent = surahName;
 
             const decodedData = decodeHTMLEntities(rawData);
-            currentAudioPath = "C:/Users/Yeyian Gaming/Documents/GitHub/MyDeen/audio/" + card.getAttribute("data-audio");
+            currentAudioPath = "audio/" + card.getAttribute("data-audio");
 
             try {
                 currentSurahData = JSON.parse(decodedData);
