@@ -5,156 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="images/logo.png" type="image/x-icon">
   <title>My Deen - Signes du Coran</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
-
-    ::-webkit-scrollbar {
-      width: 15px;
-      background: none;
-      z-index: 1000;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: none;
-      z-index: 1000;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background-color: #888;
-      border-radius: 10px;
-      border: 2px solid transparent;
-      background-clip: content-box;
-      z-index: 1000;
-    }
-
-    ::selection {
-      background-color: #e6b800;
-      color: black;
-    }
-
-    html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
-}
-
-body {
-  font-family: 'Tajawal', sans-serif;
-  background-color: #1e1e1e;
-  color: #666;
-  line-height: 1.6;
-  overflow-y: auto;
-}
-
-header {
-  display: block;
-  position: relative; /* Pour le placer tout en haut */
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: #111;
-  color: white;
-  text-align: center;
-  padding: 30px;
-  font-size: 1.5rem;
-  z-index: 100;
-}
-
-header h1 {
-  font-family: 'Cinzel', serif;
-  font-size: 60px;
-  margin: 0;
-  letter-spacing: 2px;
-  font-weight: 700;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-header h1::after {
-  content: '';
-  position: absolute;
-  left: 10%;
-  width: 80%;
-  height: 0.2px;
-  bottom: 0;
-  background-color: #fff;
-  border-radius: 5px;
-}
-
-header h3 {
-  margin: 0;
-  margin-top: 10px;
-  font-weight: normal;
-  font-size: 1.2rem;
-}
-
-
-
-    .signes-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: space-between;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .signe {
-      background-color: #333;
-      border-left: 5px solid #666;
-      padding: 1rem;
-      border-radius: 8px;
-      width: calc(33.333% - 0.7rem);
-      box-sizing: border-box;
-    }
-
-    .signe h2 {
-      font-size: 1.5rem;
-      color: #ffffff;
-      margin-bottom: 0.5rem;
-    }
-
-    .signe .symbole {
-      font-size: 2.2rem;
-      display: inline-block;
-      margin-right: 10px;
-      color: #ffffff;
-    }
-
-    .signe p {
-      margin: 0;
-    }
-
-    .retour {
-      display: block;
-      text-align: center;
-      margin: 2rem;
-      color: #ccc;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-
-    .retour:hover {
-      color: #e6b800;
-    }
-
-    /* Pour une meilleure réactivité */
-    @media (max-width: 768px) {
-      .signe {
-        width: calc(50% - 0.7rem);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .signe {
-        width: 100%;
-      }
-    }
-
-  </style>
+  <link rel="stylesheet" href="style-signes.css" />
 </head>
 <body>
+  <div class="top-bar">
+    <div class="tawhid">لا إله إلا الله</div>
+</div>
+<div id="contentContainer">
   <header>
     <h1>MyDeen</h1>
     <h3>Signes d'arrêt et de liaison du Quran</h3>
@@ -173,18 +30,8 @@ header h3 {
     </div>
 
     <div class="signe">
-      <h2><span class="symbole">قلى</span> Qīla Lahu Al-Waqf Awlā – Arrêt préférable</h2>
-      <p>Il est préférable de s’arrêter, mais ce n’est pas obligatoire.</p>
-    </div>
-
-    <div class="signe">
-      <h2><span class="symbole">صلى</span> Al-Waṣl Awlā – Continuer préférable</h2>
-      <p>Il est préférable de continuer la lecture, mais s’arrêter ne nuit pas au sens.</p>
-    </div>
-
-    <div class="signe">
-      <h2><span class="symbole">ق</span> Qif – Fais une pause</h2>
-      <p>Pause brève recommandée pour réfléchir ou marquer la fin d'une phrase.</p>
+      <h2><span class="symbole">ۖ</span> Liaison préférable – Waqf léger</h2>
+      <p>Ce signe indique qu'il est mieux de faire une liaison, mais on peut aussi s'arrêter.</p>
     </div>
 
     <div class="signe">
@@ -199,7 +46,7 @@ header h3 {
 
     <div class="signe">
       <h2><span class="symbole">۩</span> Sajda – Prosternation</h2>
-      <p>Ce signe indique qu'il est recommandé de se prosterner (sajda) à la lecture du verset.</p>
+      <p>Ce signe indique qu'il est obligatoire de se prosterner (sajda) à la lecture du verset.</p>
     </div>
 
     <div class="signe">
@@ -232,13 +79,8 @@ header h3 {
       <p>Ne se prononce pas lorsqu’elle est au milieu de la phrase, mais seulement en début de lecture.</p>
     </div>
 
-    <div class="signe">
-      <h2><span class="symbole">ۖ</span> Liaison préférable – Waqf léger</h2>
-      <p>Ce signe indique qu'il est mieux de faire une liaison, mais on peut aussi s'arrêter.</p>
-    </div>
-
   </div>
-
+</div>
   <script>
     document.addEventListener('keyup', function(event) {
       if (event.key === "Escape") {
