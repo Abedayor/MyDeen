@@ -287,7 +287,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 surahTitle.textContent = `${currentSurah.name_arabic}`;
     
                 // 👇 Remplir dynamiquement les boutons dans la top-bar
-                topBar.innerHTML = ''; // Supprime tout le contenu de la top-bar
+                topBar.innerHTML = '';
+                 // Supprime tout le contenu de la top-bar
 
                 const startPage = getStartPageForSurah(surahId);
                 const endPage = getEndPageForSurah(surahId);
@@ -301,42 +302,43 @@ document.addEventListener("DOMContentLoaded", () => {
                 img.classList.add("quran-page");
                 versesDiv.appendChild(img);
             }
-            
-                const buttonContainer = document.createElement("div");
-                buttonContainer.classList.add("button-container");
-    
-                const btnLecture = document.createElement("button");
-                btnLecture.classList.add("mode-button");
-                btnLecture.title = "Mode Lecture";  // Déplacer le title ici, sur le bouton
-                btnLecture.innerHTML = '<img src="images/lecture.svg" alt="Lecture" class="icon-svg">';  // Retirer le title de l'img'
-                btnLecture.addEventListener("click", () => {
-                    btnLecture.classList.add("active");
-                    btnTraduction.classList.remove("active");
-                    viewMode = "reading";
-                    displayVerses(); 
 
-                    
-                });
+            // Créer le container des boutons lecture/traduction
+            const buttonContainer = document.createElement("div");
+            buttonContainer.classList.add("button-container");
 
-                const btnTraduction = document.createElement("button");
-                btnTraduction.classList.add("mode-button");
+            const btnLecture = document.createElement("button");
+            btnLecture.classList.add("mode-button");
+            btnLecture.title = "Mode Lecture";
+            btnLecture.innerHTML = '<img src="images/lecture.svg" alt="Lecture" class="icon-svg">';
+            btnLecture.addEventListener("click", () => {
+                btnLecture.classList.add("active");
+                btnTraduction.classList.remove("active");
+                viewMode = "reading";
+                displayVerses();
+            });
+
+            const btnTraduction = document.createElement("button");
+            btnTraduction.classList.add("mode-button", "active");
+            btnTraduction.title = "Mode Traduction";
+            btnTraduction.innerHTML = '<img src="images/traduction.svg" alt="Traduction" class="icon-svg">';
+            btnTraduction.addEventListener("click", () => {
                 btnTraduction.classList.add("active");
-                btnTraduction.title = "Mode Traduction";  // Déplacer le title ici, sur le bouton
-                btnTraduction.innerHTML = '<img src="images/traduction.svg" alt="Traduction" class="icon-svg">';  // Retirer le title de l'img'
-                btnTraduction.addEventListener("click", () => {
-                    btnTraduction.classList.add("active");
-                    btnLecture.classList.remove("active");
-                    viewMode = "translation";
-                    displayVerses();
-                });
+                btnLecture.classList.remove("active");
+                viewMode = "translation";
+                displayVerses();
+            });
 
-                backButton.style.display = "block";
-    
-                buttonContainer.appendChild(btnTraduction);
-                buttonContainer.appendChild(btnLecture);
-    
-                topBar.appendChild(buttonContainer);
-                topBar.appendChild(backButton);
+            backButton.style.display = "block";
+
+            buttonContainer.appendChild(btnTraduction);
+            buttonContainer.appendChild(btnLecture);
+
+
+            // Ajouter tout dans la topBar
+            topBar.appendChild(buttonContainer);
+            topBar.appendChild(backButton);
+
                                     // 👇 Créer la barre audio si elle n'existe pas déjà
                 // 👇 Afficher les versets
                     displayVerses();
@@ -352,7 +354,10 @@ document.addEventListener("DOMContentLoaded", () => {
             // Si on est en mode traduction, on affiche le titre et la basmala
             if (viewMode === "translation") {
                 // 👇 Afficher le titre de la sourate
-                surahTitle.textContent = `${currentSurah.name_arabic}`;
+
+                if (surahTitle) {
+                    surahTitle.textContent = currentSurah.name_arabic; // Mise à jour du titre de la sourate
+                }
                 
                 // Supprime les anciennes Basmala si elle existe déjà
                 const existingBasmala = document.getElementById("basmala");
@@ -416,16 +421,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     const hr = document.createElement("hr");
                     hr.classList.add("page-separator");
 
-                    pageInfo.appendChild(pageLabel); // Ajouter le numéro de page d'abord
-                    pageInfo.appendChild(hr); // Ajouter la ligne de séparation après le numéro de page
+                    pageInfo.appendChild(pageLabel); 
+                    pageInfo.appendChild(hr); 
                     verseContainerFlex.appendChild(pageInfo);
 
                 }
 
                 fragment.appendChild(verseContainerFlex);
             }
-
-                        else {
+            else {
                 // En mode traduction, afficher les versets
                 currentSurah.arabicVerses.forEach((verse, index) => {
                     const verseReading = document.createElement("span");
@@ -466,61 +470,71 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (!document.getElementById("play-audio-btn")) {
                     const barrette = document.createElement("div");
                     barrette.classList.add("barrette");
-
+                
                     const playButton = document.createElement("button");
                     playButton.id = "play-audio-btn";
                     playButton.innerHTML = "&#9654; Jouer Audio";
-
+                
                     barrette.appendChild(playButton);
                     versesDiv.insertAdjacentElement("beforebegin", barrette);
-
+                
                     let audioInitialized = false;
                     const playPauseBtn = document.getElementById('play-pause-btn');
                     const audio = document.getElementById('audio');
                     const audioBar = document.querySelector('.audio-bar');
-
+                
                     playButton.addEventListener("click", () => {
                         const requestedSurahId = currentSurah.id;
-
+                    
+                        // Vérification si l'audio n'est pas initialisé ou si l'ID de la sourate a changé
                         if (!audioInitialized || requestedSurahId !== currentPlayingSurahId) {
-                            audio.pause();
-                            initAudioPlayer(requestedSurahId);
-                            currentPlayingSurahId = requestedSurahId;
+                            if (audio) {
+                                audio.pause(); // Met l'audio précédent en pause
+                            }
+                            initAudioPlayer(requestedSurahId); // Initialisation de l'audio pour la sourate demandée
+                            currentPlayingSurahId = requestedSurahId; // Mise à jour de l'ID de la sourate en cours
                             audioInitialized = true;
-                            playButton.innerHTML = "&#10074;&#10074; Pause Audio";
-                            audioBar.classList.remove("hidden");
+                            playButton.innerHTML = "&#10074;&#10074; Pause Audio"; // Changer l'icône du bouton
+                            audioBar.classList.remove("hidden"); // Afficher la barre audio
                             playPauseBtn.innerHTML = "&#10074;&#10074;";
                             playPauseBtn.classList.remove("paused");
-                        } else if (audio.paused) {
+                        } else if (audio.paused) { // Si l'audio est en pause
                             audio.play();
                             playButton.innerHTML = "&#10074;&#10074; Pause Audio";
                             playPauseBtn.innerHTML = "&#10074;&#10074;";
                             playPauseBtn.classList.remove("paused");
                             audioBar.classList.remove("hidden");
-                        } else {
+                        } else { // Si l'audio est en lecture
                             audio.pause();
                             playButton.innerHTML = "&#9654; Jouer Audio";
                             playPauseBtn.innerHTML = "&#9654;";
                             playPauseBtn.classList.add("paused");
                         }
                     });
-                } else {
-                    const playPauseBtn = document.getElementById('play-pause-btn');
-                    const playButton = document.getElementById("play-audio-btn");
-                    if (currentSurah.id !== currentPlayingSurahId) {
-                        playButton.innerHTML = "&#9654; Jouer Audio";
-                        playPauseBtn.innerHTML = "&#9654;";
-                        playPauseBtn.classList.add("paused");
-                    } else if (!document.getElementById("audio").paused) {
-                        playButton.innerHTML = "&#10074;&#10074; Pause Audio";
-                        playPauseBtn.innerHTML = "&#10074;&#10074;";
-                        playPauseBtn.classList.remove("paused");
-                    } else {
-                        playButton.innerHTML = "&#9654; Jouer Audio";
                     }
-                }
+                    else {
+                        const playPauseBtn = document.getElementById('play-pause-btn');
+                        const playButton = document.getElementById("play-audio-btn");
+                    
+                        // Si la sourate a changé
+                        if (currentSurah.id !== currentPlayingSurahId) {
+                            playButton.innerHTML = "&#9654; Jouer Audio";
+                            playPauseBtn.innerHTML = "&#9654;";
+                            playPauseBtn.classList.add("paused");
+                        } else if (!document.getElementById("audio").paused) {
+                            // Si l'audio est en cours de lecture
+                            playButton.innerHTML = "&#10074;&#10074; Pause Audio";
+                            playPauseBtn.innerHTML = "&#10074;&#10074;";
+                            playPauseBtn.classList.remove("paused");
+                        } else {
+                            // Si l'audio est en pause
+                            playButton.innerHTML = "&#9654; Jouer Audio";
+                        }
+                    }
+                    
                     verseContainerFlex.appendChild(verseReading);
-                });
+                });                    
+            
             }
             
             fragment.appendChild(verseContainerFlex);
@@ -613,8 +627,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio.addEventListener('loadedmetadata', updateDuration);
                 audioEventListenersInitialized = true;
             }
-        
-            // 🔁 Reste inchangé
+            
             loadAudio(audioPath);
         
             function togglePlayPause() {
@@ -690,22 +703,45 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             
         }        
-    
+    });
 
 
     document.addEventListener("keydown", function (event) {
-        // Escape : fermer les versets si affichés
         if (event.key === "Escape") {
             if (verseContainer.style.display === "block") {
                 goBackToMain();
             }
         }   
+
+
+    let touchStartX = 0;
+    let touchMoveX = 0;
+
+    document.addEventListener('touchstart', function(event) {
+        touchStartX = event.touches[0].clientX;
+    }, false);
+
+    document.addEventListener('touchmove', function(event) {
+        touchMoveX = event.touches[0].clientX;
+    }, false);
+
+    document.addEventListener('touchend', function(event) {
+        const swipeDistance = touchMoveX - touchStartX;
+
+        if (swipeDistance > 15) { // Doit avoir glissé vers la droite 
+            goBackToMain();
+        }
     });
 
     function goBackToMain() {
         scrollToTop(true);
         verseContainer.style.display = "none";
         document.querySelector('.main-content').style.display = "flex";
+        topBar.innerHTML = ""; // Supprime tout le contenu de la top-bar
+        const tawhid = document.createElement("div");
+        topBar.insertAdjacentElement("afterbegin", tawhid);
+        tawhid.classList.add("tawhid");
+        tawhid.innerHTML = "لا إله إلا الله";
         searchInput.style.display = "block";
         const searchContainer = document.querySelector('.search-container');
         if (searchContainer) {

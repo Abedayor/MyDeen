@@ -59,6 +59,7 @@
 }
 
 .tawhid {
+    display: block;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -513,7 +514,7 @@ header h1::after {
   
 #backButton {
     display: none ;
-    color: #e6b800;
+    color: white;
     border: none;
     background: transparent;
     position: absolute;  /* Fixe le bouton en haut à gauche */
@@ -528,12 +529,46 @@ header h1::after {
 }
 
 #backButton:hover {
-    color: #e6b80070;
+    color: #666;
 }
 
 #backButton.visible {
     display: inline-block !important;
 }
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 10%;
+    transition: background-color 0.3s;
+}
+.nav-button img{
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    filter: brightness(0) invert(1); 
+}
+
+/* Bouton précédent : collé à gauche mais avec une petite marge */
+.prev-surah {
+    left: 15%; /* Distance du bord gauche */
+}
+
+/* Bouton suivant : collé à droite mais avec une petite marge */
+.next-surah {
+    right: 15%; /* Distance du bord droit */
+}
+
+.nav-button:hover {
+    background-color: #666;
+}
+
 
 /* Conteneur des boutons */
 .button-container {
@@ -553,6 +588,7 @@ header h1::after {
     vertical-align: middle;
     filter: brightness(0) invert(1); 
 }
+
 .button.active img.icon-svg {
     filter: brightness(0) invert(1);
 }
@@ -693,7 +729,7 @@ header h1::after {
     font-size: 1.7rem;
 }
 
-#prev-btn, #next-btn{
+.audio-bar img{
     background: none;
     border: none;
     height: 35px;
@@ -706,7 +742,7 @@ header h1::after {
     cursor: pointer;
 }
   
-#prev-btn:hover, #next-btn:hover{
+.audio-bar img:hover{
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
 }
