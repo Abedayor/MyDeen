@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    initSettingsMenuEvents();
     const topBar = document.querySelector(".top-bar");
     const souratesContainer = document.querySelector(".sourates");
     const searchInput = document.getElementById("searchInput");
@@ -8,6 +9,231 @@ document.addEventListener("DOMContentLoaded", () => {
     const versesDiv = document.getElementById("verses");
     const backButton = document.getElementById("backButton");
     const audioBar = document.querySelector('.audio-bar');
+
+    const savedTheme = localStorage.getItem("theme") || "sepia";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+
+    // Initialiser les événements du menu paramètres
+    initSettingsMenuEvents();
+
+    // Activer le bouton retour
+    backButton.addEventListener("click", goBackToMain);
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && verseContainer.style.display === "block") {
+            goBackToMain();
+        }
+    });
+
+    function goBackToMain() {
+        verseContainer.style.display = "none";
+        document.querySelector('.main-content').style.display = "flex";
+        topBar.innerHTML = "";
+
+        // Restaurer la top-bar d'accueil
+        const tawhid = document.createElement("div");
+        tawhid.classList.add("tawhid");
+        tawhid.innerHTML = "لا إله إلا الله";
+        topBar.appendChild(tawhid);
+
+        // Création de l’icône du globe
+        const settingsContainer = document.createElement("div");
+        settingsContainer.classList.add("settings-container");
+
+        // Icône globe
+        const globeIcon = document.createElement("img");
+        globeIcon.classList.add("globe");
+        globeIcon.src = "images/globe.svg";
+        globeIcon.title = "Selecteur de langue";
+
+        // Icône des paramètres
+        const settingsIcon = document.createElement("img");
+        settingsIcon.classList.add("settings-icon");
+        settingsIcon.src = "images/gear.svg";
+        settingsIcon.alt = "";
+        settingsIcon.id = "settingsIcon";
+        settingsIcon.title = "Paramètres";
+
+        // Ajout des icônes dans la barre d'icônes
+        settingsContainer.appendChild(globeIcon);
+        settingsContainer.appendChild(settingsIcon);
+
+        // Menu des paramètres (gear)
+        const settingsMenu = document.createElement("div");
+        settingsMenu.classList.add("settings-menu");
+        settingsMenu.id = "settingsMenu";
+
+        // Fenêtre du menu
+        const settingsFenetre = document.createElement("div");
+        settingsFenetre.classList.add("settings-fenetre");
+
+        const settingsTitle = document.createElement("p");
+        settingsTitle.textContent = "Paramètres";
+
+        const closeSettings = document.createElement("img");
+        closeSettings.src = "images/x.svg";
+        closeSettings.alt = "";
+        closeSettings.title = "Fermer";
+        closeSettings.id = "closeSettings";
+        closeSettings.classList.add("close-settings");
+
+        settingsFenetre.appendChild(settingsTitle);
+        settingsFenetre.appendChild(closeSettings);
+
+        // Bloc thème
+        const themeDiv = document.createElement("div");
+        themeDiv.classList.add("theme");
+
+        const themeTitle = document.createElement("div");
+        themeTitle.classList.add("theme-title");
+        themeTitle.textContent = "Thème";
+
+        const themeOptions = document.createElement("div");
+        themeOptions.classList.add("theme-options");
+
+        const darkBtn = document.createElement("img");
+        darkBtn.id = "darkModeToggle";
+        darkBtn.src = "images/moon.svg";
+
+        const lightBtn = document.createElement("img");
+        lightBtn.id = "lightModeToggle";
+        lightBtn.src = "images/sun.svg";
+
+        themeOptions.appendChild(darkBtn);
+        themeOptions.appendChild(lightBtn);
+        themeDiv.appendChild(themeTitle);
+        themeDiv.appendChild(themeOptions);
+
+        // Construction finale du menu paramètres
+        settingsMenu.appendChild(settingsFenetre);
+        settingsMenu.appendChild(themeDiv);
+
+        // Menu des langues (séparé)
+        const langueDiv = document.createElement("div");
+        langueDiv.classList.add("langue");
+
+        const langueTitle = document.createElement("div");
+        langueTitle.classList.add("langue-title");
+        langueTitle.textContent = "Langue";
+
+        const langueOptions = document.createElement("div");
+        langueOptions.classList.add("langue-options");
+
+        const languages = [
+        { id: "fr", label: "Français" },
+        { id: "en", label: "English" },
+        { id: "ar", label: "العربية" },
+        { id: "de", label: "Deutsch" },
+        { id: "es", label: "Español" },
+        { id: "it", label: "Italiano" },
+        { id: "pt", label: "Português" },
+        { id: "tr", label: "Türkçe" }
+        ];
+
+        languages.forEach(lang => {
+        const option = document.createElement("div");
+        option.classList.add("langue-option");
+        option.id = lang.id;
+        option.textContent = lang.label;
+        langueOptions.appendChild(option);
+        });
+
+        langueDiv.appendChild(langueTitle);
+        langueDiv.appendChild(langueOptions);
+
+        // Ajout dans la topBar (ou autre élément parent)
+        topBar.appendChild(settingsContainer);
+        topBar.appendChild(settingsMenu);
+        topBar.appendChild(langueDiv);
+
+        // Activation des événements
+        initSettingsMenuEvents();
+
+
+
+        // Affichage du bouton retour
+        backButton.style.display = "block";
+
+        // Initialisation des événements
+
+
+        const searchContainer = document.querySelector('.search-container');
+        if (searchContainer) {
+            searchContainer.style.display = 'flex';
+            searchContainer.style.justifyContent = 'center';
+            searchContainer.style.alignItems = 'center';
+            searchContainer.style.width = '100%';
+        }
+
+        const header = document.querySelector("header");
+        if (header) header.style.display = "block";
+
+        backButton.style.display = "none";
+    }
+
+    function initSettingsMenuEvents() {
+        const settingsIcon = document.getElementById("settingsIcon");
+        const settingsMenu = document.getElementById("settingsMenu");
+        const closeBtn = document.getElementById("closeSettings");
+        const darkModeBtn = document.getElementById("darkModeToggle");
+        const lightModeBtn = document.getElementById("lightModeToggle");
+        const langueOptions = document.querySelectorAll(".langue-option");
+    
+        if (!settingsIcon || !settingsMenu) return;
+    
+        // Ouvrir / fermer le menu paramètres
+        settingsIcon.onclick = () => {
+            settingsMenu.style.display = settingsMenu.style.display === "flex" ? "none" : "flex";
+        };
+    
+        // Fermer avec la croix
+        if (closeBtn) {
+            closeBtn.onclick = () => {
+                settingsMenu.style.display = "none";
+            };
+        }
+    
+        // Thème sombre
+        if (darkModeBtn) {
+            darkModeBtn.onclick = () => {
+                document.documentElement.setAttribute("data-theme", "dark");
+                darkModeBtn.classList.add("active");
+                lightModeBtn.classList.remove("active");
+                localStorage.setItem("theme", "dark");
+            };
+        }
+    
+        // Thème clair/sepia
+        if (lightModeBtn) {
+            lightModeBtn.onclick = () => {
+                document.documentElement.setAttribute("data-theme", "sepia");
+                darkModeBtn.classList.remove("active");
+                lightModeBtn.classList.add("active");
+                localStorage.setItem("theme", "sepia");
+            };
+        }
+    
+        // Fermer si clic à l’extérieur du menu
+        document.addEventListener("click", (e) => {
+            if (!settingsMenu.contains(e.target) && e.target !== settingsIcon) {
+                settingsMenu.style.display = "none";
+            }
+        });
+    
+        // Sélection de langue
+        langueOptions.forEach(option => {
+            option.addEventListener("click", () => {
+                const selectedLang = option.id;
+                localStorage.setItem("langue", selectedLang);
+    
+                langueOptions.forEach(opt => opt.classList.remove("active"));
+                option.classList.add("active");
+    
+                // Ici tu peux ajouter une logique pour mettre à jour l'affichage
+                console.log("Langue sélectionnée :", selectedLang);
+            });
+        });
+    }    
 
     let allSurahs = [];
     let currentSurah = null;
@@ -136,7 +362,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
             souratesContainer.appendChild(div);
         });
-    }  
+    } 
     
     
     const surahPageMap = {
@@ -329,7 +555,123 @@ document.addEventListener("DOMContentLoaded", () => {
                 displayVerses();
             });
 
+            const settingsContainer = document.createElement("div");
+            settingsContainer.classList.add("settings-container");
+
+            // Icône globe
+            const globeIcon = document.createElement("img");
+            globeIcon.classList.add("globe");
+            globeIcon.src = "images/globe.svg";
+            globeIcon.title = "Selecteur de langue";
+
+            // Icône des paramètres
+            const settingsIcon = document.createElement("img");
+            settingsIcon.classList.add("settings-icon");
+            settingsIcon.src = "images/gear.svg";
+            settingsIcon.alt = "";
+            settingsIcon.id = "settingsIcon";
+            settingsIcon.title = "Paramètres";
+
+            // Ajout des icônes dans la barre d'icônes
+            settingsContainer.appendChild(globeIcon);
+            settingsContainer.appendChild(settingsIcon);
+
+            // Menu des paramètres (gear)
+            const settingsMenu = document.createElement("div");
+            settingsMenu.classList.add("settings-menu");
+            settingsMenu.id = "settingsMenu";
+
+            // Fenêtre du menu
+            const settingsFenetre = document.createElement("div");
+            settingsFenetre.classList.add("settings-fenetre");
+
+            const settingsTitle = document.createElement("p");
+            settingsTitle.textContent = "Paramètres";
+
+            const closeSettings = document.createElement("img");
+            closeSettings.src = "images/x.svg";
+            closeSettings.alt = "";
+            closeSettings.title = "Fermer";
+            closeSettings.id = "closeSettings";
+            closeSettings.classList.add("close-settings");
+
+            settingsFenetre.appendChild(settingsTitle);
+            settingsFenetre.appendChild(closeSettings);
+
+            // Bloc thème
+            const themeDiv = document.createElement("div");
+            themeDiv.classList.add("theme");
+
+            const themeTitle = document.createElement("div");
+            themeTitle.classList.add("theme-title");
+            themeTitle.textContent = "Thème";
+
+            const themeOptions = document.createElement("div");
+            themeOptions.classList.add("theme-options");
+
+            const darkBtn = document.createElement("img");
+            darkBtn.id = "darkModeToggle";
+            darkBtn.src = "images/moon.svg";
+
+            const lightBtn = document.createElement("img");
+            lightBtn.id = "lightModeToggle";
+            lightBtn.src = "images/sun.svg";
+
+            themeOptions.appendChild(darkBtn);
+            themeOptions.appendChild(lightBtn);
+            themeDiv.appendChild(themeTitle);
+            themeDiv.appendChild(themeOptions);
+
+            // Construction finale du menu paramètres
+            settingsMenu.appendChild(settingsFenetre);
+            settingsMenu.appendChild(themeDiv);
+
+            // Menu des langues (séparé)
+            const langueDiv = document.createElement("div");
+            langueDiv.classList.add("langue");
+
+            const langueTitle = document.createElement("div");
+            langueTitle.classList.add("langue-title");
+            langueTitle.textContent = "Langue";
+
+            const langueOptions = document.createElement("div");
+            langueOptions.classList.add("langue-options");
+
+            const languages = [
+            { id: "fr", label: "Français" },
+            { id: "en", label: "English" },
+            { id: "ar", label: "العربية" },
+            { id: "de", label: "Deutsch" },
+            { id: "es", label: "Español" },
+            { id: "it", label: "Italiano" },
+            { id: "pt", label: "Português" },
+            { id: "tr", label: "Türkçe" }
+            ];
+
+            languages.forEach(lang => {
+            const option = document.createElement("div");
+            option.classList.add("langue-option");
+            option.id = lang.id;
+            option.textContent = lang.label;
+            langueOptions.appendChild(option);
+            });
+
+            langueDiv.appendChild(langueTitle);
+            langueDiv.appendChild(langueOptions);
+
+            // Ajout dans la topBar (ou autre élément parent)
+            topBar.appendChild(settingsContainer);
+            topBar.appendChild(settingsMenu);
+            topBar.appendChild(langueDiv);
+
+            // Activation des événements
+            initSettingsMenuEvents();
+
+
+            // Affichage du bouton retour
             backButton.style.display = "block";
+
+            // Initialisation des événements
 
             buttonContainer.appendChild(btnTraduction);
             buttonContainer.appendChild(btnLecture);
@@ -339,10 +681,13 @@ document.addEventListener("DOMContentLoaded", () => {
             topBar.appendChild(buttonContainer);
             topBar.appendChild(backButton);
 
-                                    // 👇 Créer la barre audio si elle n'existe pas déjà
-                // 👇 Afficher les versets
+
                     displayVerses();
         });
+    }).catch(error => {
+            console.error("Erreur lors du chargement des versets :", error);
+        }       );                                                                                                                                                                                              
+    } // Fin de loadSurahVerses
 
         function displayVerses() {
             scrollToTop(true);
@@ -540,6 +885,7 @@ document.addEventListener("DOMContentLoaded", () => {
             fragment.appendChild(verseContainerFlex);
             versesDiv.appendChild(fragment);
         }
+    
         
     
     // 📝 Supprimer les footnotes des versets
@@ -702,66 +1048,5 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio.currentTime = percent * audio.duration;
             }
             
-        }        
-    });
-
-
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-            if (verseContainer.style.display === "block") {
-                goBackToMain();
-            }
         }   
-
-
-    let touchStartX = 0;
-    let touchMoveX = 0;
-
-    document.addEventListener('touchstart', function(event) {
-        touchStartX = event.touches[0].clientX;
-    }, false);
-
-    document.addEventListener('touchmove', function(event) {
-        touchMoveX = event.touches[0].clientX;
-    }, false);
-
-    document.addEventListener('touchend', function(event) {
-        const swipeDistance = touchMoveX - touchStartX;
-
-        if (swipeDistance > 15) { // Doit avoir glissé vers la droite 
-            goBackToMain();
-        }
-    });
-
-    function goBackToMain() {
-        scrollToTop(true);
-        verseContainer.style.display = "none";
-        document.querySelector('.main-content').style.display = "flex";
-        topBar.innerHTML = ""; // Supprime tout le contenu de la top-bar
-        const tawhid = document.createElement("div");
-        topBar.insertAdjacentElement("afterbegin", tawhid);
-        tawhid.classList.add("tawhid");
-        tawhid.innerHTML = "لا إله إلا الله";
-        searchInput.style.display = "block";
-        const searchContainer = document.querySelector('.search-container');
-        if (searchContainer) {
-            searchContainer.style.display = 'flex';
-            searchContainer.style.justifyContent = 'center';
-            searchContainer.style.alignItems = 'center';
-            searchContainer.style.width = '100%';
-        }
-        if (topBar) {
-            const container = topBar.querySelector(".button-container");
-            if (container) container.style.display = 'none';
-        }
-        const header = document.querySelector("header");
-        if (header) header.style.display = "block";
-        backButton.style.display = "none";
-    }
-
-    backButton.addEventListener("click", goBackToMain); 
-        
-    }
-        )}});
-
-    
+    })
