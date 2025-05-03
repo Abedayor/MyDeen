@@ -13,6 +13,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const savedTheme = localStorage.getItem("theme") || "sepia";
     document.documentElement.setAttribute("data-theme", savedTheme);
 
+    const globeIcon = document.querySelector(".globe");
+        const langueMenu = document.querySelector(".langue");
+
+        // Toggle l'affichage du menu langue
+        globeIcon.addEventListener("click", () => {
+            const isVisible = langueMenu.style.display === "flex";
+            langueMenu.style.display = isVisible ? "none" : "flex";
+        });
+
     // Initialiser les événements du menu paramètres
     initSettingsMenuEvents();
 
@@ -112,9 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const langueDiv = document.createElement("div");
         langueDiv.classList.add("langue");
 
-        const langueTitle = document.createElement("div");
-        langueTitle.classList.add("langue-title");
-        langueTitle.textContent = "Langue";
 
         const langueOptions = document.createElement("div");
         langueOptions.classList.add("langue-options");
@@ -131,14 +137,18 @@ document.addEventListener("DOMContentLoaded", () => {
         ];
 
         languages.forEach(lang => {
-        const option = document.createElement("div");
-        option.classList.add("langue-option");
-        option.id = lang.id;
-        option.textContent = lang.label;
-        langueOptions.appendChild(option);
-        });
+            const option = document.createElement("div");
+            option.classList.add("langue-option");
+            option.id = lang.id;
+          
+            const p = document.createElement("p");
+            p.classList.add("nom-langue");
+            p.textContent = lang.label;
+          
+            option.appendChild(p);
+            langueOptions.appendChild(option);
+          });
 
-        langueDiv.appendChild(langueTitle);
         langueDiv.appendChild(langueOptions);
 
         // Ajout dans la topBar (ou autre élément parent)
@@ -192,6 +202,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 settingsMenu.style.display = "none";
             };
         }
+
+        const globeIcon = document.querySelector(".globe");
+        const langueMenu = document.querySelector(".langue");
+
+        // Toggle l'affichage du menu langue
+        globeIcon.addEventListener("click", () => {
+            const isVisible = langueMenu.style.display === "flex";
+            langueMenu.style.display = isVisible ? "none" : "flex";
+        });
+
     
         // Thème sombre
         if (darkModeBtn) {
@@ -218,6 +238,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!settingsMenu.contains(e.target) && e.target !== settingsIcon) {
                 settingsMenu.style.display = "none";
             }
+            if (!langueMenu.contains(e.target) && e.target !== globeIcon) {
+                langueMenu.style.display = "none";
+            }
         });
     
         // Sélection de langue
@@ -228,9 +251,8 @@ document.addEventListener("DOMContentLoaded", () => {
     
                 langueOptions.forEach(opt => opt.classList.remove("active"));
                 option.classList.add("active");
-    
-                // Ici tu peux ajouter une logique pour mettre à jour l'affichage
-                console.log("Langue sélectionnée :", selectedLang);
+
+                langueMenu.style.display = "none"; // Ferme le menu après sélection
             });
         });
     }    
@@ -630,10 +652,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const langueDiv = document.createElement("div");
             langueDiv.classList.add("langue");
 
-            const langueTitle = document.createElement("div");
-            langueTitle.classList.add("langue-title");
-            langueTitle.textContent = "Langue";
-
             const langueOptions = document.createElement("div");
             langueOptions.classList.add("langue-options");
 
@@ -649,14 +667,18 @@ document.addEventListener("DOMContentLoaded", () => {
             ];
 
             languages.forEach(lang => {
-            const option = document.createElement("div");
-            option.classList.add("langue-option");
-            option.id = lang.id;
-            option.textContent = lang.label;
-            langueOptions.appendChild(option);
-            });
+                const option = document.createElement("div");
+                option.classList.add("langue-option");
+                option.id = lang.id;
+              
+                const p = document.createElement("p");
+                p.classList.add("nom-langue");
+                p.textContent = lang.label;
+              
+                option.appendChild(p);
+                langueOptions.appendChild(option);
+              });
 
-            langueDiv.appendChild(langueTitle);
             langueDiv.appendChild(langueOptions);
 
             // Ajout dans la topBar (ou autre élément parent)

@@ -344,7 +344,7 @@ body {
 
 @font-face {
     font-family: 'Amiri';
-    src: url('fonts/Amiri-Bold.ttf') format('truetype');
+    src: url('fonts/Amiri-Italic.ttf') format('truetype');
 }
 
 @font-face {
@@ -430,7 +430,6 @@ body {
     align-items: center;
     position: absolute;
     top: 0.01rem;
-    gap: 0.4rem;
     right: 2%;
     height: 100%;
 }
@@ -441,7 +440,8 @@ body {
     margin: 0 0.2vh;
     padding: 0.2rem;
     font-weight: bold;
-    height: 80%;
+    height: 24px;
+    width: 24px;
     font-size: 1.2rem;
     filter:var(--color-svg-background);
     cursor: pointer;
@@ -459,8 +459,8 @@ body {
     margin: 0 0.2vh;
     padding: 0.2rem;
     font-weight: bold;
-    height: 80%;
-    font-size: 1.2rem;
+    height: 24px;
+    width: 24px;
     filter:var(--color-svg-background);
     cursor: pointer;
     align-items: center;
@@ -474,31 +474,46 @@ body {
 .langue{
     display: none;
     flex-direction: column;
+    position: absolute;
+    width: 200px;
+    right: 4%;
+    top: 5vh;
+    background-color: var(--color-background-elevated-new);
+    border-radius: 5px;
+    z-index: 999; 
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-jumbo);
 }
 
-.langue-title{
-    font-size: 1.2rem;
-    color: var(--color-text-default);
-    font-weight: bold;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    font-family: 'Tajawal', sans-serif;
+.langue-options{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--color-background-elevated-new);
+    border-radius: 5px;
 }
 
 .langue-option{
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-    height: 100%;
-    padding: 0.5rem 0;
-    font-size: 1.2rem;
+    padding: 0.5vh 0;
     color: var(--color-text-default);
-    font-weight: bold;
-    text-align: center;
+    text-align: left;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nom-langue{
+    margin: 0;
+    font-size: var(--font-size-normal-px);
+    padding: 0 2vh;
+    font-family: 'Amiri', serif;
+}
+
+.langue-option:hover {
+    background-color: var(--color-background-alternative-faint);
 }
 
 .langue-option.active {
@@ -519,7 +534,7 @@ body {
     border-radius: 5px;
     padding: 10px;
     padding-top: 0;
-    box-shadow: var(--shadow-jumbo) 0px 4px 8px;
+    box-shadow: var(--shadow-jumbo);
     z-index: 10000; /* Assure-toi que le menu soit au-dessus de tout le contenu */
     animation: slideInRight 1s ease forwards;
 }
