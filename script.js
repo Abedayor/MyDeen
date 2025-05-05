@@ -10,6 +10,84 @@ document.addEventListener("DOMContentLoaded", () => {
     const backButton = document.getElementById("backButton");
     const audioBar = document.querySelector('.audio-bar');
 
+    // --- GESTION DES LANGUES ---
+    const translations = {
+        fr: {
+            settings: "Paramètres",
+            theme: "Thème",
+            searchPlaceholder: "Rechercher une sourate...",
+            noResults: "Aucune sourate trouvée.",
+            signesBtn: "Les Signes d'arrêt et de liaison du Quran"
+        },
+        ar: {
+            settings: "الإعدادات",
+            theme: "المظهر",
+            searchPlaceholder: "ابحث عن سورة...",
+            noResults: "لم يتم العثور على أي سورة.",
+            signesBtn: "علامات الوقف والوصل في القرآن"
+        },
+        en: {
+            settings: "Settings",
+            theme: "Theme",
+            searchPlaceholder: "Search for a surah...",
+            noResults: "No surah found.",
+            signesBtn: "Stopping and Linking Signs in the Quran"
+        }
+    };
+
+    function applyTranslations() {
+        const lang = localStorage.getItem("language") || "fr";
+        const t = translations[lang];
+
+        document.getElementById("settingsTitle").textContent = t.settings;
+        document.getElementById("themeLabel").textContent = t.theme;
+        document.getElementById("searchInput").placeholder = t.searchPlaceholder;
+        document.getElementById("signesBtn").textContent = t.signesBtn;
+        document.getElementById("noResultsText").textContent = t.noResults;
+
+        applyActiveLanguageClass();
+    }
+
+    function applyActiveLanguageClass() {
+        const currentLang = localStorage.getItem("language") || "fr";
+        document.querySelectorAll(".langue-option").forEach(btn => {
+            btn.classList.remove("active");
+            if (btn.id === currentLang) {
+                btn.classList.add("active");
+            }
+        });
+    }
+
+    // --- INIT ---
+    document.addEventListener("DOMContentLoaded", () => {
+        applyTranslations();
+
+        // Event listeners pour les boutons de langue
+        document.querySelectorAll(".langue-option").forEach(div => {
+            div.addEventListener("click", function () {
+                const lang = this.id;
+                localStorage.setItem("language", lang);
+                applyTranslations();
+            });
+        });               
+    });
+
+
+    function applyActiveThemeClass() {
+        const currentTheme = localStorage.getItem("theme") || "sepia";
+        const darkBtn = document.getElementById("darkModeToggle");
+        const lightBtn = document.getElementById("sepiaModeToggle");
+    
+        darkBtn?.classList.remove("active");
+        lightBtn?.classList.remove("active");
+    
+        if (currentTheme === "dark") {
+            darkBtn?.classList.add("active");
+        } else if (currentTheme === "sepia") {
+            lightBtn?.classList.add("active");
+        }
+    } 
+
     const savedTheme = localStorage.getItem("theme") || "sepia";
     document.documentElement.setAttribute("data-theme", savedTheme);
 
@@ -53,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const globeIcon = document.createElement("img");
         globeIcon.classList.add("globe");
         globeIcon.src = "images/globe.svg";
-        globeIcon.title = "Selecteur de langue";
+        globeIcon.title = "Languages";
 
         // Icône des paramètres
         const settingsIcon = document.createElement("img");
@@ -105,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
         darkBtn.src = "images/moon.svg";
 
         const lightBtn = document.createElement("img");
-        lightBtn.id = "lightModeToggle";
+        lightBtn.id = "sepiaModeToggle";
         lightBtn.src = "images/sun.svg";
 
         themeOptions.appendChild(darkBtn);
@@ -170,23 +248,26 @@ document.addEventListener("DOMContentLoaded", () => {
         const searchContainer = document.querySelector('.search-container');
         if (searchContainer) {
             searchContainer.style.display = 'flex';
-            searchContainer.style.justifyContent = 'center';
             searchContainer.style.alignItems = 'center';
-            searchContainer.style.width = '100%';
+            searchContainer.style.width = '50%';
+            
         }
 
         const header = document.querySelector("header");
-        if (header) header.style.display = "block";
+        if (header) header.style.display = "flex";
+        header.style.alignItems = "center";
 
         backButton.style.display = "none";
     }
 
     function initSettingsMenuEvents() {
+        applyActiveThemeClass(); 
+        applyActiveLanguageClass();
         const settingsIcon = document.getElementById("settingsIcon");
         const settingsMenu = document.getElementById("settingsMenu");
         const closeBtn = document.getElementById("closeSettings");
         const darkModeBtn = document.getElementById("darkModeToggle");
-        const lightModeBtn = document.getElementById("lightModeToggle");
+        const lightModeBtn = document.getElementById("sepiaModeToggle");
         const langueOptions = document.querySelectorAll(".langue-option");
     
         if (!settingsIcon || !settingsMenu) return;
@@ -314,15 +395,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
         
     function scrollToTop(force = false) {
-        window.scrollTo({ top: 0, behavior: force ? 'auto' : 'smooth' });
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
+    // Défilement de la page principale
+    window.scrollTo({ top: 0, behavior: force ? 'auto' : 'smooth' });
 
-        const scrollables = document.querySelectorAll('*');
-        scrollables.forEach(el => {
-            if (el.scrollTop > 0) el.scrollTop = 0;
-        });
-    }
+    // Par sécurité, forcer le scrollTop des principaux éléments
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    // Réinitialiser tous les éléments scrollables
+    const scrollables = document.querySelectorAll('*');
+    scrollables.forEach(el => {
+        if (el.scrollHeight > el.clientHeight && el.scrollTop > 0) {
+            el.scrollTop = 0;
+        }
+    });
+}
+
         
     // 🔁 Générer les cartes des sourates
     function generateSurahCards() {
@@ -584,7 +672,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const globeIcon = document.createElement("img");
             globeIcon.classList.add("globe");
             globeIcon.src = "images/globe.svg";
-            globeIcon.title = "Selecteur de langue";
+            globeIcon.title = "Languages";
 
             // Icône des paramètres
             const settingsIcon = document.createElement("img");
@@ -636,7 +724,7 @@ document.addEventListener("DOMContentLoaded", () => {
             darkBtn.src = "images/moon.svg";
 
             const lightBtn = document.createElement("img");
-            lightBtn.id = "lightModeToggle";
+            lightBtn.id = "sepiaModeToggle";
             lightBtn.src = "images/sun.svg";
 
             themeOptions.appendChild(darkBtn);

@@ -12,19 +12,19 @@
         <button id="backButton" title="Retour Menu">&#10161;</button>
         <div class="tawhid">لا إله إلا الله</div>
         <div class="settings-container">
-            <img class="globe" src="images/globe.svg" title="Selecteur de langue">
+            <img class="globe" src="images/globe.svg" title="Languages">
             <img src="images/gear.svg" alt="" class="settings-icon" id="settingsIcon" title="Paramètres">
         </div>
         <div class="settings-menu" id="settingsMenu">
             <div class="settings-fenetre">
-                <p>Paramètres</p>
+                <p id="settingsTitle">Paramètres</p>
                 <img src="images/x.svg" alt="" title="Fermer" id="closeSettings" class="close-settings">
             </div>
             <div class="theme">
-                <div class="theme-title">Thème</div>
+                <div class="theme-title" id="themeLabel">Thème</div>
                 <div class="theme-options">
                     <img id="darkModeToggle" src="images/moon.svg" >
-                    <img id="lightModeToggle" src= "images/sun.svg">
+                    <img id="sepiaModeToggle" src= "images/sun.svg">
                 </div>
             </div>
         </div>
@@ -47,16 +47,17 @@
         <!-- En-tête -->
         <header>
             <h1>MyDeen</h1>
-            <a href="signes.html" class="btn-signes">Les Signes d'arrêt et de liaison du Quran</a>
             <section class="search-container">
+                <img src="images/magnifying-glass.svg" alt="search" class="search-icon">
                 <input type="text" id="searchInput" placeholder="Rechercher une sourate..." />
             </section>
+            <a href="signes.html"  id="signesBtn" class="btn-signes">Les Signes d'arrêt et de liaison du Quran</a>
         </header>
 
     <div class="main-content">
         <div class="sourates">
         </div>
-        <div class="no-results">
+        <div class="no-results" id="noResults" >
             Aucune sourate trouvée.
         </div>
     </div>
@@ -74,17 +75,17 @@
         <div class="audio-controls">
             <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
     
-                <input type="range" id="seek-bar" value="0" step="1" max="100">
+                <input type="range" id="seek-bar" value="0" step="1" min="0" max="100">
 
             </div>
     
             <div class="buttons">
-                <span id="current-time">00:00</span>
+                <p id="current-time">00:00</p>
                 <img id="prev-btn" title="- 3sec" aria-label="- 3sec" src="images/skip-back.svg" alt="flèche">
                 <button id="play-pause-btn" class="paused" title="Pause/Lancer">&#10073;&#10073;</button>
                 <img id="next-btn" title="+ 3sec" aria-label="+ 3sec" src="images/skip-forward.svg" alt="fleche">
                 <img id="close-btn" title="Répéter" aria-label="Répéter" src="images/x.svg" alt="fleche">
-                <span id="duration">00:00</span>
+                <p id="duration">00:00</p>
             </div>
         </div>
 

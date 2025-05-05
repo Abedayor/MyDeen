@@ -137,32 +137,6 @@
     --shadow-hover: 0 30px 60px rgba(0, 0, 0, .12);
     --shadow-sticky: 0 12px 10px -10px rgba(0, 0, 0, .12);
     --shadow-strong: 0px 4px 4px 0px rgba(0, 0, 0, .5);
-    font-palette: --Light;
-    --scrollbar-background: var(--shade-2);
-    --scrollbar-thumb: var(--shade-4);
-    --scrollbar-thumb-hover: var(--shade-6);
-    --scrollbar-thumb-active: var(--shade-7);
-    --color-grey-icons: #868e96;
-    --color-daily-progress: #ced4da;
-    --color-separators: #f8f9fa;
-    --color-blue-buttons-and-icons: #2ca4ab;
-    --color-faint-blue-icons: #c2edef;
-    --color-black-buttons: #000;
-    --color-topics-grey: #f4f5f6;
-    --color-topics-gold: #fff7de;
-    --color-gqc: #cb955b;
-    --color-qdc-blue: #22a5ad;
-    --color-qdc-faded-blue: #ebf9fa;
-    --color-qdc-faint-blue: #c2edef;
-    --color-qdc-deep-blue: #258c91;
-    --color-streaks-dark: #38794b;
-    --color-streaks-light: #e4f4e9;
-    --color-calligraphy: #e2e7eb;
-    --color-scholars-say-background: #fff8e4;
-    --color-scholars-say-text: #7c6e21;
-    --color-search-background: #e9ecef;
-    --color-check: #38794b;
-    --color-green-light: #e4f4e9;
 }
 
 [data-theme=sepia] {
@@ -176,6 +150,7 @@
     --color-secondary-deep: #333;
     --color-success-faded: #f2e0bf;
     --color-success-faint: #d8c6a5;
+    --color-success-faint-link: #c2edef;
     --color-success-medium: #72603f;
     --color-success-deep: #3f2d0c;
     --color-error-faded: #f7d4d6;
@@ -220,6 +195,7 @@
     --shadow-sticky: 0 12px 10px -10px rgba(0, 0, 0, .12);
     --shadow-strong: 0px 4px 4px 0px rgba(0, 0, 0, .5);
     font-palette: --Sepia;
+    --background-image: url('images/back1.png');
     --scrollbar-background: #72603f;
     --scrollbar-thumb: #f0cd8c;
     --scrollbar-thumb-hover: #d4b478;
@@ -258,9 +234,10 @@
     --color-secondary-medium: var(--shade-7);
     --color-secondary-deep: #eaeaea;
     --color-success-faded: #272f33;
-    --color-success-faint: #3d474d;
+    --color-success-faint: #c2edef;
+    --color-success-faint-link: #c2edef;
     --color-success-medium: #2ca4ab;
-    --color-success-deep: #f1feff;
+    --color-success-deep: #258c91;
     --color-error-faded: #e60000;
     --color-error-faint: red;
     --color-error-medium: red;
@@ -303,6 +280,7 @@
     --shadow-sticky: 0 12px 10px -10px var(--shade-9);
     --shadow-strong: 0px 4px 4px 0px rgba(0, 0, 0, .5);
     font-palette: --Dark;
+    --background-image: var(--color-text-black);
     --scrollbar-background: var(--shade-9);
     --scrollbar-thumb: var(--shade-7);
     --scrollbar-thumb-hover: var(--shade-6);
@@ -365,14 +343,8 @@ body {
 /* Scrollbar */
 ::-webkit-scrollbar {
     width: 0.8rem;
-    background: none;
-    z-index: 1000;  /* Augmentez le z-index de la scrollbar pour qu'il soit plus élevé */
-}
-
-/* Fond de la scrollbar */
-::-webkit-scrollbar-track {
-    background: none;
-    z-index: 1000;
+    background: var(--color-background-default);
+    z-index: 1000000;  /* Augmentez le z-index de la scrollbar pour qu'il soit plus élevé */
 }
 
 /* Poignée de la scrollbar */
@@ -381,7 +353,7 @@ body {
     border-radius: 10px;
     border: 2px solid transparent;
     background-clip: content-box;
-    z-index: 1000;
+    z-index: 100000;
 }
 
 .top-bar {
@@ -649,19 +621,15 @@ body {
     border-radius: 50rem;
 }
 
-::selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-
 body ::selection {
-    background: var(--color-highlight);
+    background: var(--color-success-deep);
 }
 
 #contentContainer {
     position: relative;
-    padding-bottom: 70px;
-    margin-top: 2.4rem; /* Décale le contenu en dessous de la barre de défilement */
+    margin-top: 2.4rem; 
+    padding: 0 !important; 
+    min-height: 100%;
     left: 0;
     right: 0;
     bottom: 0;
@@ -687,7 +655,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
     min-height: 100vh;
 }
@@ -697,19 +665,30 @@ main {
 }
 
 header {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: relative;
-    background: var(--color-search-background);
+    align-items: center;
+    justify-content: center; /* Centrage vertical du contenu */
+    width: 100%;
+    height: 13rem;
+    padding: 1rem 0;
+    background: var(--background-image) ; /* Défini dans :root ou inline */
+    background-size: cover;          /* Couvre tout le header */
+    background-position: center;     /* Centre l’image */
+    background-repeat: no-repeat;    /* Évite la répétition */
     color: var(--color-text-default);
     text-align: center;
-    padding: 1.5vh;
-    font-size: 1.5rem;
 }
+
 
 header h1 {
     position: relative;
     font-family: 'Cinzel', serif;
-    font-size: 60px;
+    font-size: 3.5rem;
+    margin: 0;
+    padding: 0 2rem;
+    color: var(--color-text-white);
     text-align: center;
     font-weight: bold;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
@@ -729,30 +708,58 @@ header::after {
 }
 
 .btn-signes {
-    display: block;
+    display: flex;
+    align-items: center;        /* Centre verticalement */
+    justify-content: center;    /* Centre horizontalement */
     color: var(--color-text-link);
     font-size: 1.2rem;
+    width: 10%;
+    white-space: nowrap;        /* Empêche le retour à la ligne */
+}
+
+
+
+a:hover {
+    color: var(--color-success-faint-link);
 }
 
 .search-container {
-    text-align: center;
-    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 2vh;
+    border: var(--color-borders-hairline) solid 3px;
+    border-radius: 50rem;
+    width: 50%;
+    max-width: 750px;
+    min-height: 30px;
+    max-height: 30px;
+    background-color: var(--color-background-elevated);
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    filter: var(--color-svg-background);
 }
 
 #searchInput {
-    width: 80%;
-    max-width: 400px;
-    padding: 10px;
-    font-size: 1rem;
-    border: 3px solid var(--color-borders-hairline);
-    border-radius: 5px;
-    transition: border 0.3s;
+    border: none;
+    outline: none;
+    color: var(--color-text-default);
+    max-width: 80%;
+    background-color:  var(--color-background-elevated);
+    flex: 1;
+    font-size: 1.2rem;
 }
+
 
 #searchInput:focus {
     border-color: var(--color-borders-hairline);
     outline: none;
 }
+
 .main-content{
     width: 100%;
     display: flex;
@@ -775,7 +782,7 @@ header::after {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     padding: 20px;
     transition: all 0.3s ease;
@@ -793,30 +800,37 @@ header::after {
 
 .surah {
     background-color: var(--color-background-default);
-    border: 3px solid var(--color-borders-hairline);
-    padding: 15px;
-    width: 410px;
+    border: 2px solid var(--color-borders-hairline);
+    padding: 10px;
+    width: 380px;
+    height: 60px;
     border-radius: 5px;
     box-shadow: 0 4px 8px var(--shadow-strong);
-    margin: 15px;
+    margin: 6px;
     display: flex;
     align-items: center; /* centré verticalement */
-    gap: 15px;
+    gap: 10px;
+    font-weight: bold;
     cursor: pointer;
     transition: transform 0.1s ease;
 }
 
+.surah:last-child {
+    margin-bottom: 3vh;
+}
+
 .surah-number {
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-text-default);
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: var(--font-size-extra-large);
+    font-weight: var(--font-weight-extra-bold);
+    margin: 0 7px;
     z-index: 0;
 }
 
@@ -836,7 +850,6 @@ header::after {
 .surah-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     width: 100%;
 }
 
@@ -846,10 +859,18 @@ header::after {
     align-items: center;
 }
 
+.line2 {
+    font-size: var(--font-size-small);
+}
+
+.line1 {
+    font-size: var(--font-size-small);
+}
+
 .name-arabic {
     font-family: 'Uthmani', serif;
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: var(--font-size-xlarge-px);
+    font-weight: var(--font-weight-extra-bold);
     color: var(--color-text-default);
     direction: rtl;
     text-align: left;
@@ -857,7 +878,6 @@ header::after {
 
 .name-phonetic, .verse-count {
     font-family: 'Tajawal', sans-serif;
-    font-size: 1rem;
     color: var(--color-text-faded);
     font-weight: bold;
     text-align: left;
@@ -865,7 +885,6 @@ header::after {
 
 .name-french {
     font-family: 'Tajawal', sans-serif;
-    font-size: 1rem;
     font-weight: bold;
     color: var(--color-text-default);
     text-align: right;
@@ -877,9 +896,9 @@ header::after {
 }
 
 .surah:hover {
-    box-shadow: 0 8px 16px rgba(255, 238, 0, 0.082);
+    box-shadow: var(--shadow-medium);
     transition: all 0.3s ease-in-out;
-    border: 3px solid var(--color-success-medium);
+    border: 2px solid var(--color-success-medium);
 }
 
 .surah:hover .name-phonetic, 
@@ -939,9 +958,19 @@ header::after {
 
 /* === SECTION LECTURE - MUSHAF STYLE === */
 
+#verseContainer {
+    position: absolute;
+    background-color: var(--color-background-default);
+    width: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+    height: auto;
+}
+
 #verses {
     width: 100%;
     margin: 0 auto;
+    padding-bottom: 5rem;
     display: flex;
     direction: rtl;
     justify-content: center;
@@ -949,7 +978,7 @@ header::after {
 
 /* === MODE TRADUCTION === */
 .verse-container-flex {
-    width: 85%;
+    width: 90%;
     max-width: 1433px;
     margin: 0 auto;
     display: flex;
@@ -1032,7 +1061,6 @@ header::after {
     display: flex;
     flex-direction: column;
     height: auto; /* Prend toute la hauteur de l'écran */
-    font-size: 1rem;
     align-items: center;
     justify-content: center;
     overflow: hidden; /* Empêche le dépassement */
@@ -1080,6 +1108,9 @@ header::after {
         }
         .settings-menu {
             width: 18%; /* Change la largeur de .settings-menu à 20% pour les écrans larges */
+        }
+        .sourates {
+            width: 70%; /* Change la largeur de .sourates à 50% pour les écrans larges */
         }
     }
 }
@@ -1179,8 +1210,7 @@ header::after {
     background-color: var(--color-background-default);
     color: white;
     width: 100%;
-    height: 4vh;          /* Hauteur fixe */
-    padding: 0 5px;
+    height: 2.5rem;          /* Hauteur fixe */
     font-family: sans-serif;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
     box-sizing: border-box;
@@ -1199,8 +1229,8 @@ header::after {
 #seek-bar {
     position: relative;
     top: 0;
-    appearance: none;
-    -webkit-appearance: none;
+    appearance: var(--color-text-default);
+    -webkit-appearance: var(--color-text-default);
     width: 100%;
     height: 3px;
     background: var(--color-background-alternative-faint);
@@ -1209,8 +1239,16 @@ header::after {
     transition: background 450ms ease-in;
 }
 
+/* Barre de fond (track) */
+#seek-bar::-webkit-slider-runnable-track {
+    height: 3px;
+    background: var(--color-background-alternative-faint);
+    border-radius: 50rem;
+    position: relative;
+    z-index: 1;
+}
 
-/* Chrome / Safari */
+/* Barre remplie avant le thumb */
 #seek-bar::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -1219,16 +1257,19 @@ header::after {
     background: var(--color-success-medium);
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 0 2px rgba(0,0,0,0.6);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+    margin-top: -5.5px; /* Aligner verticalement */
     position: relative;
     z-index: 2;
 }
 
 
+
 #current-time,
 #duration {
     position: absolute;
-    top: 15px;
+    top: 1.5vh;
+    margin: 0 1vh;
     font-family: 'Tajawal', sans-serif;
     font-size: 0.9em;
     font-weight: bold;
@@ -1246,9 +1287,9 @@ header::after {
 .buttons {
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-direction: row;
     top: 0px !important;
-    gap: 20px;
+    gap: 2vh;
     margin-top: -2px;
     font-weight: bold ;
 }
