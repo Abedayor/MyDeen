@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     function applyTranslations() {
-        const lang = localStorage.getItem("language") || "fr";
+        const lang = localStorage.getItem("language") || "en";
         const t = translations[lang];
     
         const settingsTitle = document.getElementById("settingsTitle");
@@ -478,7 +478,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    const lang = localStorage.getItem("language") || "fr";
+    const lang = localStorage.getItem("language") || "en";
     function fetchChapters(language) {
         if (language === "ar") {
             fetch(`https://api.quran.com/api/v4/chapters?language=${language}`)
@@ -770,7 +770,7 @@ document.addEventListener("DOMContentLoaded", () => {
         surahOpened = true;
         topBar.classList.remove("hidden");
         contentContainer.style.marginTop = '2.4rem';
-        const lang = localStorage.getItem("language") || "fr";
+        const lang = localStorage.getItem("language") || "en";
         
         const arabicUrl = `https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=${surahId}`;
         

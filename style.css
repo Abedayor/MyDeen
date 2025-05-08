@@ -779,7 +779,7 @@ a:hover {
     border: none;
     outline: none;
     color: var(--color-text-default);
-    max-width: 80%;
+    max-width: 70%;
     background-color:  var(--color-background-elevated);
     flex: 1;
     font-size: 1.2rem;
