@@ -125,7 +125,6 @@
     --color-background-inverse: #000;
     --color-background-backdrop: rgba(0, 0, 0, .6);
     --color-background-lighten: hsla(0, 0%, 100%, .8);
-    --color-borders-hairline: #ebeef0;
     --color-highlight: #79ffe1;
     --color-highlight-dark: #22a5ad;
     --shadow-small: 0px 2px 4px rgba(0, 0, 0, .1);
@@ -320,6 +319,31 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.arabic .theme-title, .arabic #settingsTitle, .arabic #themeLabel, .arabic {
+    font-family: 'Uthmani', serif;
+}
+
+.arabic header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+}
+
+.arabic *{
+    font-family: 'Uthmani', serif;
+}   
+.arabic .btn-signes{
+    font-size: 1.3rem;
+    height: 27px;
+}
+
+.arabic .barrette{
+    height: 24px;
+}
+
+.arabic  #play-audio-btn{
+    font-size: 1.2rem;
+}
+
 @font-face {
     font-family: 'Amiri';
     src: url('fonts/Amiri-Italic.ttf') format('truetype');
@@ -369,6 +393,12 @@ body {
     display: flex;
     justify-content: center; /* Cela centre les éléments horizontalement */
     align-items: center; /* Cela centre les éléments verticalement */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.top-bar.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
 }
 
 .top-bar::after {
@@ -637,6 +667,7 @@ body ::selection {
     overflow-x: hidden;
 }
 
+
 body {
     font-family: 'Tajawal', sans-serif;
     margin: 0;
@@ -781,37 +812,49 @@ a:hover {
 .sourates {
     display: flex;
     flex-wrap: wrap;
+    direction: ltr;
     justify-content: center;
-    width: 80%;
+    width: 97%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 0;
     transition: all 0.3s ease;
 }
 
-
-.surah-wrapper {
-    display: grid;
-    grid-template-columns: 60px 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 0 10px; /* Réduit l'écart horizontal entre les colonnes */
-    align-items: center;
-    width: 100%;
+.sourates-arabic {
+    direction: rtl;
 }
 
 .surah {
     background-color: var(--color-background-default);
-    border: 2px solid var(--color-borders-hairline);
-    padding: 10px;
-    width: 380px;
-    height: 60px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px var(--shadow-strong);
-    margin: 6px;
+    border: 1px solid var(--color-borders-hairline);
+    padding: 0.8125rem;
+    margin: 0.5125rem;
+    width: 404px;
+    height: 48px;
+    border-radius: 4px;
+    gap: 0.5rem;
     display: flex;
     align-items: center; /* centré verticalement */
-    gap: 10px;
     font-weight: bold;
     cursor: pointer;
+    direction: ltr;
+    transition: transform 0.1s ease;
+}
+
+.surah-arabic{
+    background-color: var(--color-background-default);
+    border: 1px solid var(--color-borders-hairline);
+    padding: 0.8125rem;
+    margin: 0.5125rem;
+    width: 404px;
+    height: 48px;
+    border-radius: 4px;
+    gap: 0.5rem;
+    display: flex;
+    align-items: center; /* centré verticalement */
+    font-weight: bold;
+    cursor: pointer;
+    direction: rtl;
     transition: transform 0.1s ease;
 }
 
@@ -853,6 +896,60 @@ a:hover {
     width: 100%;
 }
 
+.line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-normal-px);
+}
+
+.surah-number-surah {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-default);
+    font-size: var(--font-size-extra-large);
+    font-weight: var(--font-weight-extra-bold);
+    margin: 0 7px;
+    z-index: 0;
+    font-family: 'Amiri', sans-serif;
+}
+
+.surah-number-surah::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-background-alternative-faint);
+    border-radius: 6px;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+.name-arabic-surah {
+    font-family: 'Uthmani', serif;
+    font-weight: var(--font-weight-extra-bold);
+    color: var(--color-text-default);
+    direction: rtl;
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+.verse-count-surah {
+    font-family: 'Uthmani-style', sans-serif;
+    color: var(--color-text-faded);
+    font-weight: bold;
+    text-align: left;
+    font-size: 1.2rem;
+}
+
 .line1, .line2 {
     display: flex;
     justify-content: space-between;
@@ -863,28 +960,24 @@ a:hover {
     font-size: var(--font-size-small);
 }
 
-.line1 {
-    font-size: var(--font-size-small);
-}
-
 .name-arabic {
     font-family: 'Uthmani', serif;
-    font-size: var(--font-size-xlarge-px);
     font-weight: var(--font-weight-extra-bold);
     color: var(--color-text-default);
     direction: rtl;
     text-align: left;
 }
 
-.name-phonetic, .verse-count {
+.name-french, .verse-count {
     font-family: 'Tajawal', sans-serif;
     color: var(--color-text-faded);
     font-weight: bold;
     text-align: left;
 }
 
-.name-french {
+.name-phonetic {
     font-family: 'Tajawal', sans-serif;
+    font-size: large;
     font-weight: bold;
     color: var(--color-text-default);
     text-align: right;
@@ -898,19 +991,21 @@ a:hover {
 .surah:hover {
     box-shadow: var(--shadow-medium);
     transition: all 0.3s ease-in-out;
-    border: 2px solid var(--color-success-medium);
+    border: 1px solid var(--color-success-medium);
 }
 
-.surah:hover .name-phonetic, 
-.surah:hover .verse-count {
+.surah:hover .name-french, 
+.surah:hover .verse-count,
+.surah-arabic:hover .verse-count-surah {
     color: var(--color-success-medium);
     transition: color 0.3s ease-in-out;
 }
 
-.surah:hover .surah-number::after {
+.surah:hover .surah-number::after, .surah-arabic:hover .surah-number-surah::after {
     background: var(--color-success-medium);
     transition: color 0.3s ease-in-out;
 }
+
 
 #surahTitle {
     margin-top: 0;
@@ -1110,7 +1205,10 @@ a:hover {
             width: 18%; /* Change la largeur de .settings-menu à 20% pour les écrans larges */
         }
         .sourates {
-            width: 70%; /* Change la largeur de .sourates à 50% pour les écrans larges */
+            width: 80%; /* Change la largeur de .sourates à 50% pour les écrans larges */
+        }
+        .surah {
+            width: 401px; /* Change la largeur de .surah à 100% pour les écrans larges */
         }
     }
 }

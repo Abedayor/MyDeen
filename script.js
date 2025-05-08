@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const versesDiv = document.getElementById("verses");
     const backButton = document.getElementById("backButton");
     const audioBar = document.querySelector('.audio-bar');
+    const audio = document.getElementById('audio');
 
     // --- GESTION DES LANGUES ---
     const translations = {
@@ -17,36 +18,107 @@ document.addEventListener("DOMContentLoaded", () => {
             theme: "Thème",
             searchPlaceholder: "Rechercher une sourate...",
             noResults: "Aucune sourate trouvée.",
-            signesBtn: "Les Signes d'arrêt et de liaison du Quran"
+            signesBtn: "Les Signes d'arrêt et de liaison du Quran",
+            'play-audio-btn': "Jouer audio",
+            "play-audio-btn-paused": "Mettre en pause l'audio",
+        },
+        de: {
+            settings: "Einstellungen",
+            theme: "Thema",
+            searchPlaceholder: "Nach einer Sure suchen...",
+            noResults: "Keine Sure gefunden.",
+            signesBtn: "Stopp- und Verbindungszeichen im Koran",
+            'play-audio-btn': "Audio abspielen",
+            "play-audio-btn-paused": "Audio pausieren",
+
+        },
+        es: {
+            settings: "Configuraciones",
+            theme: "Tema",
+            searchPlaceholder: "Buscar una sura...",
+            noResults: "No se encontró ninguna sura.",
+            signesBtn: "Signos de parada y enlace en el Corán",
+            'play-audio-btn': "Reproducir audio",
+            "play-audio-btn-paused": "Pausar audio",
+        },
+        it: {
+            settings: "Impostazioni",
+            theme: "Tema",
+            searchPlaceholder: "Cerca una sura...",
+            noResults: "Nessuna sura trovata.",
+            signesBtn: "Segni di arresto e collegamento nel Corano",
+            'play-audio-btn': "Riproduci audio",
+            "play-audio-btn-paused": "Pausa audio",
+        },
+        pt: {
+            settings: "Configurações",
+            theme: "Tema",
+            searchPlaceholder: "Pesquisar uma sura...",
+            noResults: "Nenhuma sura encontrada.",
+            signesBtn: "Sinais de parada e ligação no Alcorão", 
+            'play-audio-btn': "Reproduzir áudio",
+            "play-audio-btn-paused": "Pausar áudio",
+        },
+        tr: {
+            settings: "Ayarlar",
+            theme: "Tema",
+            searchPlaceholder: "Bir sure arayın...",
+            noResults: "Hiçbir sure bulunamadı.",
+            signesBtn: "Kur'an'daki Durdurma ve Bağlama İşaretleri",
+            'play-audio-btn': "Sesli dinle",
+            "play-audio-btn-paused": "Sesli dinle durdur",
         },
         ar: {
             settings: "الإعدادات",
             theme: "المظهر",
             searchPlaceholder: "ابحث عن سورة...",
             noResults: "لم يتم العثور على أي سورة.",
-            signesBtn: "علامات الوقف والوصل في القرآن"
+            signesBtn: "علامات الوقف والوصل في القرآن",
+            'play-audio-btn': "تشغيل الصوت",
+            "play-audio-btn-paused": "إيقاف الصوت",
         },
         en: {
             settings: "Settings",
             theme: "Theme",
             searchPlaceholder: "Search for a surah...",
             noResults: "No surah found.",
-            signesBtn: "Stopping and Linking Signs in the Quran"
+            signesBtn: "Stopping and Linking Signs in the Quran",
+            'play-audio-btn': "Play Audio",
+            "play-audio-btn-paused": "Pause Audio",
         }
     };
 
     function applyTranslations() {
         const lang = localStorage.getItem("language") || "fr";
         const t = translations[lang];
+    
+        const settingsTitle = document.getElementById("settingsTitle");
+        if (settingsTitle) settingsTitle.textContent = t.settings;
+    
+        const themeLabel = document.getElementById("themeLabel");
+        if (themeLabel) themeLabel.textContent = t.theme;
+    
+        const searchInput = document.getElementById("searchInput");
+        if (searchInput) searchInput.placeholder = t.searchPlaceholder;
+    
+        const signesBtn = document.getElementById("signesBtn");
+        if (signesBtn) signesBtn.textContent = t.signesBtn;
+    
+        const noResults = document.getElementById("noResults");
+        if (noResults) noResults.textContent = t.noResults;
 
-        document.getElementById("settingsTitle").textContent = t.settings;
-        document.getElementById("themeLabel").textContent = t.theme;
-        document.getElementById("searchInput").placeholder = t.searchPlaceholder;
-        document.getElementById("signesBtn").textContent = t.signesBtn;
-        document.getElementById("noResultsText").textContent = t.noResults;
+        const playButton = document.getElementById("play-audio-btn");
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        if (playButton) {
+            playButton.innerHTML = `&#9654; ${getTranslation("play-audio-btn")}`
+            playPauseBtn.innerHTML = `&#9654;`;
+        }
+        if (playButton && audio.pause()) playButton.innerHTML = `&#10074;&#10074; ${getTranslation("play-audio-btn-paused")}`;
 
+        fetchChapters(lang);    
         applyActiveLanguageClass();
     }
+    
 
     function applyActiveLanguageClass() {
         const currentLang = localStorage.getItem("language") || "fr";
@@ -55,22 +127,17 @@ document.addEventListener("DOMContentLoaded", () => {
             if (btn.id === currentLang) {
                 btn.classList.add("active");
             }
+            if (currentLang === "ar") {
+                document.body.classList.add("arabic"); // Ajouter une classe pour le style
+            } else {  
+                document.body.classList.remove("arabic"); // Retirer la classe si ce n'est pas l'arabe
+            }   
         });
     }
 
     // --- INIT ---
-    document.addEventListener("DOMContentLoaded", () => {
-        applyTranslations();
-
-        // Event listeners pour les boutons de langue
-        document.querySelectorAll(".langue-option").forEach(div => {
-            div.addEventListener("click", function () {
-                const lang = this.id;
-                localStorage.setItem("language", lang);
-                applyTranslations();
-            });
-        });               
-    });
+    applyTranslations();
+    initLanguageEvents();               
 
 
     function applyActiveThemeClass() {
@@ -112,10 +179,38 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    function initLanguageEvents() {
+        document.querySelectorAll(".langue-option").forEach(div => {
+            div.addEventListener("click", function () {
+                const lang = this.id;
+                localStorage.setItem("language", lang);
+                applyTranslations();
+    
+                    // Mettre à jour aussi le bouton audio si nécessaire
+                const playButton = document.getElementById("play-audio-btn");
+                const t = translations[lang];
+                if (playButton && t && t["play-pause-btn"]) {
+                    playButton.title = t["play-pause-btn"];
+                }
+
+                if (currentSurah && typeof currentSurah.id === "number") {
+                    versesDiv.innerHTML = ""; // Vider les versets précédents
+                    loadSurahVerses(currentSurah.id); // Recharge la sourate dans la nouvelle langue
+                }
+                
+            });
+        });
+    }
+    
+    
     function goBackToMain() {
+        currentSurah = null;
+        surahOpened = false;
         verseContainer.style.display = "none";
         document.querySelector('.main-content').style.display = "flex";
         topBar.innerHTML = "";
+        topBar.classList.remove("hidden"); 
+        contentContainer.style.marginTop = '2.4rem';
 
         // Restaurer la top-bar d'accueil
         const tawhid = document.createElement("div");
@@ -159,7 +254,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const closeSettings = document.createElement("img");
         closeSettings.src = "images/x.svg";
-        closeSettings.alt = "";
         closeSettings.title = "Fermer";
         closeSettings.id = "closeSettings";
         closeSettings.classList.add("close-settings");
@@ -236,14 +330,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Activation des événements
         initSettingsMenuEvents();
-
-
-
-        // Affichage du bouton retour
-        backButton.style.display = "block";
-
-        // Initialisation des événements
-
+        initLanguageEvents();
+        applyTranslations();
 
         const searchContainer = document.querySelector('.search-container');
         if (searchContainer) {
@@ -338,10 +426,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }    
 
+    // --- VARIABLES GLOBALES ---
     let allSurahs = [];
     let currentSurah = null;
     let currentPlayingSurahId = null;
     let currentTranslation = [];
+    let surahOpened = false;
     let viewMode = "translation";
 
     function normalizeString(str) {
@@ -351,6 +441,13 @@ document.addEventListener("DOMContentLoaded", () => {
             .replace(/\s+/g, "-")             // Remplacer les espaces par des tirets
             .toLowerCase();                  // Convertir en minuscule pour la comparaison insensible à la casse
     }
+
+    function getTranslation(key) {
+        const lang = localStorage.getItem("language");
+        const t = translations[lang];
+        return t[key];
+    }
+    
 
     searchInput.addEventListener("input", () => {
         const val = normalizeString(searchInput.value);  // Normalisation de la recherche
@@ -381,14 +478,32 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 🔁 Charger la liste des sourates depuis l'API
-    fetch("https://api.quran.com/api/v4/chapters?language=fr")
-        .then(res => res.json())
-        .then(data => {
-            allSurahs = data.chapters;
-            generateSurahCards();
-        })
+    const lang = localStorage.getItem("language") || "fr";
+    function fetchChapters(language) {
+        if (language === "ar") {
+            fetch(`https://api.quran.com/api/v4/chapters?language=${language}`)
+            .then(res => res.json())
+            .then(data => {
+                allSurahs = data.chapters;
+                generateSurahCardsinArabic(); // Affiche les cartes des sourates
+            })
+            .catch(error => console.log(error));
+        }
+        else{
+        fetch(`https://api.quran.com/api/v4/chapters?language=${language}`)
+            .then(res => res.json())
+            .then(data => {
+                allSurahs = data.chapters;
+                generateSurahCards(); // Affiche les cartes des sourates
+            })
+            .catch(error => console.log(error));
+        }
+    }
     
+    // Appeler la fonction avec la langue choisie
+    fetchChapters(lang);
+
+
     function getVerseNumberSymbol(number) {
         const arabicNumbers = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
         return number.toString().split('').map(digit => arabicNumbers[parseInt(digit)]).join('');
@@ -409,12 +524,60 @@ document.addEventListener("DOMContentLoaded", () => {
             el.scrollTop = 0;
         }
     });
-}
+}    
+    
 
-        
+    function generateSurahCardsinArabic() {
+        souratesContainer.innerHTML = "";
+        souratesContainer.classList.add("sourates-arabic"); // Ajouter une classe pour le style
+        souratesContainer.direction = "rtl"; // Alignement à droite pour l'arabe
+        allSurahs.forEach(surah => {
+            const div = document.createElement("div");
+            div.classList.add("surah-arabic");
+            
+
+            const number = document.createElement("div");
+            number.classList.add("surah-number-surah");
+            number.textContent = getVerseNumberSymbol(surah.id);
+
+            const content = document.createElement("div");
+            content.classList.add("surah-content");
+
+            const line = document.createElement("div"); 
+            line.classList.add("line");
+
+            const nameArabic = document.createElement("div");   
+            nameArabic.classList.add("name-arabic-surah");
+            nameArabic.textContent = surah.name_arabic;
+
+            const verseCount = document.createElement("div");
+            verseCount.classList.add("verse-count-surah");
+            verseCount.textContent = `${getVerseNumberSymbol(surah.verses_count)} آيات`; // Convertir le nombre en chiffres arabes
+
+            line.appendChild(nameArabic);
+            line.appendChild(verseCount);
+            content.appendChild(line);
+
+            div.appendChild(number);
+            div.appendChild(content);
+
+            div.dataset.id = surah.id;
+            div.dataset.name = surah.name_arabic;
+            div.addEventListener("click", () => {
+                currentSurah = surah;
+                loadSurahVerses(surah.id);
+            });
+    
+            souratesContainer.appendChild(div);
+        });
+    }
+
+
     // 🔁 Générer les cartes des sourates
     function generateSurahCards() {
         souratesContainer.innerHTML = "";
+        souratesContainer.classList.remove("sourates-arabic");
+        souratesContainer.direction = "ltr"; // Alignement à gauche pour les autres langues
         allSurahs.forEach(surah => {
             const div = document.createElement("div");
             div.classList.add("surah");
@@ -450,10 +613,10 @@ document.addEventListener("DOMContentLoaded", () => {
             verseCount.classList.add("verse-count");
             verseCount.textContent = `${surah.verses_count} Ayahs`;
             
+            line1.appendChild(namePhonetic);
             line1.appendChild(nameArabic);
-            line1.appendChild(nameFrench);
 
-            line2.appendChild(namePhonetic);
+            line2.appendChild(nameFrench);
             line2.appendChild(verseCount);
             
             content.appendChild(line1);
@@ -604,13 +767,41 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // 🔁 Charger les versets (lecture et traduction)
     function loadSurahVerses(surahId) {
+        surahOpened = true;
+        topBar.classList.remove("hidden");
+        contentContainer.style.marginTop = '2.4rem';
+        const lang = localStorage.getItem("language") || "fr";
+        
         const arabicUrl = `https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=${surahId}`;
-        const frenchUrl = `https://api.quran.com/api/v4/quran/translations/31?chapter_number=${surahId}`;
+        
+        // ID de traduction selon la langue
+        let translationId;
+        if (lang === "fr") translationId = 31;        // Traduction française de Muhammad Hamidullah
+        else if (lang === "en") translationId = 131;   // Traduction anglaise de Saheeh International
+        else if (lang === "de") translationId = 27;   // Traduction allemande de Adel Theodor Khoury
+        else if (lang === "es") translationId = 140;   // Traduction espagnole de Muhammad Taqi-ud-Din al-Hilali
+        else if (lang === "it") translationId = 153;   // Traduction italienne de Hamza Roberto Piccardo
+        else if (lang === "pt") translationId = 43;   // Traduction portugaise de Muhammad Taqi-ud-Din al-Hilali
+        else if (lang === "tr") translationId = 77;   // Traduction turque de Ali Bulaç
+        else if (lang === "ar") translationId = 131;  // Arabe, pas de traduction
+        else translationId = null; // Par défaut, pas de traduction
     
-        Promise.all([fetch(arabicUrl), fetch(frenchUrl)]).then(responses => {
-            Promise.all(responses.map(res => res.json())).then(([arabicData, translationData]) => {
+        // Requête fetch selon le cas
+        const fetches = [fetch(arabicUrl)];
+    
+        if (translationId) {
+            const translationUrl = `https://api.quran.com/api/v4/quran/translations/${translationId}?chapter_number=${surahId}`;
+            fetches.push(fetch(translationUrl));
+        }
+    
+        Promise.all(fetches).then(responses => {
+            Promise.all(responses.map(res => res.json())).then(results => {
+                const arabicData = results[0];
+                const translationData = results[1]; // peut être `undefined` en arabe
+    
                 currentSurah.arabicVerses = arabicData.verses;
-                currentTranslation = translationData.translations;
+                currentTranslation = translationData ? translationData.translations : null;
+    
     
                 viewMode = "translation";
     
@@ -651,7 +842,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 btnLecture.classList.add("active");
                 btnTraduction.classList.remove("active");
                 viewMode = "reading";
-                displayVerses();
+                displayVerses(currentSurah.arabicVerses, currentTranslation);
             });
 
             const btnTraduction = document.createElement("button");
@@ -662,7 +853,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 btnTraduction.classList.add("active");
                 btnLecture.classList.remove("active");
                 viewMode = "translation";
-                displayVerses();
+                displayVerses(currentSurah.arabicVerses, currentTranslation);
             });
 
             const settingsContainer = document.createElement("div");
@@ -776,6 +967,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Activation des événements
             initSettingsMenuEvents();
+            initLanguageEvents();
+            applyTranslations();
 
 
             // Affichage du bouton retour
@@ -792,217 +985,167 @@ document.addEventListener("DOMContentLoaded", () => {
             topBar.appendChild(backButton);
 
 
-                    displayVerses();
+            displayVerses();
         });
     }).catch(error => {
             console.error("Erreur lors du chargement des versets :", error);
         }       );                                                                                                                                                                                              
     } // Fin de loadSurahVerses
 
-        function displayVerses() {
-            scrollToTop(true);
-            versesDiv.innerHTML = "";
-            
-            const verseContainerFlex = document.createElement("div");
-            verseContainerFlex.classList.add(viewMode === "reading" ? "mushaf-pages" : "verse-container-flex");
-            
-            // Si on est en mode traduction, on affiche le titre et la basmala
-            if (viewMode === "translation") {
-                // 👇 Afficher le titre de la sourate
-
-                if (surahTitle) {
-                    surahTitle.textContent = currentSurah.name_arabic; // Mise à jour du titre de la sourate
-                }
-                
-                // Supprime les anciennes Basmala si elle existe déjà
-                const existingBasmala = document.getElementById("basmala");
-                if (existingBasmala) {
-                    existingBasmala.remove();
-                }
-                
-                if (surahTitle.textContent !== "الفاتحة" && surahTitle.textContent !== "التوبة") {
-                    const basmalaDiv = document.createElement("div");
-                    basmalaDiv.id = "basmala";
-                    basmalaDiv.classList.add("basmala");
-                    basmalaDiv.innerHTML = "﷽";
-                    surahTitle.insertAdjacentElement("afterend", basmalaDiv);
-                }
-            } else {
-                // En mode lecture, ne rien afficher pour le titre ou la basmala
-                surahTitle.textContent = "";
+    function displayVerses() {
+        scrollToTop(true);
+        versesDiv.innerHTML = "";
+    
+        const verseContainerFlex = document.createElement("div");
+        verseContainerFlex.classList.add(viewMode === "reading" ? "mushaf-pages" : "verse-container-flex");
+    
+        // Gestion du titre et de la Basmala
+        if (viewMode === "translation") {
+            if (surahTitle) {
+                surahTitle.textContent = currentSurah.name_arabic;
             }
-        
-            const fragment = document.createDocumentFragment();
-            
-            // En mode lecture, on affiche les pages du Coran
-                        // Fonction pour extraire uniquement la partie numérique
-            function parsePageNumber(page) {
-                return parseInt(page.toString().split('_')[0], 10);  // Prend la partie avant le premier underscore, ou l'entier directement
+    
+            const existingBasmala = document.getElementById("basmala");
+            if (existingBasmala) existingBasmala.remove();
+    
+            if (surahTitle.textContent !== "الفاتحة" && surahTitle.textContent !== "التوبة") {
+                const basmalaDiv = document.createElement("div");
+                basmalaDiv.id = "basmala";
+                basmalaDiv.classList.add("basmala");
+                basmalaDiv.innerHTML = "﷽";
+                surahTitle.insertAdjacentElement("afterend", basmalaDiv);
             }
-
-            if (viewMode === "reading") {
-                const existingBasmala = document.getElementById("basmala");
-                if (existingBasmala) {
-                    existingBasmala.remove();
-                }
-
-                const existingPlayBtn = document.getElementById("play-audio-btn");
-                if (existingPlayBtn) {
-                    existingPlayBtn.parentElement.remove(); // supprime aussi la barrette
-                }
-
-                // Utilise surahPageMap pour obtenir les pages de la sourate
-                const surahPages = surahPageMap[currentSurah.id];
-                const startPage = parsePageNumber(surahPages.start); // Appliquer la fonction de parsing
-                const endPage = parsePageNumber(surahPages.end); // Appliquer la fonction de parsing
-
-                for (let page = startPage; page <= endPage; page++) {
-                    const pageNumber = page.toString().padStart(3, '0');
-                    const img = document.createElement("img");
-                    img.src = `mushaf/${pageNumber}.png`;
-                    img.alt = `${pageNumber}`;
-                    img.classList.add("quran-page");
-
-                    verseContainerFlex.appendChild(img);
-
-                    // 👇 Ajouter le numéro de page et une ligne après chaque image
-                    const pageInfo = document.createElement("div");
-                    pageInfo.classList.add("page-info");
-
-                    const pageLabel = document.createElement("div");
-                    pageLabel.classList.add("page-number-label");
-                    pageLabel.textContent = `${page}`;
-
-                    const hr = document.createElement("hr");
-                    hr.classList.add("page-separator");
-
-                    pageInfo.appendChild(pageLabel); 
-                    pageInfo.appendChild(hr); 
-                    verseContainerFlex.appendChild(pageInfo);
-
-                }
-
-                fragment.appendChild(verseContainerFlex);
-            }
-            else {
-                // En mode traduction, afficher les versets
-                currentSurah.arabicVerses.forEach((verse, index) => {
-                    const verseReading = document.createElement("span");
-                    verseReading.classList.add("verse-reading");
-        
-                    const verseNumber = document.createElement("span");
-                    verseNumber.classList.add("verse-number-circle");
-                    const verseId = verse.verse_key.split(":")[1];
-                    verseNumber.textContent = getVerseNumberSymbol(verseId);
-        
-                    const arabic = document.createElement("span");
-                    arabic.classList.add("arabic-text");
-        
-                    const words = removeFootnotes(verse.text_uthmani).split(" ");
-                    words.forEach((word, index) => {
-                        const wordSpan = document.createElement("span");
-                        wordSpan.classList.add("word");
-                        wordSpan.textContent = word;
-                        arabic.appendChild(wordSpan);
-                        if (index !== words.length - 1) {
-                            arabic.append("\u2009");
-                        }
-                    });
-        
-                    arabic.appendChild(verseNumber);
-                    verseReading.appendChild(arabic);
-        
-                    const translation = document.createElement("div");
-                    translation.classList.add("translation-text");
-                    translation.innerHTML = removeFootnotes(currentTranslation[index].text);
-                    verseReading.appendChild(translation);
-                    const existingPlayBtn = document.getElementById("play-audio-btn");
-                if (existingPlayBtn) {
-                    existingPlayBtn.parentElement.remove(); // supprime aussi la barrette
-                }
-
-
-                if (!document.getElementById("play-audio-btn")) {
-                    const barrette = document.createElement("div");
-                    barrette.classList.add("barrette");
-                
-                    const playButton = document.createElement("button");
-                    playButton.id = "play-audio-btn";
-                    playButton.innerHTML = "&#9654; Jouer Audio";
-                
-                    barrette.appendChild(playButton);
-                    versesDiv.insertAdjacentElement("beforebegin", barrette);
-                
-                    let audioInitialized = false;
-                    const playPauseBtn = document.getElementById('play-pause-btn');
-                    const audio = document.getElementById('audio');
-                    const audioBar = document.querySelector('.audio-bar');
-                
-                    playButton.addEventListener("click", () => {
-                        const requestedSurahId = currentSurah.id;
-                    
-                        // Vérification si l'audio n'est pas initialisé ou si l'ID de la sourate a changé
-                        if (!audioInitialized || requestedSurahId !== currentPlayingSurahId) {
-                            if (audio) {
-                                audio.pause(); // Met l'audio précédent en pause
-                            }
-                            initAudioPlayer(requestedSurahId); // Initialisation de l'audio pour la sourate demandée
-                            currentPlayingSurahId = requestedSurahId; // Mise à jour de l'ID de la sourate en cours
-                            audioInitialized = true;
-                            playButton.innerHTML = "&#10074;&#10074; Pause Audio"; // Changer l'icône du bouton
-                            audioBar.classList.remove("hidden"); // Afficher la barre audio
-                            playPauseBtn.innerHTML = "&#10074;&#10074;";
-                            playPauseBtn.classList.remove("paused");
-                        } else if (audio.paused) { // Si l'audio est en pause
-                            audio.play();
-                            playButton.innerHTML = "&#10074;&#10074; Pause Audio";
-                            playPauseBtn.innerHTML = "&#10074;&#10074;";
-                            playPauseBtn.classList.remove("paused");
-                            audioBar.classList.remove("hidden");
-                        } else { // Si l'audio est en lecture
-                            audio.pause();
-                            playButton.innerHTML = "&#9654; Jouer Audio";
-                            playPauseBtn.innerHTML = "&#9654;";
-                            playPauseBtn.classList.add("paused");
-                        }
-                    });
-                    }
-                    else {
-                        const playPauseBtn = document.getElementById('play-pause-btn');
-                        const playButton = document.getElementById("play-audio-btn");
-                    
-                        // Si la sourate a changé
-                        if (currentSurah.id !== currentPlayingSurahId) {
-                            playButton.innerHTML = "&#9654; Jouer Audio";
-                            playPauseBtn.innerHTML = "&#9654;";
-                            playPauseBtn.classList.add("paused");
-                        } else if (!document.getElementById("audio").paused) {
-                            // Si l'audio est en cours de lecture
-                            playButton.innerHTML = "&#10074;&#10074; Pause Audio";
-                            playPauseBtn.innerHTML = "&#10074;&#10074;";
-                            playPauseBtn.classList.remove("paused");
-                        } else {
-                            // Si l'audio est en pause
-                            playButton.innerHTML = "&#9654; Jouer Audio";
-                        }
-                    }
-                    
-                    verseContainerFlex.appendChild(verseReading);
-                });                    
-            
-            }
-            
-            fragment.appendChild(verseContainerFlex);
-            versesDiv.appendChild(fragment);
+        } else {
+            surahTitle.textContent = "";
+            const existingBasmala = document.getElementById("basmala");
+            if (existingBasmala) existingBasmala.remove();
         }
     
-        
+        const fragment = document.createDocumentFragment();
+    
+        if (viewMode === "reading") {
+            const existingPlayBtn = document.getElementById("play-audio-btn");
+            if (existingPlayBtn) existingPlayBtn.parentElement.remove();
+    
+            const parsePageNumber = (page) => parseInt(page.toString().split('_')[0], 10);
+            const surahPages = surahPageMap[currentSurah.id];
+            const startPage = parsePageNumber(surahPages.start);
+            const endPage = parsePageNumber(surahPages.end);
+    
+            for (let page = startPage; page <= endPage; page++) {
+                const pageNumber = page.toString().padStart(3, '0');
+                const img = document.createElement("img");
+                img.src = `mushaf/${pageNumber}.png`;
+                img.alt = `${pageNumber}`;
+                img.classList.add("quran-page");
+    
+                const pageInfo = document.createElement("div");
+                pageInfo.classList.add("page-info");
+    
+                const pageLabel = document.createElement("div");
+                pageLabel.classList.add("page-number-label");
+                pageLabel.textContent = `${page}`;
+    
+                const hr = document.createElement("hr");
+                hr.classList.add("page-separator");
+    
+                pageInfo.appendChild(pageLabel);
+                pageInfo.appendChild(hr);
+    
+                verseContainerFlex.appendChild(img);
+                verseContainerFlex.appendChild(pageInfo);
+            }
+    
+            fragment.appendChild(verseContainerFlex);
+        } else {
+            currentSurah.arabicVerses.forEach((verse, index) => {
+                const verseReading = document.createElement("span");
+                verseReading.classList.add("verse-reading");
+    
+                const verseNumber = document.createElement("span");
+                verseNumber.classList.add("verse-number-circle");
+                const verseId = verse.verse_key.split(":")[1];
+                verseNumber.textContent = getVerseNumberSymbol(verseId);
+    
+                const arabic = document.createElement("span");
+                arabic.classList.add("arabic-text");
+    
+                const words = removeFootnotes(verse.text_uthmani).split(" ");
+                words.forEach((word, i) => {
+                    const wordSpan = document.createElement("span");
+                    wordSpan.classList.add("word");
+                    wordSpan.textContent = word;
+                    arabic.appendChild(wordSpan);
+                    if (i !== words.length - 1) arabic.append("\u2009");
+                });
+    
+                arabic.appendChild(verseNumber);
+                verseReading.appendChild(arabic);
+    
+                const translation = document.createElement("div");
+                translation.classList.add("translation-text");
+                translation.innerHTML = removeFootnotes(currentTranslation[index].text);
+                verseReading.appendChild(translation);
+    
+                verseContainerFlex.appendChild(verseReading);
+            });
+    
+            // Ajouter bouton audio s’il n'existe pas déjà
+            if (!document.getElementById("play-audio-btn")) {
+                const barrette = document.createElement("div");
+                barrette.classList.add("barrette");
+    
+                const playButton = document.createElement("button");
+                playButton.id = "play-audio-btn";
+                playButton.innerHTML = `&#9654; ${getTranslation("play-audio-btn")}`;
+
+    
+                barrette.appendChild(playButton);
+                versesDiv.insertAdjacentElement("beforebegin", barrette);
+    
+                let audioInitialized = false;
+                const playPauseBtn = document.getElementById('play-pause-btn');
+                const audio = document.getElementById('audio');
+                const audioBar = document.querySelector('.audio-bar');
+    
+                playButton.addEventListener("click", () => {
+                    const requestedSurahId = currentSurah.id;
+    
+                    if (!audioInitialized || requestedSurahId !== currentPlayingSurahId) {
+                        if (audio) audio.pause();
+                        initAudioPlayer(requestedSurahId);
+                        currentPlayingSurahId = requestedSurahId;
+                        audioInitialized = true;
+                        playButton.innerHTML = `&#10074;&#10074; ${getTranslation("play-audio-btn-paused")}`;
+                        audioBar.classList.remove("hidden");
+                        playPauseBtn.innerHTML = "&#10074;&#10074;";
+                        playPauseBtn.classList.remove("paused");
+                    } else if (audio.paused) {
+                        audio.play();
+                        playButton.innerHTML = `&#10074;&#10074; ${getTranslation("play-audio-btn-paused")}`;
+                        playPauseBtn.innerHTML = "&#10074;&#10074;";
+                        playPauseBtn.classList.remove("paused");
+                        audioBar.classList.remove("hidden");
+                    } else {
+                        audio.pause();
+                        playButton.innerHTML = `&#9654; ${getTranslation("play-audio-btn")}`;
+                        playPauseBtn.innerHTML = "&#9654;";
+                        playPauseBtn.classList.add("paused");
+                    }
+                });
+            }
+        }
+    
+        versesDiv.appendChild(verseContainerFlex);
+    }        
     
     // 📝 Supprimer les footnotes des versets
     function removeFootnotes(text) {
         const footnoteRegex = /<sup[^>]*foot_note[^>]*>[^<]*<\/sup>/g;
         return text.replace(footnoteRegex, '');
     }
+
+
 
     let audioEventListenersInitialized = false;
 
@@ -1091,12 +1234,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     audio.play();
                     playPauseBtn.classList.remove('paused');
                     playPauseBtn.innerHTML = '&#10074;&#10074;';
-                    playButton.innerHTML = "&#10074;&#10074; Pause Audio";
+                    playButton.innerHTML = `&#10074;&#10074; ${getTranslation("play-audio-btn-paused")}`;
                 } else {
                     audio.pause();
                     playPauseBtn.classList.add('paused');
                     playPauseBtn.innerHTML = '&#9654;';
-                    playButton.innerHTML = "&#9654; Jouer Audio";
+                    playButton.innerHTML = `&#9654; ${getTranslation("play-audio-btn")}`;
                 }
             }
         
@@ -1104,7 +1247,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio.pause();
                 audioBar.classList.add('hidden');
                 playPauseBtn.innerHTML = '&#9654;';
-                playButton.innerHTML = "&#9654; Jouer Audio";
+                playButton.innerHTML = `&#9654; ${getTranslation("play-audio-btn")}`;
                 currentPlayingSurahId = null;
             }
         
@@ -1158,5 +1301,33 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio.currentTime = percent * audio.duration;
             }
             
-        }   
-    })
+        }   // Fin de initAudioPlayer
+        let lastScrollTop = 0;
+        let ticking = false;
+        
+        const contentContainer = document.getElementById("contentContainer");
+        
+        if (contentContainer && topBar) {
+            contentContainer.addEventListener("scroll", () => {
+                if (!ticking && !surahOpened) {
+                    window.requestAnimationFrame(() => {
+                        const scrollTop = contentContainer.scrollTop;
+        
+                        if (scrollTop > lastScrollTop && scrollTop > 15) {
+                            topBar.classList.add("hidden");
+                            contentContainer.style.marginTop = 0;
+                        } else if (scrollTop < lastScrollTop) {
+                            topBar.classList.remove("hidden");
+                            contentContainer.style.marginTop = '2.4rem';
+                        }
+        
+                        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+                        ticking = false;
+                    });
+        
+                    ticking = true;
+                }
+            });
+        } 
+
+})
