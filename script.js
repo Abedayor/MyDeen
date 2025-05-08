@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
     function applyActiveLanguageClass() {
-        const currentLang = localStorage.getItem("language") || "fr";
+        const currentLang = localStorage.getItem("language") || "en";
         document.querySelectorAll(".langue-option").forEach(btn => {
             btn.classList.remove("active");
             if (btn.id === currentLang) {
@@ -443,7 +443,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function getTranslation(key) {
-        const lang = localStorage.getItem("language");
+        const lang = localStorage.getItem("language") || 'en';
         const t = translations[lang];
         return t[key];
     }
