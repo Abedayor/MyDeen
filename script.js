@@ -13,14 +13,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- GESTION DES LANGUES ---
     const translations = {
+        en: {
+            settings: "Settings",
+            theme: "Theme",
+            searchPlaceholder: "Search for a surah...",
+            noResults: "No surah found.",
+            signesBtn: "Stopping and Linking Signs in the Quran",
+            'play-audio-btn': "Play Audio",
+            "play-audio-btn-paused": "Pause Audio",
+            aboutTitle: "About",
+            aboutText: "Educational app dedicated to learning the Arabic alphabet and the Quran.",
+            usefulLinks: "Useful Links",
+            alphabetLink: "Alphabet",
+            aTranslation: `Translation by`
+        },
         fr: {
             settings: "Paramètres",
             theme: "Thème",
             searchPlaceholder: "Rechercher une sourate...",
             noResults: "Aucune sourate trouvée.",
             signesBtn: "Les Signes d'arrêt et de liaison du Quran",
-            'play-audio-btn': "Jouer audio",
-            "play-audio-btn-paused": "Mettre en pause l'audio",
+            'play-audio-btn': "Lire le son",
+            "play-audio-btn-paused": "Arrêter le son",
+            aboutTitle: "À propos",
+            aboutText: "Application éducative dédiée à l'apprentissage de l'alphabet arabe et du Coran.",
+            usefulLinks: "Liens utiles",
+            alphabetLink: "Alphabet",
+            aTranslation: `Traduction de`
         },
         de: {
             settings: "Einstellungen",
@@ -30,7 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
             signesBtn: "Stopp- und Verbindungszeichen im Koran",
             'play-audio-btn': "Audio abspielen",
             "play-audio-btn-paused": "Audio pausieren",
-
+            aboutTitle: "Über uns",
+            aboutText: "Bildungs-App zum Erlernen des arabischen Alphabets und des Korans.",
+            usefulLinks: "Nützliche Links",
+            alphabetLink: "Alphabet",
+            aTranslation: `Übersetzung von`
         },
         es: {
             settings: "Configuraciones",
@@ -40,6 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
             signesBtn: "Signos de parada y enlace en el Corán",
             'play-audio-btn': "Reproducir audio",
             "play-audio-btn-paused": "Pausar audio",
+            aboutTitle: "Acerca de",
+            aboutText: "Aplicación educativa dedicada al aprendizaje del alfabeto árabe y del Corán.",
+            usefulLinks: "Enlaces útiles",
+            alphabetLink: "Alfabeto",
+            aTranslation: `Traducción de`
         },
         it: {
             settings: "Impostazioni",
@@ -49,6 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
             signesBtn: "Segni di arresto e collegamento nel Corano",
             'play-audio-btn': "Riproduci audio",
             "play-audio-btn-paused": "Pausa audio",
+            aboutTitle: "Informazioni",
+            aboutText: "Applicazione educativa dedicata all'apprendimento dell'alfabeto arabo e del Corano.",
+            usefulLinks: "Link utili",
+            alphabetLink: "Alfabeto",
+            aTranslation: `Traduzione di`
         },
         pt: {
             settings: "Configurações",
@@ -58,6 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
             signesBtn: "Sinais de parada e ligação no Alcorão", 
             'play-audio-btn': "Reproduzir áudio",
             "play-audio-btn-paused": "Pausar áudio",
+            aboutTitle: "Sobre",
+            aboutText: "Aplicativo educativo dedicado ao aprendizado do alfabeto árabe e do Alcorão.",
+            usefulLinks: "Links úteis",
+            alphabetLink: "Alfabeto",
+            aTranslation: `Tradução de`
         },
         tr: {
             settings: "Ayarlar",
@@ -67,6 +105,11 @@ document.addEventListener("DOMContentLoaded", () => {
             signesBtn: "Kur'an'daki Durdurma ve Bağlama İşaretleri",
             'play-audio-btn': "Sesli dinle",
             "play-audio-btn-paused": "Sesli dinle durdur",
+            aboutTitle: "Hakkında",
+            aboutText: "Arap alfabesi ve Kur'an öğrenimine adanmış eğitim uygulaması.",
+            usefulLinks: "Faydalı bağlantılar",
+            alphabetLink: "Alfabe",
+            aTranslation: `tarafından çeviri`
         },
         ar: {
             settings: "الإعدادات",
@@ -76,21 +119,26 @@ document.addEventListener("DOMContentLoaded", () => {
             signesBtn: "علامات الوقف والوصل في القرآن",
             'play-audio-btn': "تشغيل الصوت",
             "play-audio-btn-paused": "إيقاف الصوت",
-        },
-        en: {
-            settings: "Settings",
-            theme: "Theme",
-            searchPlaceholder: "Search for a surah...",
-            noResults: "No surah found.",
-            signesBtn: "Stopping and Linking Signs in the Quran",
-            'play-audio-btn': "Play Audio",
-            "play-audio-btn-paused": "Pause Audio",
+            aboutTitle: "حول التطبيق",
+            aboutText: "تطبيق تعليمي مخصص لتعلم الحروف العربية والقرآن الكريم.",
+            usefulLinks: "روابط مفيدة",
+            alphabetLink: "الحروف",
+            aTranslation: `ترجمة`
         }
     };
+
 
     function applyTranslations() {
         const lang = localStorage.getItem("language") || "en";
         const t = translations[lang];
+
+        if (lang === 'ar') {
+            document.body.style.fontFamily = 'Uthmani';
+            document.body.classList.add('lang-ar');
+        } else {
+            document.body.style.fontFamily = '';
+            document.body.classList.remove('lang-ar');
+        }
     
         const settingsTitle = document.getElementById("settingsTitle");
         if (settingsTitle) settingsTitle.textContent = t.settings;
@@ -106,6 +154,25 @@ document.addEventListener("DOMContentLoaded", () => {
     
         const noResults = document.getElementById("noResults");
         if (noResults) noResults.textContent = t.noResults;
+
+        const aboutTitle = document.getElementById('aboutTitle')
+        if (aboutTitle) aboutTitle.textContent = t.aboutTitle
+
+        const aboutText = document.getElementById('aboutText')
+        if (aboutText) aboutText.textContent = t.aboutText
+
+        const usefulLinks = document.getElementById('usefulLinks')
+        if (usefulLinks) usefulLinks.textContent = t.usefulLinks
+
+        const alphabetLink = document.getElementById('alphabetLink')
+        if (alphabetLink) alphabetLink.textContent = t.alphabetLink
+
+        const ActualTranslation = document.getElementById('aTranslation')
+        if (ActualTranslation) ActualTranslation.textContent = t.aTranslation
+
+        const Traducteur = document.getElementById('Traducteur')
+        if (Traducteur) Traducteur.textContent = getTradName()
+
 
         const playButton = document.getElementById("play-audio-btn");
         const playPauseBtn = document.getElementById('play-pause-btn');
@@ -447,7 +514,32 @@ document.addEventListener("DOMContentLoaded", () => {
         const t = translations[lang];
         return t[key];
     }
-    
+
+    function getTradName() {
+    const lang = localStorage.getItem("language") || 'en';
+    let trad_name;
+
+    if (lang === "fr") {
+        trad_name = "Muhammad Hamidullah";
+    } else if (lang === "en") {
+        trad_name = "Saheeh International";
+    } else if (lang === "de") {
+        trad_name = "Malak Faris Abdalsalaam";
+    } else if (lang === "es") {
+        trad_name = "Montada Islamic Foundation";
+    } else if (lang === "it") {
+        trad_name = "Hamza Roberto Piccardo";
+    } else if (lang === "pt") {
+        trad_name = "Samir El-Hayek";
+    } else if (lang === "tr") {
+        trad_name = "Diyanet İşleri";
+    } else if (lang === "ar") {
+        trad_name = "Saheeh International";
+    } else {
+        trad_name = "";
+    }
+        return trad_name;
+    }
 
     searchInput.addEventListener("input", () => {
         const val = normalizeString(searchInput.value);  // Normalisation de la recherche
@@ -637,132 +729,41 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     } 
     
-    
-    const surahPageMap = {
-        1: { start: 1, end: 1 },
-        2: { start: 2, end: 49 },
-        3: { start: 50, end: 76 },
-        4: { start: 77, end: 106 },
-        5: { start: 106, end: 127 },
-        6: { start: 128, end: 150 },
-        7: { start: 151, end: 176 },
-        8: { start: 177, end: 186 },
-        9: { start: 187, end: 207 },
-        10: { start: 208, end: 221 },
-        11: { start: 221, end: 235 },
-        12: { start: 235, end: 248 },
-        13: { start: 249, end: 255 },
-        14: { start: 255, end: 261 },
-        15: { start: 262, end: 267 },
-        16: { start: 267, end: 281 },
-        17: { start: 282, end: 293 },
-        18: { start: 293, end: 304 },
-        19: { start: 305, end: 312 },
-        20: { start: 312, end: 321 },
-        21: { start: 322, end: 331 },
-        22: { start: 332, end: 341 },
-        23: { start: 342, end: 349 },
-        24: { start: 350, end: 359 },
-        25: { start: 359, end: 366 },
-        26: { start: 367, end: 376 },
-        27: { start: 377, end: 385 },
-        28: { start: 385, end: 396 },
-        29: { start: 396, end: 404 },
-        30: { start: 404, end: 411 },
-        31: { start: 411, end: 414 },
-        32: { start: 415, end: 417 },
-        33: { start: 418, end: 427 },
-        34: { start: 428, end: 434 },
-        35: { start: 434, end: 440 },
-        36: { start: 440, end: 445 },
-        37: { start: 446, end: 452 },
-        38: { start: 452, end: 458 },
-        39: { start: 458, end: 467 },
-        40: { start: 467, end: 476 },
-        41: { start: 477, end: 482 },
-        42: { start: 483, end: 489 },
-        43: { start: 489, end: 495 },
-        44: { start: 496, end: 498 },
-        45: { start: 499, end: 502 },
-        46: { start: 502, end: 506 },
-        47: { start: 507, end: 510 },
-        48: { start: 511, end: 515 },
-        49: { start: 515, end: 517 },
-        50: { start: 518, end: 520 },
-        51: { start: 520, end: 523 },
-        52: { start: 523, end: 525 },
-        53: { start: 526, end: 528 },
-        54: { start: 528, end: 531 },
-        55: { start: 531, end: 534 },
-        56: { start: 534, end: 537 },
-        57: { start: 537, end: 541 },
-        58: { start: 542, end: 545 },
-        59: { start: 545, end: 548 },
-        60: { start: 549, end: 551 },
-        61: { start: 551, end: 553 },
-        62: { start: 553, end: 554 },
-        63: { start: 554, end: 555 },
-        64: { start: 556, end: 557 },
-        65: { start: 558, end: 560 },
-        66: { start: 560, end: 561 },
-        67: { start: 562, end: 564 },
-        68: { start: 564, end: 566 },
-        69: { start: 566, end: 568 },
-        70: { start: 568, end: 570 },
-        71: { start: 570, end: 571 },
-        72: { start: 572, end: 573 },
-        73: { start: 574, end: 575 },
-        74: { start: 575, end: 577 },
-        75: { start: 577, end: 578 },
-        76: { start: 578, end: 580 },
-        77: { start: 580, end: 582 },
-        78: { start: 582, end: 583 },
-        79: { start: 583, end: 585 },
-        80: { start: 585, end: 586 },
-        81: { start: 586, end: 587 },
-        82: { start: 587, end: 588 },
-        83: { start: 588, end: 590 },
-        84: { start: 590, end: 591 },
-        85: { start: 591, end: 592 },
-        86: { start: 592, end: 593 },
-        87: { start: 593, end: 594 },
-        88: { start: 592, end: 592 },
-        89: { start: 593, end: 594 },
-        90: { start: 594, end: 594 },
-        91: { start: 595, end: 595 },
-        92: { start: 595, end: 596 },
-        93: { start: 596, end: 596 },
-        94: { start: 596, end: 596 },
-        95: { start: 597, end: 597 },
-        96: { start: 597, end: 597 },
-        97: { start: 598, end: 598 },
-        98: { start: 598, end: 598 },
-        99: { start: 599, end: 599 },
-        100: { start: 599, end: 600 },
-        101: { start: 600, end: 600 },
-        102: { start: 600, end: 600 },
-        103: { start: 601, end: 601 },
-        104: { start: 601, end: 601 },
-        105: { start: 601, end: 601 },
-        106: { start: 602, end: 602 },
-        107: { start: 602, end: 602 },
-        108: { start: 602, end: 602 },
-        109: { start: 603, end: 603 },
-        110: { start: 603, end: 603 },
-        111: { start: 603, end: 603 },
-        112: { start: 604, end: 604 },
-        113: { start: 604, end: 604 },
-        114: { start: 604, end: 604 }
-      };
-    
+    let surahPageMap = {};
+
+    async function getSurahPageMap() {
+        const totalSurahs = 114;
+        const map = {};
+
+        for (let surah = 1; surah <= totalSurahs; surah++) {
+            try {
+                const response = await fetch(`https://api.quran.com/api/v4/chapters/${surah}`);
+                const data = await response.json();
+
+                const [start, end] = data.chapter.pages;
+
+                map[surah] = { start, end };
+            } catch (error) {
+                console.error(`Erreur lors de la récupération de la sourate ${surah} :`, error);
+            }
+        }
+
+        return map;
+    }
 
     function getStartPageForSurah(surahId) {
         return surahPageMap[surahId]?.start || null;
     }
-    
+
     function getEndPageForSurah(surahId) {
         return surahPageMap[surahId]?.end || null;
     }
+
+    // Initialisation au chargement
+    getSurahPageMap().then(map => {
+        surahPageMap = map;
+        console.log(surahPageMap)
+    });
     
     
     // 🔁 Charger les versets (lecture et traduction)
@@ -773,20 +774,30 @@ document.addEventListener("DOMContentLoaded", () => {
         const lang = localStorage.getItem("language") || "en";
         
         const arabicUrl = `https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=${surahId}`;
-        
+
         // ID de traduction selon la langue
         let translationId;
-        if (lang === "fr") translationId = 31;        // Traduction française de Muhammad Hamidullah
-        else if (lang === "en") translationId = 131;   // Traduction anglaise de Saheeh International
-        else if (lang === "de") translationId = 27;   // Traduction allemande de Adel Theodor Khoury
-        else if (lang === "es") translationId = 140;   // Traduction espagnole de Muhammad Taqi-ud-Din al-Hilali
-        else if (lang === "it") translationId = 153;   // Traduction italienne de Hamza Roberto Piccardo
-        else if (lang === "pt") translationId = 43;   // Traduction portugaise de Muhammad Taqi-ud-Din al-Hilali
-        else if (lang === "tr") translationId = 77;   // Traduction turque de Ali Bulaç
-        else if (lang === "ar") translationId = 131;  // Arabe, pas de traduction
-        else translationId = null; // Par défaut, pas de traduction
-    
-        // Requête fetch selon le cas
+
+        if (lang === "fr") {
+            translationId = 31;
+        } else if (lang === "en") {
+            translationId = 20;
+        } else if (lang === "de") {
+            translationId = 235;
+        } else if (lang === "es") {
+            translationId = 140;
+        } else if (lang === "it") {
+            translationId = 153;
+        } else if (lang === "pt") {
+            translationId = 43;
+        } else if (lang === "tr") {
+            translationId = 77;
+        } else if (lang === "ar") {
+            translationId = 20;
+        } else {
+            translationId = null;
+        }
+
         const fetches = [fetch(arabicUrl)];
     
         if (translationId) {
@@ -820,15 +831,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 const startPage = getStartPageForSurah(surahId);
                 const endPage = getEndPageForSurah(surahId);
 
-    // Générer et afficher les images des pages
-            for (let page = startPage; page <= endPage; page++) {
-                const pageNumber = page.toString().padStart(3, '0');
-                const img = document.createElement("img");
-                img.src = `mushaf/${pageNumber}.png`;
-                img.alt = `${pageNumber}`;
-                img.classList.add("quran-page");
-                versesDiv.appendChild(img);
-            }
+                if (startPage !== null && endPage !== null) {
+                    for (let page = startPage; page <= endPage; page++) {
+                        const pageNumber = page.toString().padStart(3, '0'); // Ex : 1 → "001"
+                        const img = document.createElement("img");
+                        img.src = `mushaf/${pageNumber}.png`; // Chemin vers ton image
+                        img.alt = `Page ${page}`; // Texte alternatif
+                        img.classList.add("quran-page");
+
+                        versesDiv.appendChild(img); // Ajout à ton conteneur
+                    }
+                } else {
+                    console.warn(`Impossible de trouver les pages pour la sourate ${surahId}`);
+                }
+
 
             // Créer le container des boutons lecture/traduction
             const buttonContainer = document.createElement("div");
@@ -1099,7 +1115,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 playButton.id = "play-audio-btn";
                 playButton.innerHTML = `&#9654; ${getTranslation("play-audio-btn")}`;
 
-    
+                const TrDiv = document.createElement('div')
+                TrDiv.id = 'TrDiv'
+
+                const ActualTranslation = document.createElement('div')
+                ActualTranslation.id = 'aTranslation' 
+                ActualTranslation.innerHTML = `${getTranslation('aTranslation')}`
+
+                const Traducteur = document.createElement('div')
+                Traducteur.id = 'Traducteur'
+                Traducteur.innerHTML = getTradName()
+
+                TrDiv.appendChild(ActualTranslation)
+                TrDiv.appendChild(Traducteur)
+
+                barrette.appendChild(TrDiv)
                 barrette.appendChild(playButton);
                 versesDiv.insertAdjacentElement("beforebegin", barrette);
     
@@ -1329,5 +1359,4 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         } 
-
 })

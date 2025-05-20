@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="icon" href="images/logo.png" type="image/x-icon">
     <title>MyDeen</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="top-bar">
-        <button id="backButton" title="Retour Menu">&#10161;</button>
+        <img id="backButton" title="Retour Menu" src="images/house-line.svg">
         <div class="tawhid">لا إله إلا الله</div>
         <div class="settings-container">
             <img class="globe" src="images/globe.svg" title="Languages">
@@ -51,7 +53,6 @@
                 <img src="images/magnifying-glass.svg" alt="search" class="search-icon">
                 <input type="text" id="searchInput" placeholder="Rechercher une sourate..." />
             </section>
-            <a href="signes.html"  id="signesBtn" class="btn-signes">Les Signes d'arrêt et de liaison du Quran</a>
         </header>
 
     <div class="main-content">
@@ -67,7 +68,26 @@
         <div id="verses" class="verses-container"></div>
     </div>
 
+    <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3 id="aboutTitle">À propos</h3>
+            <p id="aboutText">Application éducative dédiée à l'apprentissage de l'alphabet arabe et du Coran.</p>
+             <div class="nom-site">&copy; 2025 <a href="index.html">MyDeen</a>.</div>
+        </div>
+        <div class="footer-section">
+            <h3 id="usefulLinks">Liens utiles</h3>
+            <ul>
+                <li><a id="alphabetLink" href="LearnArab/Alphabet/alphabet.html">Alphabet</a></li>
+                <li><a href="LearnArab/Signes/signes.html"  id="signesBtn" class="btn-signes">Les Signes d'arrêt et de liaison du Quran</a></li>
+            </ul>
+        </div>
     </div>
+    </footer>
+
+
+    </div>
+
 
     <div class="audio-bar hidden">
         <audio id="audio"></audio>
@@ -88,8 +108,10 @@
                 <p id="duration">00:00</p>
             </div>
         </div>
+        
 
     </div>
+
 
     <script src="script.js"></script>
 </body>

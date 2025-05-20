@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">MyDeen - Alphabet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="icon" href="../../images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div id="topBar" class="top-bar">
+        <img id="homeButton" title="Retour Menu" src="../../images/house-line.svg">
+        <div class="tawhid">لا إله إلا الله</div>
+        <div class="settings-container">
+            <img class="globe" src="../../images/globe.svg" title="Languages">
+            <img src="../../images/gear.svg" alt="" class="settings-icon" id="settingsIcon" title="Paramètres">
+        </div>
+        <div class="settings-menu" id="settingsMenu">
+            <div class="settings-fenetre">
+                <p id="settingsTitle">Paramètres</p>
+                <img src="../../images/x.svg" alt="" title="Fermer" id="closeSettings" class="close-settings">
+            </div>
+            <div class="theme">
+                <div class="theme-title" id="themeLabel">Thème</div>
+                <div class="theme-options">
+                    <img id="darkModeToggle" src="../../images/moon.svg" >
+                    <img id="sepiaModeToggle" src= "../../images/sun.svg">
+                </div>
+            </div>
+        </div>
+        <div class="langue">
+            <div class="langue-options">
+                <div class="langue-option" id="en">  <p class="nom-langue">English</p></div>
+                <div class="langue-option" id="fr">  <p class="nom-langue">Français</p></div>
+                <div class="langue-option" id="ar">  <p class="nom-langue">العربية</p></div>
+                <div class="langue-option" id="de">  <p class="nom-langue">Deutsch</p></div>
+                <div class="langue-option" id="es">  <p class="nom-langue">Español</p></div>
+                <div class="langue-option" id="it">  <p class="nom-langue">Italiano</p></div>
+                <div class="langue-option" id="pt">  <p class="nom-langue">Português</p></div>
+                <div class="langue-option" id="tr">  <p class="nom-langue">Türkçe</p></div>
+            </div>
+        </div>
+    </div> 
+
+    <div id="contentContainer">
+        <header>
+            <h1>MyDeen</h1>
+            <h3 id = 'text_header'>Alphabet arabe</h3>
+        </header>
+        <section id="alphabet-section">
+        <!-- Les lettres seront injectées ici par JS -->
+        </section>
+        <section id="place-letter">
+
+        </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3 id="aboutTitle">À propos</h3>
+            <p id="aboutText">Application éducative dédiée à l'apprentissage de l'alphabet arabe et du Coran.</p>
+             <div class="nom-site">&copy; 2025 <a href="../../index.html">MyDeen</a>.</div>
+        </div>
+        <div class="footer-section">
+            <h3 id="usefulLinks">Liens utiles</h3>
+            <ul>
+                <li><a id="homeB" href="../../index.html">Page d'acceuil</a></li>
+                <li><a href="../Signes/signes.html"  id="signesBtn" class="btn-signes">Les Signes d'arrêt et de liaison du Quran</a></li>
+            </ul>
+        </div>
+    </div>
+    </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
