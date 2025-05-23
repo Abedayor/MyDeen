@@ -326,15 +326,15 @@ function initSettingsMenuEvents() {
 
     // Sélection du thème
     darkModeBtn?.addEventListener("click", () => {
-        document.documentElement.setAttribute("data-theme", "dark");
-        localStorage.setItem("theme", "dark");
+        document.documentElement.setAttribute("data-theme", "mdinight-blue");
+        localStorage.setItem("theme", "midnight-blue");
         darkModeBtn.classList.add("active");
         sepiaModeBtn?.classList.remove("active");
     });
 
     sepiaModeBtn?.addEventListener("click", () => {
-        document.documentElement.setAttribute("data-theme", "sepia");
-        localStorage.setItem("theme", "sepia");
+        document.documentElement.setAttribute("data-theme", "mydeen");
+        localStorage.setItem("theme", "mydeen");
         sepiaModeBtn.classList.add("active");
         darkModeBtn?.classList.remove("active");
     });
@@ -353,14 +353,14 @@ function initSettingsMenuEvents() {
 
 // Appliquer la classe active au thème sélectionné
 function applyActiveThemeClass() {
-    const currentTheme = localStorage.getItem("theme") || "sepia";
+    const currentTheme = localStorage.getItem("theme") || "mydeen";
     const darkBtn = document.getElementById("darkModeToggle");
     const sepiaBtn = document.getElementById("sepiaModeToggle");
 
     darkBtn?.classList.remove("active");
     sepiaBtn?.classList.remove("active");
 
-    if (currentTheme === "dark") {
+    if (currentTheme === "midnight-blue") {
         darkBtn?.classList.add("active");
     } else {
         sepiaBtn?.classList.add("active");
@@ -434,7 +434,7 @@ function applyTranslations() {
     }
 
 // Appliquer le thème sauvegardé au chargement
-document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "sepia");
+document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "mydeen");
 
 // Initialisation
 initSettingsMenuEvents();

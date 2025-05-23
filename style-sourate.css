@@ -249,7 +249,7 @@ body {
 /* Scrollbar */
 ::-webkit-scrollbar {
     width: 0.8rem;
-    background: var(--color-background-elevated-new);
+    background: var(--color-background-default);
     z-index: 1000000;  /* Augmentez le z-index de la scrollbar pour qu'il soit plus élevé */
 }
 
@@ -286,6 +286,27 @@ body {
 .top-bar.hidden {
     transform: translateY(-100%);
     opacity: 0;
+}
+
+#homeButton {
+    display: block;
+    border: none;
+    background: transparent;
+    position: absolute;  /* Fixe le bouton en haut à gauche */
+    left: 1rem;
+    top: 0.2rem;
+    cursor: pointer;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    padding: 5px;
+    justify-content: center;
+    filter: var(--color-svg-background);
+}
+
+#homeButton:hover{
+    background: var(--color-background-alternative-faint);
+    border-radius: 50%;
 }
 
 .tawhid {
@@ -621,269 +642,224 @@ a:hover {
     text-decoration: underline;
 }
 
-.search-container {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    margin: 2vh;
-    border: var(--color-borders-hairline) solid 3px;
-    border-radius: 50rem;
-    width: 50%;
-    max-width: 750px;
-    min-height: 30px;
-    max-height: 30px;
-    background-color: var(--color-background-elevated);
-    direction: ltr;
-}
 
-.lang-ar .search-container{
-    direction: rtl;
-}
-
-.search-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-    filter: var(--color-svg-background);
-}
-
-#searchInput {
-    border: none;
-    outline: none;
+#surahTitle {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 3rem;
+    font-family: 'SurahName', serif;
+    font-weight: bold;
     color: var(--color-text-default);
-    max-width: 70%;
-    background-color:  var(--color-background-elevated);
-    flex: 1;
-    font-size: 1.2rem;
-}
-
-
-#searchInput:focus {
-    border-color: var(--color-borders-hairline);
-    outline: none;
-}
-
-.main-content{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.no-results {
-    display: none;  /* Masquer par défaut */
     text-align: center;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
-    color: var(--color-text-error);
+}
+
+.basmala {
+    text-align: center !important;
+    font-size: 1.8em !important;
+    color: #4a4a4a !important;
+    margin: 20px 0 !important;
+    font-family: 'Amiri', serif !important;
+    color: var(--color-text-default) !important;
+}
+
+.barrette{
+    display: block;
     margin: 0 auto;
-    font-size: 1.2rem;
-    margin-top: 50px ;
-    margin-bottom: 100px;
-}
-
-.sourates {
-    display: flex;
-    flex-wrap: wrap;
-    direction: ltr;
-    justify-content: center;
-    width: 97%;
-    max-width: 1256px;
-    margin: 0 auto;
-    padding: 20px 0;
-    transition: all 0.3s ease;
-}
-
-.sourates-arabic {
-    direction: rtl;
-}
-
-.surah {
-    background-color: var(--color-background-default);
-    border: 1px solid var(--color-borders-hairline);
-    padding: 0.9125rem;
-    margin: 0.4125rem;
-    width: 404px;
-    height: 43px;
-    border-radius: 4px;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center; /* centré verticalement */
-    font-weight: bold;
-    cursor: pointer;
-    direction: ltr;
-    transition: transform 0.1s ease;
-}
-
-.surah-arabic{
-    background-color: var(--color-background-default);
-    border: 1px solid var(--color-borders-hairline);
-    padding: 0.8125rem;
-    margin: 0.5125rem;
-    width: 404px;
-    height: 43px;
-    border-radius: 4px;
-    gap: 0.5rem;
-    display: flex;
-    align-items: center; /* centré verticalement */
-    font-weight: bold;
-    cursor: pointer;
-    direction: rtl;
-    transition: transform 0.1s ease;
-}
-
-.surah:last-child {
-    margin-bottom: 3vh;
-}
-
-.surah-number {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-default);
-    font-size: var(--font-size-extra-large);
-    font-weight: var(--font-weight-extra-bold);
-    margin: 0 7px;
-    z-index: 0;
-}
-
-.surah-number::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--color-background-alternative-faint);
-    border-radius: 6px;
-    transform: rotate(45deg);
-    z-index: -1;
-}
-
-.surah-content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.line{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    font-size: var(--font-size-normal-px);
+    margin-top: 10vh;
+    text-align: right;
+    width: 90%;
+    max-width: 1433px;
 }
 
-.surah-number-surah {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
+#TrDiv{
     display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#aTranslation{
+    color: var(--color-text-faded);
+    font-size: var(--font-size-medium-px);
+}
+
+#Traducteur{
+    color: var(--color-success-medium);
+    font-size: var(--font-size-medium-px);
+}
+
+/* Style pour le bouton "Écouter la sourate" */
+#play-audio-btn {
+    background: none;
+    color: var(--color-success-medium); /* Texte blanc */
+    border: none; /* Pas de bordure */
+    font-size: 1rem; /* Taille du texte */
+    height: 23px;
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur de main */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition fluide */
+}
+
+/* Effet au survol */
+#play-audio-btn:hover {
+    background-color: var(--color-success-faint); /* Vert plus foncé au survol */
+}
+
+/* === SECTION LECTURE - MUSHAF STYLE === */
+#verseContainer {
+  background-color: var(--color-background-default);
+  width: 100%;
+  position: relative;
+  min-height: 100%;
+  margin: 0 auto;
+  padding-top: 0;
+  top: 0;
+}
+
+#verses {
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+    display: flex;
+    direction: rtl;
+    justify-content: center;
+}
+
+/* === MODE TRADUCTION === */
+.verse-container-flex {
+    width: 90%;
+    max-width: 1433px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    direction: rtl;
+    text-align: justify;
+}
+
+.verse-container-flex .verse-reading {
+    display: flex;
+    flex-direction: column;
+    color:  var(--color-text-default);
+    position: relative;
+    padding-bottom: 5vh;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.verse-container-flex .verse-reading:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0.5px;
+    background-color: var(--color-background-alternative-deep);
+    border-radius: 5px;
+}
+
+.verse-container-flex .arabic-text {
+    font-family: 'Uthmani', serif;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'liga' 1, 'calt' 1;
+    font-variant-ligatures: contextual;
+    font-size: calc(1.2 * var(--font-size));
+    color: var(--color-text-default);
+    margin: 6vh 0;
+    text-align: right;
+    direction: rtl;
+    line-height: 6.1vh;
+    word-break: keep-all;
+    white-space: normal;
+}
+
+.word:hover {
+    color: var(--color-success-medium);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.verse-container-flex .translation-text {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-normal);
+    color: var(--color-text-default);
+    flex-grow: 1;
+    direction: ltr;
+    line-height: 4vh;
+    width: 100%;
+    margin-bottom: 9vh;
+    overflow-wrap: break-word;
+    text-align: left;
+}
+
+.verse-number-circle {
+    display: inline-block;
+    border-radius: 50%;
+    color: var(--color-text-default);
+    font-size: calc(1.2 * var(--font-size));
+    margin: 0 1dvh;
+    line-height: 6.1vh;
+    text-align: center;
+    font-family: 'Uthmani', sans-serif;
+}
+
+.verse-number-circle:hover {
+    color: var(--color-success-medium);
+    cursor: pointer;
+}
+
+/* === MODE LECTURE === */
+.mushaf-pages {
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Prend toute la hauteur de l'écran */
     align-items: center;
     justify-content: center;
-    color: var(--color-text-default);
-    font-size: var(--font-size-extra-large);
-    font-weight: var(--font-weight-extra-bold);
-    margin: 0 7px;
-    z-index: 0;
-    font-family: 'Amiri', sans-serif;
+    overflow: hidden; /* Empêche le dépassement */
+    text-align: center;
+    position: relative;
 }
 
-.surah-number-surah::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
+.quran-page {
+    max-width: 100%; /* Largeur maximale de l'image */
+    max-height: auto; /* Hauteur maximale de l'image */
+    object-fit: contain; /* Ajuste l'image sans la déformer, elle sera visible entièrement */
+    display: block;
+}
+
+.page-info {
+    text-align: center;
+    width: 90%;
+    font-family: 'Tajawal', sans-serif;
+    margin: 8px 0 20px;
+}
+
+.page-separator {
+    border: none;
+    border-top: 1px solid var(--color-borders-hairline);
+    margin: 12px auto 4px;
     width: 100%;
-    height: 100%;
-    background: var(--color-background-alternative-faint);
-    border-radius: 6px;
-    transform: rotate(45deg);
-    z-index: -1;
 }
 
-.name-arabic-surah {
-    font-family: 'Uthmani', serif;
-    font-weight: var(--font-weight-extra-bold);
+.page-number-label {
+    font-size: 1rem;
     color: var(--color-text-default);
-    direction: rtl;
-    text-align: left;
-    font-size: 1.5rem;
-}
-
-.verse-count-surah {
-    font-family: 'Uthmani-style', sans-serif;
-    color: var(--color-text-faded);
     font-weight: bold;
-    text-align: left;
-    font-size: 1.2rem;
 }
 
-.line1, .line2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.line2 {
-    font-size: var(--font-size-small);
-}
-
-.name-arabic {
-    font-family: 'Uthmani', serif;
-    font-weight: var(--font-weight-extra-bold);
-    color: var(--color-text-default);
-    direction: rtl;
-    text-align: left;
-}
-
-.name-french, .verse-count {
-    font-family: 'Tajawal', sans-serif;
-    color: var(--color-text-faded);
-    font-weight: bold;
-    text-align: left;
-}
-
-.name-phonetic {
-    font-family: 'Tajawal', sans-serif;
-    font-size: large;
-    font-weight: bold;
-    color: var(--color-text-default);
-    text-align: right;
-}
-
-
-.surah:active{
-    transform: scale(0.98);
-}
-
-.surah:hover {
-    box-shadow: var(--shadow-medium);
-    transition: all 0.3s ease-in-out;
-    border: 1px solid var(--color-success-medium);
-}
-
-.surah:hover .name-french, 
-.surah:hover .verse-count,
-.surah-arabic:hover .verse-count-surah {
-    color: var(--color-success-medium);
-    transition: color 0.3s ease-in-out;
-}
-
-.surah:hover .surah-number::after, .surah-arabic:hover .surah-number-surah::after {
-    background: var(--color-success-medium);
-    transition: color 0.3s ease-in-out;
+.mushaf-pages .quran-page {
+    filter:var(--color-svg-background);
 }
 
 /* === REQUÊTE MÉDIA POUR L'ÉCRAN D'ORDINATEUR === */
 @media (min-width: 1024px) {
     /* Exclure l'iPad Pro (1024x1366) */
     @media not all and (device-width: 1024px) and (device-height: 1366px) {
+        .mushaf-pages {
+            width: 35%; /* Change la largeur de .mushaf-pages à 35% pour les écrans larges et assez hauts sauf l'iPad Pro */
+        }
         .settings-menu {
             width: 18%; /* Change la largeur de .settings-menu à 20% pour les écrans larges */
         }
@@ -897,6 +873,200 @@ a:hover {
             width: 370px;
         }
     }
+}
+
+/* Conteneur des boutons */
+.button-container {
+    display: flex;
+    width: 100%;  
+    max-width: 200px; /* Largeur maximale pour les écrans larges */
+    margin: 0 auto; /* Centre le conteneur */
+    justify-content: center; 
+    align-items: center;  /* Centre les boutons dans la barre */
+    gap: 10px;
+    background-color: var(--color-background-alternative-medium);
+    border-radius: 5rem;
+    flex-wrap: wrap; 
+    height: 1.8rem /* Permet aux boutons de se réorganiser si la largeur est réduite */
+}
+
+.mode-button img.icon-svg {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    filter:var(--color-svg-background);
+}
+
+.button.active img.icon-svg {
+    filter:var(--color-svg-background);
+}
+
+/* Style des boutons */
+.button-container button {
+    display: flex; /* change from inline-block to flex */
+    align-items: center; /* vertical centering */
+    justify-content: center; /* horizontal centering */
+    width: 100%;
+    height: 100%;
+    max-height: 25px;
+    max-width: 90px;
+    background: none;
+    font-size: 1.1rem;
+    font-family: 'Tajawal', sans-serif;
+    border: none;
+    cursor: pointer;
+    border-radius: 5rem;
+    transition: background-color 0.7s ease, transform 0.7s ease;
+    font-weight: bold;
+    text-align: center; /* optional */
+}
+
+
+/* Style pour les boutons actifs (en fonction de l'état actuel) */
+.button-container button.active {
+    background-color: var(--color-background-elevated-new);
+}
+
+.audio-bar.hidden {
+    display: none;
+}
+
+.audio-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--color-background-default);
+    width: 100%;
+    height: 2.3rem;          /* Hauteur fixe */
+    font-family: sans-serif;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+}
+
+.audio-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+    transform: translateY(0px);
+}
+
+#seek-bar {
+    position: relative;
+    top: 0;
+    appearance: var(--color-text-default);
+    -webkit-appearance: var(--color-text-default);
+    width: 100%;
+    height: 3px;
+    background: var(--color-background-alternative-faint);
+    border-radius: 50rem;
+    outline: none;
+    transition: background 450ms ease-in;
+}
+
+/* Barre de fond (track) */
+#seek-bar::-webkit-slider-runnable-track {
+    height: 3px;
+    background: var(--color-background-alternative-faint);
+    border-radius: 50rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Barre remplie avant le thumb */
+#seek-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: var(--color-success-medium);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+    margin-top: -5.5px; /* Aligner verticalement */
+    position: relative;
+    z-index: 2;
+}
+
+
+
+#current-time,
+#duration {
+    position: absolute;
+    top: 1.5vh;
+    margin: 0 1vh;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: var(--color-text-default);
+}
+
+#current-time {
+    left: 0;
+}
+
+#duration {
+    right: 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    top: 0px !important;
+    gap: 2vh;
+    margin-top: -2px;
+    font-weight: bold ;
+}
+
+.audio-bar button {
+    background: none;
+    border: none;
+    height: 35px;
+    width: 35px;
+    color: var(--color-text-default);
+    font-size: 1.5rem ;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.audio-bar#play-pause-btn.paused::before {
+    content: "▶";
+}
+
+#play-pause-btn{
+    font-size: 1.4rem;
+}
+
+.audio-bar img{
+    filter:var(--color-svg-background);
+    background: none;
+    border: none;
+    height: 24px;
+    width: 24px;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+  
+.audio-bar img:hover{
+    background: var(--color-background-alternative-faint);
+    border-radius: 50%;
+}
+
+.audio-bar button:hover {
+    background: var(--color-background-alternative-faint);
+    border-radius: 50%;
 }
 
 
@@ -965,3 +1135,14 @@ a:hover{
     text-decoration: underline;
 }
 
+@media (min-width: 1024px) {
+    /* Exclure l'iPad Pro (1024x1366) */
+    @media not all and (device-width: 1024px) and (device-height: 1366px) {
+        .mushaf-pages {
+            width: 35%; /* Change la largeur de .mushaf-pages à 35% pour les écrans larges et assez hauts sauf l'iPad Pro */
+        }
+        .settings-menu {
+            width: 18%; /* Change la largeur de .settings-menu à 20% pour les écrans larges */
+        }
+    }
+}

@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title class="title"></title>
+  <link rel="stylesheet" href="style-sourate.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="icon" href="images/logo.png" type="image/x-icon">
-    <title>MyDeen</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="top-bar">
-        <div class="tawhid">لا إله إلا الله</div>
+        <img id="homeButton" title="Retour Menu" src="images/house-line.svg">
         <div class="settings-container">
             <img class="globe" src="images/globe.svg" title="Languages">
             <img src="images/gear.svg" alt="" class="settings-icon" id="settingsIcon" title="Paramètres">
@@ -42,27 +43,14 @@
             </div>
         </div>
     </div>
-    
 
-    <div id="contentContainer">
-        <!-- En-tête -->
-        <header>
-            <h1>MyDeen</h1>
-            <section class="search-container">
-                <img src="images/magnifying-glass.svg" alt="search" class="search-icon">
-                <input type="text" id="searchInput" placeholder="Rechercher une sourate..." />
-            </section>
-        </header>
-
-    <div class="main-content">
-        <div class="sourates">
-        </div>
-        <div class="no-results" id="noResults" >
-            Aucune sourate trouvée.
-        </div>
+  <div id="contentContainer">
+  <div id="verseContainer" style="display:none;">
+        <div id="surahTitle"></div>
+        <div id="verses" class="verses-container"></div>
     </div>
 
-    <footer class="footer">
+  <footer class="footer">
     <div class="footer-content">
         <div class="footer-section">
             <h3 id="aboutTitle">À propos</h3>
@@ -79,10 +67,31 @@
     </div>
     </footer>
 
+  </div>
+
+  <div class="audio-bar hidden">
+        <audio id="audio"></audio>
+    
+        <div class="audio-controls">
+            <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+    
+                <input type="range" id="seek-bar" value="0" step="1" min="0" max="100">
+
+            </div>
+    
+            <div class="buttons">
+                <p id="current-time">00:00</p>
+                <img id="prev-btn" title="- 3sec" aria-label="- 3sec" src="images/skip-back.svg" alt="flèche">
+                <button id="play-pause-btn" class="paused" title="Pause/Lancer">&#10073;&#10073;</button>
+                <img id="next-btn" title="+ 3sec" aria-label="+ 3sec" src="images/skip-forward.svg" alt="fleche">
+                <img id="close-btn" title="Répéter" aria-label="Répéter" src="images/x.svg" alt="fleche">
+                <p id="duration">00:00</p>
+            </div>
+        </div>
+        
 
     </div>
 
-
-    <script src="script.js"></script>
+  <script src="script-sourate.js"></script> 
 </body>
 </html>
