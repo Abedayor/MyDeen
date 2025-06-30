@@ -60,10 +60,10 @@
   --color-secondary-deep: #a49379;
 
   /* Couleurs de succès, warning, erreur */
-  --color-success-faded: #f0e5cd;
-  --color-success-faint: #c2a983;
-  --color-success-medium: #b19873;
-  --color-success-deep: #8a6d00;;
+  --color-success-faded:  #fcde7b;  /* crème vanille très doux */
+    --color-success-faint:  #fcdf90;  /* jaune pastel chaud */
+    --color-success-medium: #d2a647;  /* doré doux, style miel clair */
+    --color-success-deep:   #ffb20d;  /* caramel doré moyen */
 
   --color-error-faded: #fbeaea;
   --color-error-faint: #f5a8a8;
@@ -117,7 +117,7 @@
   --shadow-sticky: 0 8px 16px -8px rgba(0, 0, 0, 0.1);
   --shadow-strong: 0 0 8px rgba(0, 0, 0, 0.3);
 
-  --background-image : url('images/back1.png');
+  --background-image : url('../../images/back1.png');
   --color-svg-background: invert(0)
 }
 
@@ -685,6 +685,29 @@ a:hover {
     filter: var(--color-svg-background);
 }
 
+#voyelles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border-top: 2px solid var(--color-borders-hairline);
+}
+
+#voyelles p, .arL {
+  display: inline;
+}
+
+
+.arL {
+  display: inline-block; /* ou block si tu préfères */
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  direction: rtl;
+  font-family: "Scheherazade", "Amiri", serif;
+  font-size: 2em;
+}
+
+
 #place-letter {
     display: flex;
     flex-direction: column;
@@ -693,6 +716,7 @@ a:hover {
     color: var(--color-text-default);
     border-top: 2px solid var(--color-borders-hairline);
 }
+
 
 .lang-ar #letterTitle{
     font-size: var(--font-size-jumbo-px);
@@ -819,14 +843,6 @@ a:hover {
 
 .nom-site{
     font-size: var(--font-size-small);
-}
-
-.lang-ar .footer {
-  font-size: calc(var(--font-size-small) + 0.2rem);
-}
-
-.lang-ar .footer-section h3 {
-  font-size: calc(0.5rem + 1rem);
 }
 
 .social-links a {

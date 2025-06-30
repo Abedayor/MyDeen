@@ -4,12 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const souratesContainer = document.querySelector(".sourates");
     const searchInput = document.getElementById("searchInput");
     const noResults = document.querySelector(".no-results");
-    const verseContainer = document.getElementById("verseContainer");
-    const surahTitle = document.getElementById("surahTitle");
-    const versesDiv = document.getElementById("verses");
-    const backButton = document.getElementById("backButton");
-    const audioBar = document.querySelector('.audio-bar');
-    const audio = document.getElementById('audio');
 
     document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "mydeen");
 
@@ -233,19 +227,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 const lang = this.id;
                 localStorage.setItem("language", lang);
                 applyTranslations();
-    
-                    // Mettre à jour aussi le bouton audio si nécessaire
-                const playButton = document.getElementById("play-audio-btn");
-                const t = translations[lang];
-                if (playButton && t && t["play-pause-btn"]) {
-                    playButton.title = t["play-pause-btn"];
-                }
-
-                if (currentSurah && typeof currentSurah.id === "number") {
-                    versesDiv.innerHTML = ""; // Vider les versets précédents
-                    loadSurahVerses(currentSurah.id); // Recharge la sourate dans la nouvelle langue
-                }
-                
             });
         });
     }
@@ -340,32 +321,53 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     searchInput.addEventListener("input", () => {
-        const val = normalizeString(searchInput.value);  // Normalisation de la recherche
-        let found = false;
-    
-        document.querySelectorAll(".surah").forEach(card => {
-            // On récupère les textes visibles dans la carte
-            const nameArabic = normalizeString(card.querySelector(".name-arabic")?.textContent || "");
-            const namePhonetic = normalizeString(card.querySelector(".name-phonetic")?.textContent || "");
-            const nameFrench = normalizeString(card.querySelector(".name-french")?.textContent || "");
-            const number = normalizeString(card.querySelector(".surah-number")?.textContent || "");
-    
-            // Si l’un d’eux contient le texte recherché, on l’affiche
-            if (
-                nameArabic.includes(val) ||
-                namePhonetic.includes(val) ||
-                nameFrench.includes(val) ||
-                number.includes(val)
-            ) {
-                card.style.display = "";
-                found = true;
-            } else {
-                card.style.display = "none";
-            }
-    
-        // Affiche le message 'Aucun résultat' si rien trouvé
-            noResults.style.display = found ? "none" : "block";
-        });
+        if (lang === 'ar'){
+             const val = normalizeString(searchInput.value);  // Normalisation de la recherche
+            let found = false;
+        
+            document.querySelectorAll(".surah-arabic").forEach(card => {
+                const nameArabic = normalizeString(card.querySelector(".name-arabic-surah")?.textContent || "");
+                if (
+                    nameArabic.includes(val) 
+                ) {
+                    card.style.display = "";
+                    found = true;
+                } else {
+                    card.style.display = "none";
+                }
+        
+            // Affiche le message 'Aucun résultat' si rien trouvé
+                noResults.style.display = found ? "none" : "block";
+            });
+        }
+        else{
+            const val = normalizeString(searchInput.value);  // Normalisation de la recherche
+            let found = false;
+        
+            document.querySelectorAll(".surah").forEach(card => {
+                // On récupère les textes visibles dans la carte
+                const nameArabic = normalizeString(card.querySelector(".name-arabic")?.textContent || "");
+                const namePhonetic = normalizeString(card.querySelector(".name-phonetic")?.textContent || "");
+                const nameFrench = normalizeString(card.querySelector(".name-french")?.textContent || "");
+                const number = normalizeString(card.querySelector(".surah-number")?.textContent || "");
+        
+                // Si l’un d’eux contient le texte recherché, on l’affiche
+                if (
+                    nameArabic.includes(val) ||
+                    namePhonetic.includes(val) ||
+                    nameFrench.includes(val) ||
+                    number.includes(val)
+                ) {
+                    card.style.display = "";
+                    found = true;
+                } else {
+                    card.style.display = "none";
+                }
+        
+            // Affiche le message 'Aucun résultat' si rien trouvé
+                noResults.style.display = found ? "none" : "block";
+            });
+        }
     });
 
     const lang = localStorage.getItem("language") || "en";

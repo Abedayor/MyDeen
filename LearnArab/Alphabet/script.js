@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "mydeen");
     const alphabetSection = document.getElementById("alphabet-section");
     const container = document.createElement("div");
     container.className = "letter-container";
@@ -66,6 +67,200 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+    const voyellesSections = document.getElementById('voyelles');
+
+    const voyellesContent = {
+        fr: `
+            <h2>Les voyelles en arabe</h2>
+            <p>En arabe, il n'y a pas de lettres pour les voyelles courtes : on utilise des signes diacritiques. Il existe :</p>
+
+            <h3>Les voyelles courtes (harakât)</h3>
+            <ul>
+                <li><strong>Fatha</strong> : Son <em>/a/</em> <span class='arL'> ـَ </span>  Exemple : <p class='arL'>بَ</p> = « ba »</li>
+                <li><strong>Damma</strong> : Son <em>/ou/</em> <span class='arL'> ـُ </span>  Exemple : <p class='arL'>بُ</p> = « bou »</li>
+                <li><strong>Kasra</strong> : Son <em>/i/</em> <span class='arL'> ـِ </span>  Exemple : <p class='arL'>بِ</p> = « bi »</li>
+            </ul>
+
+            <h3>Soukoun</h3>
+            <p>Marque l’absence de voyelle.  <span class='arL'> ـْ </span> Exemple : <span class='arL'>بْ</span> = « b » (consonne seule)</p>
+
+            <h3>Shadda</h3>
+            <p>Double la consonne.  <span class='arL'> ـّ </span> Exemple : <span class='arL'>بّ</span> = « bb »</p>
+
+            <h3>Les voyelles longues</h3>
+            <ul>
+                <li><strong>Alif</strong> : Son long « a »  <span class='arL'>ا</span> Exemple : <span class='arL'>با</span> = « bā »</li>
+                <li><strong>Waw</strong> : Son long « ou »  <span class='arL'>و</span> Exemple : <span class='arL'>بو</span> = « bū »</li>
+                <li><strong>Ya</strong> : Son long « i »  <span class='arL'>ي</span> Exemple : <span class='arL'>بي</span> = « bī »</li>
+            </ul>
+        `,
+        en: `
+        <h2>Vowels in Arabic</h2>
+        <p>In Arabic, there are no letters for short vowels: diacritical marks are used. They include:</p>
+
+        <h3>Short vowels (harakât)</h3>
+        <ul>
+            <li><strong>Fatha</strong>: Sound <em>/a/</em> <span class='arL'> ـَ </span> Example: <p class='arL'>بَ</p> = "ba"</li>
+            <li><strong>Damma</strong>: Sound <em>/ou/</em> <span class='arL'> ـُ </span> Example: <p class='arL'>بُ</p> = "bou"</li>
+            <li><strong>Kasra</strong>: Sound <em>/i/</em> <span class='arL'> ـِ </span> Example: <p class='arL'>بِ</p> = "bi"</li>
+        </ul>
+
+        <h3>Soukoun</h3>
+        <p>Marks absence of vowel.  <span class='arL'> ـْ </span> Example: <span class='arL'>بْ</span> = "b" (consonant alone)</p>
+
+        <h3>Shadda</h3>
+        <p>Doubles the consonant.  <span class='arL'> ـّ </span> Example: <span class='arL'>بّ</span> = "bb"</p>
+
+        <h3>Long vowels</h3>
+        <ul>
+            <li><strong>Alif</strong>: Long "a" sound  <span class='arL'>ا</span> Example: <span class='arL'>با</span> = "bā"</li>
+            <li><strong>Waw</strong>: Long "ou" sound  <span class='arL'>و</span> Example: <span class='arL'>بو</span> = "bū"</li>
+            <li><strong>Ya</strong>: Long "i" sound  <span class='arL'>ي</span> Example: <span class='arL'>بي</span> = "bī"</li>
+        </ul>
+        `,
+        de: `
+            <h2>Die Vokale im Arabischen</h2>
+            <p>Im Arabischen gibt es keine Buchstaben für die kurzen Vokale: Stattdessen verwendet man diakritische Zeichen. Es gibt:</p>
+
+            <h3>Kurze Vokale (harakât)</h3>
+            <ul>
+                <li><strong>Fatha</strong>: Klang <em>/a/</em> <span class='arL'> ـَ </span> Beispiel: <p class='arL'>بَ</p> = „ba“</li>
+                <li><strong>Damma</strong>: Klang <em>/u/</em> <span class='arL'> ـُ </span> Beispiel: <p class='arL'>بُ</p> = „bu“</li>
+                <li><strong>Kasra</strong>: Klang <em>/i/</em> <span class='arL'> ـِ </span> Beispiel: <p class='arL'>بِ</p> = „bi“</li>
+            </ul>
+
+            <h3>Soukoun</h3>
+            <p>Markiert das Fehlen eines Vokals.  <span class='arL'> ـْ </span> Beispiel: <span class='arL'>بْ</span> = „b“ (nur Konsonant)</p>
+
+            <h3>Shadda</h3>
+            <p>Verdoppelt den Konsonanten.  <span class='arL'> ـّ </span> Beispiel: <span class='arL'>بّ</span> = „bb“</p>
+
+            <h3>Die langen Vokale</h3>
+            <ul>
+                <li><strong>Alif</strong>: Langer Klang „a“  <span class='arL'>ا</span> Beispiel: <span class='arL'>با</span> = „bā“</li>
+                <li><strong>Waw</strong>: Langer Klang „u“  <span class='arL'>و</span> Beispiel: <span class='arL'>بو</span> = „bū“</li>
+                <li><strong>Ya</strong>: Langer Klang „i“  <span class='arL'>ي</span> Beispiel: <span class='arL'>بي</span> = „bī“</li>
+            </ul>
+        `,
+        es: `
+            <h2>Las vocales en árabe</h2>
+            <p>En árabe no hay letras para las vocales cortas: se usan signos diacríticos. Existen:</p>
+
+            <h3>Vocales cortas (harakât)</h3>
+            <ul>
+                <li><strong>Fatha</strong>: Sonido <em>/a/</em> <span class='arL'> ـَ </span> Ejemplo: <p class='arL'>بَ</p> = «ba»</li>
+                <li><strong>Damma</strong>: Sonido <em>/u/</em> <span class='arL'> ـُ </span> Ejemplo: <p class='arL'>بُ</p> = «bu»</li>
+                <li><strong>Kasra</strong>: Sonido <em>/i/</em> <span class='arL'> ـِ </span> Ejemplo: <p class='arL'>بِ</p> = «bi»</li>
+            </ul>
+
+            <h3>Soukoun</h3>
+            <p>Marca la ausencia de vocal.  <span class='arL'> ـْ </span> Ejemplo: <span class='arL'>بْ</span> = «b» (solo consonante)</p>
+
+            <h3>Shadda</h3>
+            <p>Duplica la consonante.  <span class='arL'> ـّ </span> Ejemplo: <span class='arL'>بّ</span> = «bb»</p>
+
+            <h3>Las vocales largas</h3>
+            <ul>
+                <li><strong>Alif</strong>: Sonido largo «a»  <span class='arL'>ا</span> Ejemplo: <span class='arL'>با</span> = «bā»</li>
+                <li><strong>Waw</strong>: Sonido largo «u»  <span class='arL'>و</span> Ejemplo: <span class='arL'>بو</span> = «bū»</li>
+                <li><strong>Ya</strong>: Sonido largo «i»  <span class='arL'>ي</span> Ejemplo: <span class='arL'>بي</span> = «bī»</li>
+            </ul>
+        `,
+        it: `
+            <h2>Le vocali in arabo</h2>
+            <p>In arabo non ci sono lettere per le vocali brevi: si usano segni diacritici. Esistono:</p>
+
+            <h3>Vocali brevi (harakât)</h3>
+            <ul>
+                <li><strong>Fatha</strong>: Suono <em>/a/</em> <span class='arL'> ـَ </span> Esempio: <p class='arL'>بَ</p> = «ba»</li>
+                <li><strong>Damma</strong>: Suono <em>/u/</em> <span class='arL'> ـُ </span> Esempio: <p class='arL'>بُ</p> = «bu»</li>
+                <li><strong>Kasra</strong>: Suono <em>/i/</em> <span class='arL'> ـِ </span> Esempio: <p class='arL'>بِ</p> = «bi»</li>
+            </ul>
+
+            <h3>Soukoun</h3>
+            <p>Indica l’assenza di vocale.  <span class='arL'> ـْ </span> Esempio: <span class='arL'>بْ</span> = «b» (consonante da sola)</p>
+
+            <h3>Shadda</h3>
+            <p>Raddoppia la consonante.  <span class='arL'> ـّ </span> Esempio: <span class='arL'>بّ</span> = «bb»</p>
+
+            <h3>Le vocali lunghe</h3>
+            <ul>
+                <li><strong>Alif</strong>: Suono lungo «a»  <span class='arL'>ا</span> Esempio: <span class='arL'>با</span> = «bā»</li>
+                <li><strong>Waw</strong>: Suono lungo «u»  <span class='arL'>و</span> Esempio: <span class='arL'>بو</span> = «bū»</li>
+                <li><strong>Ya</strong>: Suono lungo «i»  <span class='arL'>ي</span> Esempio: <span class='arL'>بي</span> = «bī»</li>
+            </ul>
+        `,
+        pt: `
+            <h2>As vogais em árabe</h2>
+            <p>Em árabe não existem letras para as vogais curtas: usam-se sinais diacríticos. Existem:</p>
+
+            <h3>Vogais curtas (harakât)</h3>
+            <ul>
+                <li><strong>Fatha</strong>: Som <em>/a/</em> <span class='arL'> ـَ </span> Exemplo: <p class='arL'>بَ</p> = «ba»</li>
+                <li><strong>Damma</strong>: Som <em>/u/</em> <span class='arL'> ـُ </span> Exemplo: <p class='arL'>بُ</p> = «bu»</li>
+                <li><strong>Kasra</strong>: Som <em>/i/</em> <span class='arL'> ـِ </span> Exemplo: <p class='arL'>بِ</p> = «bi»</li>
+            </ul>
+
+            <h3>Soukoun</h3>
+            <p>Marca a ausência de vogal.  <span class='arL'> ـْ </span> Exemplo: <span class='arL'>بْ</span> = «b» (consoante sozinha)</p>
+
+            <h3>Shadda</h3>
+            <p>Duplica a consoante.  <span class='arL'> ـّ </span> Exemplo: <span class='arL'>بّ</span> = «bb»</p>
+
+            <h3>As vogais longas</h3>
+            <ul>
+                <li><strong>Alif</strong>: Som longo «a»  <span class='arL'>ا</span> Exemplo: <span class='arL'>با</span> = «bā»</li>
+                <li><strong>Waw</strong>: Som longo «u»  <span class='arL'>و</span> Exemplo: <span class='arL'>بو</span> = «bū»</li>
+                <li><strong>Ya</strong>: Som longo «i»  <span class='arL'>ي</span> Exemplo: <span class='arL'>بي</span> = «bī»</li>
+            </ul>
+        `,
+        tr: `
+            <h2>Arapçada Sesli Harfler</h2>
+            <p>Arapçada kısa sesli harfler için harf yoktur: bunun yerine işaretler (harekeler) kullanılır. Şunlar vardır:</p>
+
+            <h3>Kısa Sesli Harfler (harakât)</h3>
+            <ul>
+                <li><strong>Fetha</strong>: Ses <em>/a/</em> <span class='arL'> ـَ </span> Örnek: <p class='arL'>بَ</p> = «ba»</li>
+                <li><strong>Damma</strong>: Ses <em>/u/</em> <span class='arL'> ـُ </span> Örnek: <p class='arL'>بُ</p> = «bu»</li>
+                <li><strong>Kasra</strong>: Ses <em>/i/</em> <span class='arL'> ـِ </span> Örnek: <p class='arL'>بِ</p> = «bi»</li>
+            </ul>
+
+            <h3>Soukoun</h3>
+            <p>Sesli harf olmadığını belirtir.  <span class='arL'> ـْ </span> Örnek: <span class='arL'>بْ</span> = «b» (sadece sessiz harf)</p>
+
+            <h3>Shadda</h3>
+            <p>Ünsüzü çiftler.  <span class='arL'> ـّ </span> Örnek: <span class='arL'>بّ</span> = «bb»</p>
+
+            <h3>Uzun Sesli Harfler</h3>
+            <ul>
+                <li><strong>Alif</strong>: Uzun «a» sesi  <span class='arL'>ا</span> Örnek: <span class='arL'>با</span> = «bā»</li>
+                <li><strong>Waw</strong>: Uzun «u» sesi  <span class='arL'>و</span> Örnek: <span class='arL'>بو</span> = «bū»</li>
+                <li><strong>Ya</strong>: Uzun «i» sesi  <span class='arL'>ي</span> Örnek: <span class='arL'>بي</span> = «bī»</li>
+            </ul>
+        `
+};
+
+    // Fonction pour afficher le contenu selon la langue
+    function updateVoyellesContent(lang) {
+        const voyellesSections = document.getElementById('voyelles');
+        if (voyellesContent[lang]) {
+            voyellesSections.innerHTML = voyellesContent[lang];
+        } else {
+            // Par défaut en français si la langue n'existe pas
+            voyellesSections.innerHTML = voyellesContent.fr;
+        }
+    }
+
+    // Exemple : récupérer la langue actuelle stockée ou par défaut
+    function getCurrentLanguage() {
+        return localStorage.getItem("language") || "fr";
+    }
+
+    // Appeler la fonction au chargement
+    document.addEventListener("DOMContentLoaded", () => {
+        updateVoyellesContent(getCurrentLanguage());
+    });
 
 
     const placeSection = document.getElementById("place-letter");
@@ -399,25 +594,6 @@ document.addEventListener("keyup", (event) => {
             letter_title: "Harflerin konumlarına göre şekilleri",
             letter_subtitle: "Arapçada her harf, kelimenin başında, ortasında, sonunda veya tek başına olmasına göre 4 farklı şekilde yazılır."
         },
-        ar: {
-            title: "ماي دين - الحروف",
-            settings: "الإعدادات",
-            theme: "المظهر",
-            aboutTitle: "حول التطبيق",
-            aboutText: "تطبيق تعليمي مخصص لتعلم الحروف العربية والقرآن الكريم.",
-            usefulLinks: "روابط مفيدة",
-            signesBtn: "علامات الوقف والوصل في القرآن",
-            homeB: "الصفحة الرئيسية",
-            text_header: "الحروف العربية",
-            th_lettre: "الحرف",
-            th_nom: "الاسم",
-            th_isolee: "منفصل",
-            th_initiale: "أولي",
-            th_milieu: "وسطي",
-            th_finale: "نهائي",
-            letter_title: "أشكال الحروف حسب موقعها",
-            letter_subtitle: "في اللغة العربية، لكل حرف أربعة أشكال مختلفة حسب موقعه: منفصل، في البداية، في الوسط، أو في نهاية الكلمة.",        
-        }
     };
 
 // Initialisation du menu paramètres
@@ -462,19 +638,23 @@ function initSettingsMenuEvents() {
     });
 
     // Sélection du thème
-    darkModeBtn?.addEventListener("click", () => {
-        document.documentElement.setAttribute("data-theme", "midnight-blue");
-        localStorage.setItem("theme", "midnight-blue");
-        darkModeBtn.classList.add("active");
-        sepiaModeBtn?.classList.remove("active");
-    });
-
-    sepiaModeBtn?.addEventListener("click", () => {
-        document.documentElement.setAttribute("data-theme", "mydeen");
-        localStorage.setItem("theme", "mydeen");
-        sepiaModeBtn.classList.add("active");
-        darkModeBtn?.classList.remove("active");
-    });
+        if (darkModeBtn) {
+            darkModeBtn.onclick = () => {
+                document.documentElement.setAttribute("data-theme", "midnight-blue");
+                darkModeBtn.classList.add("active");
+                sepiaModeBtn.classList.remove("active");
+                localStorage.setItem("theme", "midnight-blue");
+            };
+        }
+    
+        if (sepiaModeBtn) {
+            sepiaModeBtn.onclick = () => {
+                document.documentElement.setAttribute("data-theme", "mydeen");
+                darkModeBtn.classList.remove("active");
+                sepiaModeBtn.classList.add("active");
+                localStorage.setItem("theme", "mydeen");
+            };
+        }
 
     // Choix de la langue
     document.querySelectorAll(".langue-option").forEach(option => {
@@ -483,6 +663,7 @@ function initSettingsMenuEvents() {
             localStorage.setItem("language", selectedLang);
             applyActiveLanguageClass();
             applyTranslations();
+            updateVoyellesContent(selectedLang);
             langueMenu.style.display = "none";
         });
     });
@@ -512,19 +693,10 @@ function applyActiveLanguageClass() {
         btn.classList.toggle("active", btn.id === currentLang);
     });
 
-    // Style RTL pour l'arabe
-    document.body.classList.toggle("arabic", currentLang === "ar");
 }
 
 function applyTranslations() {
         const lang = localStorage.getItem("language") || "en";
-        if (lang === 'ar') {
-            document.body.style.fontFamily = 'Uthmani';
-            document.body.classList.add('lang-ar'); // ajoute la classe spéciale
-        } else {
-            document.body.style.fontFamily = '';
-            document.body.classList.remove('lang-ar'); // retire la classe si pas arabe
-        }
 
         const t = translations[lang];
 

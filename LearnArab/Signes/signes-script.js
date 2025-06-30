@@ -27,6 +27,8 @@ if (contentContainer && topBar) {
     });
 }
 
+document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "mydeen");
+
 // Redirection au clic sur le bouton accueil
 document.getElementById("homeButton")?.addEventListener("click", () => {
     window.location.href = "../../index.html";
@@ -51,7 +53,7 @@ document.addEventListener("keyup", (event) => {
             homeB: "Home",
             text_header: "Stopping and Connecting Signs in the Quran",
             "waqf-lazim": "Waqf Lāzim – Obligatory stop",
-            "waqf-jaiz": "Waqf Jā'iz – Recommended stop",
+            "waqf-jaiz": "Waqf Jā'iz –  Do as you want (50/50)",
             "liaison": "Preferred continuation – Light stop",
             "saktah": "Saktah – Very brief pause",
             "la": "Lā – Do not stop",
@@ -81,7 +83,7 @@ document.addEventListener("keyup", (event) => {
             homeB: "Page d'accueil",
             text_header: "Signes d'arrêt et de liaison du Quran",
             "waqf-lazim": "Waqf Lāzim – Arrêt obligatoire",
-            "waqf-jaiz": "Waqf Jā'iz – Arrêt recommandé",
+            "waqf-jaiz": "Waqf Jā'iz – Arrêt ou liaison (50/50)",
             "liaison": "Liaison préférable – Waqf léger",
             "saktah": "Saktah – Très légère arrêt",
             "la": "Lā – Ne pas s'arrêter",
@@ -325,19 +327,23 @@ function initSettingsMenuEvents() {
     });
 
     // Sélection du thème
-    darkModeBtn?.addEventListener("click", () => {
-        document.documentElement.setAttribute("data-theme", "mdinight-blue");
-        localStorage.setItem("theme", "midnight-blue");
-        darkModeBtn.classList.add("active");
-        sepiaModeBtn?.classList.remove("active");
-    });
-
-    sepiaModeBtn?.addEventListener("click", () => {
-        document.documentElement.setAttribute("data-theme", "mydeen");
-        localStorage.setItem("theme", "mydeen");
-        sepiaModeBtn.classList.add("active");
-        darkModeBtn?.classList.remove("active");
-    });
+        if (darkModeBtn) {
+            darkModeBtn.onclick = () => {
+                document.documentElement.setAttribute("data-theme", "midnight-blue");
+                darkModeBtn.classList.add("active");
+                sepiasModeBtn.classList.remove("active");
+                localStorage.setItem("theme", "midnight-blue");
+            };
+        }
+    
+        if (sepiaModeBtn) {
+            sepiaModeBtn.onclick = () => {
+                document.documentElement.setAttribute("data-theme", "mydeen");
+                darkModeBtn.classList.remove("active");
+                sepiaModeBtn.classList.add("active");
+                localStorage.setItem("theme", "mydeen");
+            };
+        }
 
     // Choix de la langue
     document.querySelectorAll(".langue-option").forEach(option => {

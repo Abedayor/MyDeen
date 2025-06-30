@@ -84,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialisation au chargement
     getSurahPageMap().then(map => {
         surahPageMap = map;
-        console.log(surahPageMap)
     });
     
     function getVerseNumberSymbol(number) {
@@ -167,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     btnLecture.classList.add("active");
                     btnTraduction.classList.remove("active");
                     viewMode = "reading";
-                    displayVerses(currentSurah.arabicVerses, currentTranslation);
+                    displayVerses();
                 });
 
                 const btnTraduction = document.createElement("button");
@@ -178,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     btnTraduction.classList.add("active");
                     btnLecture.classList.remove("active");
                     viewMode = "translation";
-                    displayVerses(currentSurah.arabicVerses, currentTranslation);
+                    displayVerses();
                 });
 
 
@@ -430,24 +429,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 playPauseBtn.addEventListener('click', togglePlayPause);
                 closeBtn.addEventListener('click', closeAudioBar);
                 document.addEventListener("keydown", function (event) {
-                    if (event.key === "ArrowRight" && audioBar.style.display !== "none") {
+                const activeElement = document.activeElement;
+                const isInput = activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA';
+
+                if (event.key === "ArrowRight" && !audioBar.classList.contains('hidden')) {
                     event.preventDefault();
-                    nextBtn?.click(); // Simule un clic sur le bouton "next"
-                    }
-                        // Flèche gauche : recule de 3 secondes
-                    if (event.key === "ArrowLeft" && audioBar.style.display !== "none") {
-                            event.preventDefault();
-                            prevBtn?.click(); // Simule un clic sur le bouton "prev"
-                    }
+                    nextBtn?.click();
+                }
 
-                    const activeElement = document.activeElement;
-                    const isInput = activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA';
+                if (event.key === "ArrowLeft" && !audioBar.classList.contains('hidden')) {
+                    event.preventDefault();
+                    prevBtn?.click();
+                }
 
-                    if (event.key === ' ' && audioBar.style.display !== "none" && !isInput) {
-                        event.preventDefault(); // Empêche le défilement de la page
-                        playPauseBtn.click(); // Simule un clic sur le bouton de lecture/pause
-                    }
-                });
+                if (event.key === ' ' && !audioBar.classList.contains('hidden') && !isInput) {
+                    event.preventDefault();
+                    playPauseBtn.click();
+                }
+            });
+
                 prevBtn.addEventListener('click', moveAudio(-3));
                 nextBtn.addEventListener('click', moveAudio(3));
                 seekBar.addEventListener('input', updateSeekBar);
@@ -474,6 +474,8 @@ document.addEventListener("DOMContentLoaded", () => {
         
             function closeAudioBar() {
                 audio.pause();
+                audio.removeAttribute('src');
+                audio.load();
                 audioBar.classList.add('hidden');
                 playPauseBtn.innerHTML = '&#9654;';
                 playButton.innerHTML = `&#9654; ${getTranslation("play-audio-btn")}`;

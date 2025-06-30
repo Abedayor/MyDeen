@@ -188,7 +188,7 @@
 
 body {
     min-height: 100vh;
-    background-color: var(--color-background-elevated);
+    background-color: var(--color-background-elevated-new);
     color: var(--color-text-default);
     padding: 0 !important;
     overscroll-behavior-y: none;
@@ -272,7 +272,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--color-background-elevated-new); /* Couleur d'exemple */
+    background-color: var(--color-background-elevated-new); 
     height: 2.3rem; 
     margin-bottom: 0;
     z-index: 10000; 

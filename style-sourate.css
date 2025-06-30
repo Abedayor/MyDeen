@@ -61,10 +61,10 @@
   --color-secondary-deep: #a49379;
 
   /* Couleurs de succès, warning, erreur */
-  --color-success-faded: #f0e5cd;
-  --color-success-faint: #c2a983;
-  --color-success-medium: #b19873;
-  --color-success-deep: #8a6d00;;
+  --color-success-faded:  #fcde7b;  /* crème vanille très doux */
+    --color-success-faint:  #fcdf90;  /* jaune pastel chaud */
+    --color-success-medium: #d2a647;  /* doré doux, style miel clair */
+    --color-success-deep:   #ffb20d;  /* caramel doré moyen */
 
   --color-error-faded: #fbeaea;
   --color-error-faint: #f5a8a8;
@@ -233,17 +233,7 @@ body {
 
 @font-face {
     font-family: 'Uthmani';
-    src: url('fonts/uthmani_hafs.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Uthmani-style';
-    src: url('fonts/UthmanTN_v2-0.ttf');
-}
-
-@font-face {
-    font-family: 'Scheherazade';
-    src: url('fonts/ScheherazadeNew-Regular.ttf') format('truetype');
+    src: url('fonts/UthmanicHafs_V22.ttf') format('truetype');
 }
 
 /* Scrollbar */
@@ -657,6 +647,7 @@ a:hover {
     text-align: center !important;
     font-size: 1.8em !important;
     color: #4a4a4a !important;
+    font-weight: 10 !important;
     margin: 20px 0 !important;
     font-family: 'Amiri', serif !important;
     color: var(--color-text-default) !important;
@@ -722,7 +713,6 @@ a:hover {
 #verses {
     width: 100%;
     margin: 0 auto;
-    padding-bottom: 5rem;
     display: flex;
     direction: rtl;
     justify-content: center;
@@ -769,7 +759,7 @@ a:hover {
     margin: 6vh 0;
     text-align: right;
     direction: rtl;
-    line-height: 6.1vh;
+    line-height: 8.1vh;
     word-break: keep-all;
     white-space: normal;
 }
@@ -836,11 +826,20 @@ a:hover {
     margin: 8px 0 20px;
 }
 
-.page-separator {
+.page-separator{
     border: none;
     border-top: 1px solid var(--color-borders-hairline);
     margin: 12px auto 4px;
     width: 100%;
+}
+
+.page-info:last-child .page-separator{
+    display: none;
+}
+
+.page-info:last-child{
+    margin:  0;
+    padding-bottom: 1rem;
 }
 
 .page-number-label {
