@@ -27,7 +27,7 @@ if (contentContainer && topBar) {
     });
 }
 
-document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "mydeen");
+document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "midnight-blue");
 
 // Redirection au clic sur le bouton accueil
 document.getElementById("homeButton")?.addEventListener("click", () => {
@@ -43,7 +43,7 @@ document.addEventListener("keyup", (event) => {
 
     const translations = {
         en: {
-            title: "MyDeen - Signs of the Quran",
+            title: "MyDeenBook - Signs of the Quran",
             settings: "Settings",
             theme: "Theme",
             aboutTitle: "About",
@@ -70,10 +70,11 @@ document.addEventListener("keyup", (event) => {
             "fathatan": "Fathatan – Double vowel 'an'",
             "kasratan": "Kasratan – Double vowel 'in'",
             "dammatan": "Dammatan – Double vowel 'un'",
-            "khafiyyah": "Alif Khafiyyah – Hidden Alif (not written)"
+            "khafiyyah": "Alif Khafiyyah – Hidden Alif (not written)",
+            SocialTitle: "Our Social Media",
         },
         fr: {
-            title: "MyDeen - Signes du Coran",
+            title: "MyDeenBook - Signes du Coran",
             settings: "Paramètres",
             theme: "Thème",
             aboutTitle: "À propos",
@@ -100,10 +101,11 @@ document.addEventListener("keyup", (event) => {
             "fathatan": "Fathatan – Voyelle double \"an\"",
             "kasratan": "Kasratan – Voyelle double \"in\"",
             "dammatan": "Dammatan – Voyelle double \"un\"",
-            "khafiyyah": "Alif Khafiyyah – Alif (non écrit)"
+            "khafiyyah": "Alif Khafiyyah – Alif (non écrit)",
+            SocialTitle: "Nos réseaux sociaux",
         },
         de: {
-            title: "MyDeen – Zeichen des Korans",
+            title: "MyDeenBook – Zeichen des Korans",
             settings: "Einstellungen",
             theme: "Thema",
             aboutTitle: "Über uns",
@@ -130,10 +132,11 @@ document.addEventListener("keyup", (event) => {
             "fathatan": "Fathatan – Doppelvokal 'an'",
             "kasratan": "Kasratan – Doppelvokal 'in'",
             "dammatan": "Dammatan – Doppelvokal 'un'",
-            "khafiyyah": "Alif Khafiyyah – Verborgener Alif (nicht geschrieben)"
+            "khafiyyah": "Alif Khafiyyah – Verborgener Alif (nicht geschrieben)",
+            SocialTitle: "Unsere sozialen Netzwerke",
         },
         es: {
-            title: "MyDeen - Signos del Corán",
+            title: "MyDeenBook - Signos del Corán",
             settings: "Configuraciones",
             theme: "Tema",
             aboutTitle: "Acerca de",
@@ -160,10 +163,11 @@ document.addEventListener("keyup", (event) => {
             "fathatan": "Fathatan – Vocal doble 'an'",
             "kasratan": "Kasratan – Vocal doble 'in'",
             "dammatan": "Dammatan – Vocal doble 'un'",
-            "khafiyyah": "Alif Khafiyyah – Alif oculta (no escrita)"
+            "khafiyyah": "Alif Khafiyyah – Alif oculta (no escrita)",
+            SocialTitle: "Nuestras redes sociales",
         },
         it: {
-            title: "MyDeen - Segni del Corano",
+            title: "MyDeenBook - Segni del Corano",
             settings: "Impostazioni",
             theme: "Tema",
             aboutTitle: "Informazioni",
@@ -190,10 +194,11 @@ document.addEventListener("keyup", (event) => {
             "fathatan": "Fathatan – Doppia vocale 'an'",
             "kasratan": "Kasratan – Doppia vocale 'in'",
             "dammatan": "Dammatan – Doppia vocale 'un'",
-            "khafiyyah": "Alif Khafiyyah – Alif nascosta (non scritta)"
+            "khafiyyah": "Alif Khafiyyah – Alif nascosta (non scritta)",
+            SocialTitle: "I nostri social",
         },
         pt: {
-            title: "MyDeen - Sinais do Alcorão",
+            title: "MyDeenBook - Sinais do Alcorão",
             settings: "Configurações",
             theme: "Tema",
             aboutTitle: "Sobre",
@@ -220,10 +225,11 @@ document.addEventListener("keyup", (event) => {
             "fathatan": "Fathatan – Vogal dupla 'an'",
             "kasratan": "Kasratan – Vogal dupla 'in'",
             "dammatan": "Dammatan – Vogal dupla 'un'",
-            "khafiyyah": "Alif Khafiyyah – Alif oculta (não escrita)"
+            "khafiyyah": "Alif Khafiyyah – Alif oculta (não escrita)",
+            SocialTitle: "Nossas redes sociais",
         },
         tr: {
-            title: "MyDeen - Kur'an'ın İşaretleri",
+            title: "MyDeenBook - Kur'an'ın İşaretleri",
             settings: "Ayarlar",
             theme: "Tema",
             aboutTitle: "Hakkında",
@@ -250,10 +256,12 @@ document.addEventListener("keyup", (event) => {
             "fathatan": "Fathatan – Çift ünlü 'an'",
             "kasratan": "Kasratan – Çift ünlü 'in'",
             "dammatan": "Dammatan – Çift ünlü 'un'",
-            "khafiyyah": "Alif Khafiyyah – Gizli Elif (yazılmamış)"
+            "khafiyyah": "Alif Khafiyyah – Gizli Elif (yazılmamış)",
+            SocialTitle: "Sosyal ağlarımız",
+            
         },
         ar: {
-            title: "ماي دين - إشارات من القرآن",
+            title: "MyDeenBook - إشارات من القرآن",
             settings: "الإعدادات",
             theme: "المظهر",
             aboutTitle: "حول التطبيق",
@@ -280,7 +288,8 @@ document.addEventListener("keyup", (event) => {
             "fathatan": "فتحتان – حركة مزدوجة 'أن'",
             "kasratan": "كسرتان – حركة مزدوجة 'إن'",
             "dammatan": "ضمتان – حركة مزدوجة 'أُن'",
-            "khafiyyah": "ألف خفية – ألف غير مكتوبة"
+            "khafiyyah": "ألف خفية – ألف غير مكتوبة",
+            SocialTitle: "وسائل التواصل الاجتماعي الخاصة بنا",
         }
     };
 
@@ -425,7 +434,9 @@ function applyTranslations() {
         { id: 'titre-fathatan', key: 'fathatan' },
         { id: 'titre-kasratan', key: 'kasratan' },
         { id: 'titre-dammatan', key: 'dammatan' },
-        { id: 'titre-khafiyyah', key: 'khafiyyah' }
+        { id: 'titre-khafiyyah', key: 'khafiyyah' },
+        { id: 'SocialTitle', key: 'SocialTitle'}
+
         ];
 
          elementsToTranslate.forEach(({ id, key }) => {

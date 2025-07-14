@@ -2,7 +2,6 @@ const params = new URLSearchParams(window.location.search);
 const surahId = params.get("id");
 let currentSurah = { id: Number(surahId) };
 
-
 document.addEventListener("DOMContentLoaded", () => {
     initSettingsMenuEvents();
     const topBar = document.querySelector(".top-bar");
@@ -14,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const audio = document.getElementById('audio');
     const contentContainer = document.getElementById("contentContainer");
 
-    document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "mydeen");
+    document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "midnight-blue");
 
     let surahPageMap = {};
     let currentPlayingSurahId = null;
@@ -101,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const chapterData = await chapterRes.json();
             currentSurah.name_arabic = chapterData.chapter.name_arabic;
             currentSurah.name_simple = chapterData.chapter.name_simple;
-            document.title = `MyDeen - ${currentSurah.name_simple}`;
+            document.title = `MyDeenBook - ${currentSurah.name_simple}`;
 
             // 📝 Traduction ID par langue
             const translationMap = {
@@ -197,7 +196,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
     function displayVerses() {
         versesDiv.innerHTML = "";
     
@@ -232,8 +230,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 newSurahTitle.insertAdjacentElement("afterend", basmalaDiv);
             }
         }
-
-
     
         const fragment = document.createDocumentFragment();
     
@@ -373,8 +369,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return text.replace(footnoteRegex, '');
     }
 
-
-
     let audioEventListenersInitialized = false;
 
         function initAudioPlayer(surahId) {
@@ -389,6 +383,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
             const playButton = document.getElementById("play-audio-btn");
+            const spinner = document.getElementById('spinner');
 
             let isDragging = false;
 
@@ -457,6 +452,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             
             loadAudio(audioPath);
+
+            function showLoading() {
+                spinner.classList.remove('hidden');
+                playPauseBtn.classList.add('hidden');
+            }
+
+            // Cache le spinner et affiche le bouton play/pause quand audio est prêt
+            function hideLoading() {
+                spinner.classList.add('hidden');
+                playPauseBtn.classList.remove('hidden');
+            }
         
             function togglePlayPause() {
                 if (audio.paused) {
@@ -517,12 +523,22 @@ document.addEventListener("DOMContentLoaded", () => {
             }            
         
             function loadAudio(source) {
-                audio.src = source;
+            showLoading();
+            audio.src = source;
+            audio.load();
+
+            // On écoute l'événement canplay pour savoir quand l'audio est prêt
+            audio.addEventListener('canplay', function onCanPlay() {
+                hideLoading();
                 audio.play();
                 audioBar.classList.remove('hidden');
                 playPauseBtn.classList.remove('paused');
                 playPauseBtn.innerHTML = '&#10074;&#10074;';
-            }
+                // On enlève cet écouteur pour éviter plusieurs appels
+                audio.removeEventListener('canplay', onCanPlay);
+            });
+        }
+
 
             function seekAudio(event) {
                 const rect = seekBar.getBoundingClientRect();
@@ -550,7 +566,9 @@ loadSurahVerses(surahId);
             aboutText: "Educational app dedicated to learning the Arabic alphabet and the Quran.",
             usefulLinks: "Useful Links",
             alphabetLink: "Alphabet",
-            aTranslation: `Translation by`
+            aTranslation: `Translation by`,
+            SocialTitle: "Our Social Media",
+            
         },
         fr: {
             settings: "Paramètres",
@@ -564,7 +582,8 @@ loadSurahVerses(surahId);
             aboutText: "Application éducative dédiée à l'apprentissage de l'alphabet arabe et du Coran.",
             usefulLinks: "Liens utiles",
             alphabetLink: "Alphabet",
-            aTranslation: `Traduction de`
+            aTranslation: `Traduction de`,
+            SocialTitle: "Nos réseaux sociaux",
         },
         de: {
             settings: "Einstellungen",
@@ -578,7 +597,8 @@ loadSurahVerses(surahId);
             aboutText: "Bildungs-App zum Erlernen des arabischen Alphabets und des Korans.",
             usefulLinks: "Nützliche Links",
             alphabetLink: "Alphabet",
-            aTranslation: `Übersetzung von`
+            aTranslation: `Übersetzung von`,
+            SocialTitle: "Unsere sozialen Netzwerke",
         },
         es: {
             settings: "Configuraciones",
@@ -592,7 +612,8 @@ loadSurahVerses(surahId);
             aboutText: "Aplicación educativa dedicada al aprendizaje del alfabeto árabe y del Corán.",
             usefulLinks: "Enlaces útiles",
             alphabetLink: "Alfabeto",
-            aTranslation: `Traducción de`
+            aTranslation: `Traducción de`,
+            SocialTitle: "Nuestras redes sociales",
         },
         it: {
             settings: "Impostazioni",
@@ -606,7 +627,8 @@ loadSurahVerses(surahId);
             aboutText: "Applicazione educativa dedicata all'apprendimento dell'alfabeto arabo e del Corano.",
             usefulLinks: "Link utili",
             alphabetLink: "Alfabeto",
-            aTranslation: `Traduzione di`
+            aTranslation: `Traduzione di`,
+            SocialTitle: "I nostri social",
         },
         pt: {
             settings: "Configurações",
@@ -620,7 +642,8 @@ loadSurahVerses(surahId);
             aboutText: "Aplicativo educativo dedicado ao aprendizado do alfabeto árabe e do Alcorão.",
             usefulLinks: "Links úteis",
             alphabetLink: "Alfabeto",
-            aTranslation: `Tradução de`
+            aTranslation: `Tradução de`,
+            SocialTitle: "Nossas redes sociais",
         },
         tr: {
             settings: "Ayarlar",
@@ -634,7 +657,8 @@ loadSurahVerses(surahId);
             aboutText: "Arap alfabesi ve Kur'an öğrenimine adanmış eğitim uygulaması.",
             usefulLinks: "Faydalı bağlantılar",
             alphabetLink: "Alfabe",
-            aTranslation: `tarafından çeviri`
+            aTranslation: `tarafından çeviri`,
+            SocialTitle: "Sosyal ağlarımız",
         },
         ar: {
             settings: "الإعدادات",
@@ -648,7 +672,8 @@ loadSurahVerses(surahId);
             aboutText: "تطبيق تعليمي مخصص لتعلم الحروف العربية والقرآن الكريم.",
             usefulLinks: "روابط مفيدة",
             alphabetLink: "الحروف",
-            aTranslation: `ترجمة`
+            aTranslation: `ترجمة`,
+            SocialTitle: "وسائل التواصل الاجتماعي الخاصة بنا",
         }
     };
 
@@ -698,6 +723,8 @@ loadSurahVerses(surahId);
         const Traducteur = document.getElementById('Traducteur')
         if (Traducteur) Traducteur.textContent = getTradName()
 
+        const SocialTitle = document.getElementById('SocialTitle')
+        if (SocialTitle) SocialTitle.textContent = t.SocialTitle
 
         const playButton = document.getElementById("play-audio-btn");
         const playPauseBtn = document.getElementById('play-pause-btn');

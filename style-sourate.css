@@ -294,11 +294,6 @@ body {
     filter: var(--color-svg-background);
 }
 
-#homeButton:hover{
-    background: var(--color-background-alternative-faint);
-    border-radius: 50%;
-}
-
 .tawhid {
     display: block;
     position: absolute;
@@ -338,9 +333,9 @@ body {
     align-items: center;
 }
 
-.globe:hover {
-    background: var(--color-background-alternative-faint);
-    border-radius: 50%;
+.globe:hover, .settings-fenetre img:hover,.settings-icon:hover, .close-settings:hover,#homeButton:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 .settings-icon {
@@ -354,11 +349,6 @@ body {
     filter:var(--color-svg-background);
     cursor: pointer;
     align-items: center;
-}
-
-.settings-icon:hover {
-    background: var(--color-background-alternative-faint);
-    border-radius: 50%;
 }
 
 .langue{
@@ -470,11 +460,6 @@ body {
     filter:var(--color-svg-background); 
 }
 
-.settings-fenetre img:hover{
-    background: rgba(0, 0, 0, .1);
-    border-radius: 50%;
-}
-
 .settings-fenetre::after{
     content: '';
     position: absolute;
@@ -547,7 +532,6 @@ body ::selection {
     position: relative;
     margin-top: 2.4rem; 
     padding: 0 !important; 
-    min-height: 100%;
     left: 0;
     right: 0;
     bottom: 0;
@@ -701,13 +685,12 @@ a:hover {
 
 /* === SECTION LECTURE - MUSHAF STYLE === */
 #verseContainer {
-  background-color: var(--color-background-default);
-  width: 100%;
-  position: relative;
-  min-height: 100%;
-  margin: 0 auto;
-  padding-top: 0;
-  top: 0;
+    background-color: var(--color-background-default);
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    padding-top: 0;
+    top: 0;
 }
 
 #verses {
@@ -744,8 +727,8 @@ a:hover {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 0.5px;
-    background-color: var(--color-background-alternative-deep);
+    height: 3px;
+    background-color: var(--color-background-alternative-medium);
     border-radius: 5px;
 }
 
@@ -756,18 +739,12 @@ a:hover {
     font-variant-ligatures: contextual;
     font-size: calc(1.2 * var(--font-size));
     color: var(--color-text-default);
-    margin: 6vh 0;
+    margin: 5vh 0;
     text-align: right;
     direction: rtl;
     line-height: 8.1vh;
     word-break: keep-all;
     white-space: normal;
-}
-
-.word:hover {
-    color: var(--color-success-medium);
-    cursor: pointer;
-    transition: color 0.3s ease;
 }
 
 .verse-container-flex .translation-text {
@@ -779,7 +756,7 @@ a:hover {
     direction: ltr;
     line-height: 4vh;
     width: 100%;
-    margin-bottom: 9vh;
+    margin-bottom: 5vh;
     overflow-wrap: break-word;
     text-align: left;
 }
@@ -804,7 +781,6 @@ a:hover {
 .mushaf-pages {
     display: flex;
     flex-direction: column;
-    height: auto; /* Prend toute la hauteur de l'écran */
     align-items: center;
     justify-content: center;
     overflow: hidden; /* Empêche le dépassement */
@@ -821,7 +797,7 @@ a:hover {
 
 .page-info {
     text-align: center;
-    width: 90%;
+    width: 100%;
     font-family: 'Tajawal', sans-serif;
     margin: 8px 0 20px;
 }
@@ -1047,6 +1023,26 @@ a:hover {
     font-size: 1.4rem;
 }
 
+#spinner {
+  border: 4px solid rgba(0,0,0,0.1);
+  border-left-color: #ffffff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
 .audio-bar img{
     filter:var(--color-svg-background);
     background: none;
@@ -1059,13 +1055,11 @@ a:hover {
 }
   
 .audio-bar img:hover{
-    background: var(--color-background-alternative-faint);
-    border-radius: 50%;
+    transform: scale(1.1);
 }
 
 .audio-bar button:hover {
-    background: var(--color-background-alternative-faint);
-    border-radius: 50%;
+    transform: scale(1.1);
 }
 
 
@@ -1124,9 +1118,32 @@ a:hover {
   font-size: calc(0.5rem + 1rem);
 }
 
-.social-links a {
-  margin-right: 0.8rem;
+#SocialTitle {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--color-primary, #006666);
+}
+
+#LinksContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3vh;
+}
+
+#socialMedia a {
   display: inline-block;
+  overflow: hidden;
+}
+
+#socialMedia a:hover {
+  transform: scale(1.1);
+}
+
+#socialMedia a img {
+  width: 24px;
+  height: 24px;
+  filter : var(--color-svg-background);
 }
 
 a:hover{

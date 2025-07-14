@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title class="title">MyDeen</title>
+  <title class="title">MyDeenBook</title>
   <link rel="stylesheet" href="style-sourate.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -54,13 +54,10 @@
     </div>
 
   <div id="contentContainer">
+
   <div id="verseContainer" style="display:none;">
         <div id="surahTitle"></div>
         <div id="verses" class="verses-container"></div>
-        <div id="NavSurah">
-            <div id="prev-surah"></div>
-            <div id="next-surah"></div>
-        </div>
     </div>
 
   <footer class="footer">
@@ -68,7 +65,7 @@
         <div class="footer-section">
             <h3 id="aboutTitle">À propos</h3>
             <p id="aboutText">Application éducative dédiée à l'apprentissage de l'alphabet arabe et du Coran.</p>
-             <div class="nom-site">&copy; 2025 <a href="index.html">MyDeen</a>.</div>
+             <div class="nom-site">&copy; 2025 <a href="index.html">MyDeenBook.com</a>.</div>
         </div>
         <div class="footer-section">
             <h3 id="usefulLinks">Liens utiles</h3>
@@ -76,6 +73,21 @@
                 <li><a id="alphabetLink" href="LearnArab/Alphabet/alphabet.html">Alphabet</a></li>
                 <li><a href="LearnArab/Signes/signes.html"  id="signesBtn" class="btn-signes">Les Signes d'arrêt et de liaison du Quran</a></li>
             </ul>
+        </div>
+        <div class="footer-section">
+            <div id="socialMedia">
+                <h3 id="SocialTitle">Nos réseaux sociaux</h3>
+                
+                <div id="LinksContainer">
+                    <a id="tiktokLink" href="https://www.tiktok.com/@mydeenbookislam" target="_blank" rel="noopener noreferrer">
+                        <img id="tiktokLogo" src="images/tiktok-logo.svg" alt="TikTok MyDeenBook" />
+                    </a>
+                    
+                    <a id="instagramLink" href="https://www.instagram.com/mydeenbooksite" target="_blank" rel="noopener noreferrer">
+                        <img id="instagramLogo" src="images/instagram-logo.svg" alt="Instagram MyDeenBook" />
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     </footer>
@@ -96,6 +108,7 @@
                 <p id="current-time">00:00</p>
                 <img id="prev-btn" title="- 3sec" aria-label="- 3sec" src="images/skip-back.svg" alt="flèche">
                 <button id="play-pause-btn" class="paused" title="Pause/Lancer">&#10073;&#10073;</button>
+                <div id="spinner" class="hidden"></div>
                 <img id="next-btn" title="+ 3sec" aria-label="+ 3sec" src="images/skip-forward.svg" alt="fleche">
                 <img id="close-btn" title="Répéter" aria-label="Répéter" src="images/x.svg" alt="fleche">
                 <p id="duration">00:00</p>

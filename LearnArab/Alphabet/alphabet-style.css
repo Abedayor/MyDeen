@@ -117,7 +117,7 @@
   --shadow-sticky: 0 8px 16px -8px rgba(0, 0, 0, 0.1);
   --shadow-strong: 0 0 8px rgba(0, 0, 0, 0.3);
 
-  --background-image : url('../../images/back1.png');
+  --background-image : #a7905f;
   --color-svg-background: invert(0)
 }
 
@@ -263,11 +263,6 @@ src: url('../../fonts/uthmani_hafs.ttf') format('truetype');
     filter: var(--color-svg-background);
 }
 
-#homeButton:hover{
-    background: var(--color-background-alternative-faint);
-    border-radius: 50%;
-}
-
 .tawhid {
     display: block;
     position: absolute;
@@ -307,9 +302,9 @@ src: url('../../fonts/uthmani_hafs.ttf') format('truetype');
     align-items: center;
 }
 
-.globe:hover {
-    background: var(--color-background-alternative-faint);
-    border-radius: 50%;
+.globe:hover, .settings-fenetre img:hover,.settings-icon:hover, .close-settings:hover,#homeButton:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 .settings-icon {
@@ -323,11 +318,6 @@ src: url('../../fonts/uthmani_hafs.ttf') format('truetype');
     filter:var(--color-svg-background);
     cursor: pointer;
     align-items: center;
-}
-
-.settings-icon:hover {
-    background: var(--color-background-alternative-faint);
-    border-radius: 50%;
 }
 
 .langue{
@@ -385,7 +375,7 @@ src: url('../../fonts/uthmani_hafs.ttf') format('truetype');
     display: none;
     flex-direction: column;
     min-height: 100vh;
-    width: 95%; /* Masqué par défaut */
+    width: 96%; /* Masqué par défaut */
     position: absolute;
     right: 0;
     top: 0;
@@ -437,11 +427,6 @@ src: url('../../fonts/uthmani_hafs.ttf') format('truetype');
     width: 24px;
     font-weight: bold;
     filter:var(--color-svg-background); 
-}
-
-.settings-fenetre img:hover{
-    background: rgba(0, 0, 0, .1);
-    border-radius: 50%;
 }
 
 .settings-fenetre::after{
@@ -588,6 +573,11 @@ header h1 {
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
+
+header h3{
+    font-size: var(--font-size-medium-px);
+}
+
 header::after {
     content: '';
     position: absolute;
@@ -598,6 +588,38 @@ header::after {
     background-color: var(--color-background-alternative-deep);
     margin-bottom: 20px;
     border-radius: 5px;
+}
+
+/* Media queries pour responsive */
+
+@media (max-width: 900px) {
+    header {
+        height: 10rem;
+    }
+    header h1 {
+        font-size: 2.8rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        height: 8rem;
+    }
+    header h1 {
+        font-size: 2rem;
+        padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    header {
+        height: 6rem;
+    }
+    header h1 {
+        font-size: 1.5rem;
+        padding: 0 0.5rem;
+    }
 }
 
 a:hover {
@@ -845,9 +867,32 @@ a:hover {
     font-size: var(--font-size-small);
 }
 
-.social-links a {
-  margin-right: 0.8rem;
+#SocialTitle {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--color-primary, #006666);
+}
+
+#LinksContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3vh;
+}
+
+#socialMedia a {
   display: inline-block;
+  overflow: hidden;
+}
+
+#socialMedia a:hover {
+  transform: scale(1.1);
+}
+
+#socialMedia a img {
+  width: 24px;
+  height: 24px;
+  filter : var(--color-svg-background);
 }
 
 a:hover{

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "mydeen");
+    document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "midnight-blue");
     const alphabetSection = document.getElementById("alphabet-section");
     const container = document.createElement("div");
     container.className = "letter-container";
@@ -462,7 +462,7 @@ document.addEventListener("keyup", (event) => {
 
     const translations = {
         en: {
-            title: "MyDeen - Alphabet",
+            title: "MyDeenBook - Alphabet",
             settings: "Settings",
             theme: "Theme",
             aboutTitle: "About",
@@ -479,9 +479,10 @@ document.addEventListener("keyup", (event) => {
             th_finale: "Final",
             letter_title: "Letter shapes according to their position",
             letter_subtitle: "In Arabic, each letter has 4 different forms depending on whether it appears alone, at the beginning, in the middle, or at the end of a word.",
+            SocialTitle: "Our Social Media",
         },
         fr: {
-            title: "MyDeen - Alphabet",
+            title: "MyDeenBook - Alphabet",
             settings: "Paramètres",
             theme: "Thème",
             aboutTitle: "À propos",
@@ -498,9 +499,10 @@ document.addEventListener("keyup", (event) => {
             th_finale: "Finale",
             letter_title: "Formes des lettres selon leur position",
             letter_subtitle: "En effet, en arabe chaque lettre a 4 façons d'être écrite en fonction de si elle est placée seule, au début, au milieu ou à la fin d'un mot.",
+            SocialTitle: "Nos réseaux sociaux",
         },
         de: {
-            title: "MyDeen – Alphabet",
+            title: "MyDeenBook – Alphabet",
             settings: "Einstellungen",
             theme: "Thema",
             aboutTitle: "Über uns",
@@ -516,10 +518,11 @@ document.addEventListener("keyup", (event) => {
             th_milieu: "Mitte",
             th_finale: "Final",
             letter_title: "Buchstabenformen je nach Position",
-            letter_subtitle: "Im Arabischen hat jeder Buchstabe vier verschiedene Formen, je nachdem, ob er allein steht, am Anfang, in der Mitte oder am Ende eines Wortes vorkommt."
+            letter_subtitle: "Im Arabischen hat jeder Buchstabe vier verschiedene Formen, je nachdem, ob er allein steht, am Anfang, in der Mitte oder am Ende eines Wortes vorkommt.",
+            SocialTitle: "Unsere sozialen Netzwerke",
         },
         es: {
-            title: "MyDeen - Alfabeto",
+            title: "MyDeenBook - Alfabeto",
             settings: "Configuraciones",
             theme: "Tema",
             aboutTitle: "Acerca de",
@@ -535,10 +538,11 @@ document.addEventListener("keyup", (event) => {
             th_milieu: "Medial",
             th_finale: "Final",
             letter_title: "Formas de las letras según su posición",
-            letter_subtitle: "En árabe, cada letra tiene 4 formas distintas dependiendo de si aparece sola, al inicio, en el medio o al final de una palabra."
+            letter_subtitle: "En árabe, cada letra tiene 4 formas distintas dependiendo de si aparece sola, al inicio, en el medio o al final de una palabra.",
+            SocialTitle: "Nuestras redes sociales",
         },
         it: {
-            title: "MyDeen - Alfabeto",
+            title: "MyDeenBook - Alfabeto",
             settings: "Impostazioni",
             theme: "Tema",
             aboutTitle: "Informazioni",
@@ -554,10 +558,11 @@ document.addEventListener("keyup", (event) => {
             th_milieu: "Mediana",
             th_finale: "Finale",
             letter_title: "Forme delle lettere in base alla posizione",
-            letter_subtitle: "In arabo, ogni lettera ha 4 forme diverse a seconda che si trovi da sola, all'inizio, nel mezzo o alla fine di una parola." 
+            letter_subtitle: "In arabo, ogni lettera ha 4 forme diverse a seconda che si trovi da sola, all'inizio, nel mezzo o alla fine di una parola.",
+            SocialTitle: "I nostri social", 
         },
         pt: {
-            title: "MyDeen - Alfabeto",
+            title: "MyDeenBook - Alfabeto",
             settings: "Configurações",
             theme: "Tema",
             aboutTitle: "Sobre",
@@ -573,10 +578,11 @@ document.addEventListener("keyup", (event) => {
             th_milieu: "Meio",
             th_finale: "Final",
             letter_title: "Formas das letras conforme a posição",
-            letter_subtitle: "De fato, no árabe cada letra tem 4 formas diferentes dependendo se está sozinha, no início, no meio ou no final de uma palavra."
+            letter_subtitle: "De fato, no árabe cada letra tem 4 formas diferentes dependendo se está sozinha, no início, no meio ou no final de uma palavra.",
+            SocialTitle: "Nossas redes sociais",
         },
         tr: {
-            title: "MyDeen - Alfabe",
+            title: "MyDeenBook - Alfabe",
             settings: "Ayarlar",
             theme: "Tema",
             aboutTitle: "Hakkında",
@@ -592,7 +598,8 @@ document.addEventListener("keyup", (event) => {
             th_milieu: "Ortada",
             th_finale: "Sonda",
             letter_title: "Harflerin konumlarına göre şekilleri",
-            letter_subtitle: "Arapçada her harf, kelimenin başında, ortasında, sonunda veya tek başına olmasına göre 4 farklı şekilde yazılır."
+            letter_subtitle: "Arapçada her harf, kelimenin başında, ortasında, sonunda veya tek başına olmasına göre 4 farklı şekilde yazılır.",
+            SocialTitle: "Sosyal ağlarımız",
         },
     };
 
@@ -753,6 +760,9 @@ function applyTranslations() {
 
         const SousTitre =document.getElementById("SousTitre");
         if (SousTitre) SousTitre.textContent = t.letter_subtitle
+
+        const SocialTitle = document.getElementById('SocialTitle')
+        if (SocialTitle) SocialTitle.textContent = t.SocialTitle
 
         applyActiveLanguageClass();
     }

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="icon" href="images/logo.png" type="image/x-icon">
-    <title>MyDeen</title>
+    <title>MyDeenBook</title>
     <link rel="stylesheet" href="style.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3T35NSWCH"></script>
@@ -56,27 +56,85 @@
     <div id="contentContainer">
         <!-- En-tête -->
         <header id="header">
-            <h1>MyDeen</h1>
+            <h1>MyDeenBook</h1>
+        </header>
+
+    <main id="BigHero">
+        <section id="miniHero">
+            <section id="hero">
+                <div id="HeroTitre">Découvre toutes les sourates et l’alphabet arabe</div>
+
+                <div id="ExpSite">
+                    <p id="expSitePara1">
+                    Bienvenue sur <strong>MyDeenBook.com</strong>, votre espace dédié à la découverte et à l’apprentissage de la belle langue arabe et des enseignements du Qur'an.  
+                    Retrouvez ici toutes les sourates du Coran ainsi qu'un guide complet pour <a href="LearnArab/Alphabet/alphabet.html">apprendre l’alphabet arabe</a> pour nourrir votre foi.  
+                    Que vous soyez débutant ou déjà initié, MyDeenBook vous accompagne avec des ressources claires et accessibles.  
+                    Faites de chaque visite une occasion de grandir.
+                    </p>
+                </div>
+            </section>
+
+            <section id="Hadith">
+                <h3 id="HTitre">Hadith inspirant</h3>
+                <blockquote id="quote">
+                    Le Prophète ﷺ a dit :  
+                    « Celui qui montre une bonne voie à suivre aura la même récompense que celui qui l’emprunte, sans que cela ne diminue en rien leurs récompenses respectives. » 
+                    <br>
+                </blockquote>
+                <strong id="sourceH">[Muslim, Riyad as-Salihin 174]</strong>
+            </section>
+        </section>
+    <section id="don">
+            <h2 id="donTitre">Supporte le projet MyDeenBook et contribue à mon mariage</h2>
+
+            <p id="donPara1">
+            Si ce site te plaît et t’aide dans ton apprentissage, tu peux soutenir son développement par un don.  
+            Chaque contribution, petite ou grande, est précieuse pour continuer à proposer du contenu gratuit, améliorer le site, et m’aider personnellement dans ce projet important.
+            </p>
+
+            <p id="donPara2">
+            Vos dons m’aident aussi à concrétiser un rêve important : me marier et construire mon avenir avec ma femme pour subvenir à ses besoins et à pouvoir fonder une famille sans les mettres dans la difficulté .
+            </p>
+
+            <p id="donPara3">
+            Tu peux faire un don sécurisé via PayPal en cliquant sur le bouton ci-dessous :
+            </p>
+
+            <a id="donLienPaypal" href="https://www.paypal.me/MyDeenAdmin" target="_blank" rel="noopener noreferrer">PayPal</a>
+
+            <p id="donPara4">
+            Merci du fond du cœur pour ton soutien et ta confiance.  
+            Qu’Allah te récompense abondamment.  
+            Barak Allahu fik!
+            </p>
+    </section>
+    </main>
+
+    <section class="main-content">
+        
+        <section id="ChoixTri">
+            <button id="btn-normal">Ordre Mushaf</button>
             <section class="search-container">
                 <img src="images/magnifying-glass.svg" alt="search" class="search-icon">
                 <input type="text" id="searchInput" placeholder="Rechercher une sourate..." />
             </section>
-        </header>
+            <button id="btn-revelation">Ordre de révélation</button>
+        </section>
 
-    <div class="main-content">
+
         <div class="sourates">
         </div>
         <div class="no-results" id="noResults" >
             Aucune sourate trouvée.
         </div>
-    </div>
+    </section>
 
     <footer class="footer">
     <div class="footer-content">
         <div class="footer-section">
             <h3 id="aboutTitle">À propos</h3>
             <p id="aboutText">Application éducative dédiée à l'apprentissage de l'alphabet arabe et du Coran.</p>
-             <div class="nom-site">&copy; 2025 <a href="index.html">MyDeen</a>.</div>
+             <div class="nom-site">&copy; 2025 <a href="index.html">MyDeenBook.com</a>.</div>
         </div>
         <div class="footer-section">
             <h3 id="usefulLinks">Liens utiles</h3>
@@ -84,6 +142,21 @@
                 <li><a id="alphabetLink" href="LearnArab/Alphabet/alphabet.html">Alphabet</a></li>
                 <li><a href="LearnArab/Signes/signes.html"  id="signesBtn" class="btn-signes">Les Signes d'arrêt et de liaison du Quran</a></li>
             </ul>
+        </div>
+        <div class="footer-section">
+            <div id="socialMedia">
+                <h3 id="SocialTitle">Nos réseaux sociaux</h3>
+                
+                <div id="LinksContainer">
+                    <a id="tiktokLink" href="https://www.tiktok.com/@mydeenbookislam" target="_blank" rel="noopener noreferrer">
+                        <img id="tiktokLogo" src="images/tiktok-logo.svg" alt="TikTok MyDeenBook" />
+                    </a>
+                    
+                    <a id="instagramLink" href="https://www.instagram.com/mydeenbooksite" target="_blank" rel="noopener noreferrer">
+                        <img id="instagramLogo" src="images/instagram-logo.svg" alt="Instagram MyDeenBook" />
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     </footer>
