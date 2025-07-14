@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("searchInput");
     const noResults = document.querySelector(".no-results");
 
-    document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "midnight-blue");
-
     // --- VARIABLES GLOBALES ---
     let allSurahs = [];
     let currentOrder = "normal"; 
@@ -19,8 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
             searchPlaceholder: "Search for a surah...",
             noResults: "No surah found.",
             signesBtn: "Stopping and Linking Signs in the Quran",
-            'play-audio-btn': "Play Audio",
-            "play-audio-btn-paused": "Pause Audio",
             aboutTitle: "About",
             aboutText: "Educational app dedicated to learning the Arabic alphabet and the Quran.",
             usefulLinks: "Useful Links",
@@ -52,8 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
             searchPlaceholder: "Rechercher une sourate...",
             noResults: "Aucune sourate trouvée.",
             signesBtn: "Les Signes d'arrêt et de liaison du Quran",
-            'play-audio-btn': "Lire le son",
-            "play-audio-btn-paused": "Arrêter le son",
             aboutTitle: "À propos",
             aboutText: "Application éducative dédiée à l'apprentissage de l'alphabet arabe et du Coran.",
             usefulLinks: "Liens utiles",
@@ -84,8 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
             searchPlaceholder: "Nach einer Sure suchen...",
             noResults: "Keine Sure gefunden.",
             signesBtn: "Stopp- und Verbindungszeichen im Koran",
-            'play-audio-btn': "Audio abspielen",
-            "play-audio-btn-paused": "Audio pausieren",
             aboutTitle: "Über uns",
             aboutText: "Bildungs-App zum Erlernen des arabischen Alphabets und des Korans.",
             usefulLinks: "Nützliche Links",
@@ -116,8 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
             searchPlaceholder: "Buscar una sura...",
             noResults: "No se encontró ninguna sura.",
             signesBtn: "Signos de parada y enlace en el Corán",
-            'play-audio-btn': "Reproducir audio",
-            "play-audio-btn-paused": "Pausar audio",
             aboutTitle: "Acerca de",
             aboutText: "Aplicación educativa dedicada al aprendizaje del alfabeto árabe y del Corán.",
             usefulLinks: "Enlaces útiles",
@@ -148,8 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
             searchPlaceholder: "Cerca una sura...",
             noResults: "Nessuna sura trovata.",
             signesBtn: "Segni di arresto e collegamento nel Corano",
-            'play-audio-btn': "Riproduci audio",
-            "play-audio-btn-paused": "Pausa audio",
             aboutTitle: "Informazioni",
             aboutText: "Applicazione educativa dedicata all'apprendimento dell'alfabeto arabo e del Corano.",
             usefulLinks: "Link utili",
@@ -180,8 +168,6 @@ document.addEventListener("DOMContentLoaded", () => {
             searchPlaceholder: "Pesquisar uma sura...",
             noResults: "Nenhuma sura encontrada.",
             signesBtn: "Sinais de parada e ligação no Alcorão",
-            'play-audio-btn': "Reproduzir áudio",
-            "play-audio-btn-paused": "Pausar áudio",
             aboutTitle: "Sobre",
             aboutText: "Aplicativo educativo dedicado ao aprendizado do alfabeto árabe e do Alcorão.",
             usefulLinks: "Links úteis",
@@ -212,8 +198,6 @@ document.addEventListener("DOMContentLoaded", () => {
             searchPlaceholder: "Bir sure arayın...",
             noResults: "Hiçbir sure bulunamadı.",
             signesBtn: "Kur'an'daki Durdurma ve Bağlama İşaretleri",
-            'play-audio-btn': "Sesli dinle",
-            "play-audio-btn-paused": "Sesli dinle durdur",
             aboutTitle: "Hakkında",
             aboutText: "Arap alfabesi ve Kur'an öğrenimine adanmış eğitim uygulaması.",
             usefulLinks: "Faydalı bağlantılar",
@@ -244,8 +228,6 @@ document.addEventListener("DOMContentLoaded", () => {
             searchPlaceholder: "ابحث عن سورة...",
             noResults: "لم يتم العثور على أي سورة.",
             signesBtn: "علامات الوقف والوصل في القرآن",
-            'play-audio-btn': "تشغيل الصوت",
-            "play-audio-btn-paused": "إيقاف الصوت",
             aboutTitle: "حول التطبيق",
             aboutText: "تطبيق تعليمي مخصص لتعلم الحروف العربية والقرآن الكريم.",
             usefulLinks: "روابط مفيدة",
@@ -277,10 +259,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const t = translations[lang];
 
         if (lang === 'ar') {
-            document.body.style.fontFamily = 'Uthmani';
             document.body.classList.add('lang-ar');
         } else {
-            document.body.style.fontFamily = '';
             document.body.classList.remove('lang-ar');
         }
     
@@ -437,6 +417,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const darkModeBtn = document.getElementById("darkModeToggle");
         const lightModeBtn = document.getElementById("sepiaModeToggle");
         const langueOptions = document.querySelectorAll(".langue-option");
+
+        document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "midnight-blue");
     
         if (!settingsIcon || !settingsMenu) return;
     
@@ -516,7 +498,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     searchInput.addEventListener("input", () => {
         if (lang === 'ar'){
-             const val = normalizeString(searchInput.value);  // Normalisation de la recherche
+            const val = normalizeString(searchInput.value);  // Normalisation de la recherche
             let found = false;
         
             document.querySelectorAll(".surah-arabic").forEach(card => {
