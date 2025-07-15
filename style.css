@@ -682,7 +682,6 @@ a:hover {
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   color: var(--color-text-default);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -705,6 +704,7 @@ a:hover {
   font-size: 1.1rem;
   margin: 0;
   text-align: justify;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* HADITH SECTION */

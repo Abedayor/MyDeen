@@ -43,7 +43,6 @@ document.addEventListener("keyup", (event) => {
 
     const translations = {
         en: {
-            title: "MyDeenBook - Signs of the Quran",
             settings: "Settings",
             theme: "Theme",
             aboutTitle: "About",
@@ -74,7 +73,6 @@ document.addEventListener("keyup", (event) => {
             SocialTitle: "Our Social Media",
         },
         fr: {
-            title: "MyDeenBook - Signes du Coran",
             settings: "Paramètres",
             theme: "Thème",
             aboutTitle: "À propos",
@@ -105,7 +103,6 @@ document.addEventListener("keyup", (event) => {
             SocialTitle: "Nos réseaux sociaux",
         },
         de: {
-            title: "MyDeenBook – Zeichen des Korans",
             settings: "Einstellungen",
             theme: "Thema",
             aboutTitle: "Über uns",
@@ -136,7 +133,6 @@ document.addEventListener("keyup", (event) => {
             SocialTitle: "Unsere sozialen Netzwerke",
         },
         es: {
-            title: "MyDeenBook - Signos del Corán",
             settings: "Configuraciones",
             theme: "Tema",
             aboutTitle: "Acerca de",
@@ -167,7 +163,6 @@ document.addEventListener("keyup", (event) => {
             SocialTitle: "Nuestras redes sociales",
         },
         it: {
-            title: "MyDeenBook - Segni del Corano",
             settings: "Impostazioni",
             theme: "Tema",
             aboutTitle: "Informazioni",
@@ -198,7 +193,6 @@ document.addEventListener("keyup", (event) => {
             SocialTitle: "I nostri social",
         },
         pt: {
-            title: "MyDeenBook - Sinais do Alcorão",
             settings: "Configurações",
             theme: "Tema",
             aboutTitle: "Sobre",
@@ -229,7 +223,6 @@ document.addEventListener("keyup", (event) => {
             SocialTitle: "Nossas redes sociais",
         },
         tr: {
-            title: "MyDeenBook - Kur'an'ın İşaretleri",
             settings: "Ayarlar",
             theme: "Tema",
             aboutTitle: "Hakkında",
@@ -261,7 +254,6 @@ document.addEventListener("keyup", (event) => {
             
         },
         ar: {
-            title: "MyDeenBook - إشارات من القرآن",
             settings: "الإعدادات",
             theme: "المظهر",
             aboutTitle: "حول التطبيق",
@@ -407,7 +399,6 @@ function applyTranslations() {
         }
 
         const elementsToTranslate = [
-        { id: 'title', key: 'title' },
         { id: 'settingsTitle', key: 'settings' },
         { id: 'themeLabel', key: 'theme' },
         { id: 'aboutTitle', key: 'aboutTitle' },

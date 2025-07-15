@@ -23,7 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
             alphabetLink: "Alphabet",
             aTranslation: "Translation by",
             HeroTitre: "Discover all the surahs and the Arabic alphabet",
-            expSitePara1: "Welcome to MyDeenBook.com, your space dedicated to discovering and learning the beautiful Arabic language and the teachings of the Qur'an. Here you'll find all the surahs of the Qur'an as well as a complete guide to  <a href=\"LearnArab/Alphabet/alphabet.html\">learning the Arabic alphabet</a> to nourish your faith. Whether you're a beginner or already familiar, MyDeenBook supports you with clear and accessible resources. Make every visit an opportunity to grow.",
+            expSitePara1: "Welcome to <strong>MyDeenBook.com</strong>, your space dedicated to discovering and learning the beautiful Arabic language, reading the Quran online, and sacred teachings.\n\
+            Find here all the Quranic surahs online with translations to choose from, surah in revelation order as well as the Quran in audio for a clear and faithful recitation.\n\
+            Explore our comprehensive guide to <a href=\"LearnArab/Alphabet/alphabet.html\">learning the Arabic alphabet</a> easily, ideal for beginners and enthusiasts who want to deepen their understanding.\n\
+            Whether you are looking for free Quran reading, French Quran translation, or to listen to the Quran recitation online,\n\
+            MyDeenBook supports you with clear, accessible, and free resources.\n\
+            Whether you are a novice or already initiated, our platform helps you learn the Quran online, listen to surahs, and discover Quranic tafsir to nourish your faith and knowledge.\n\
+            Make each visit an opportunity to grow in knowledge and spirituality.",
             donSection: {
                 donTitle: "Support the MyDeenBook project and contribute to my marriage",
                 donPara1: "If you like this site and it helps you in your learning, you can support its development by making a donation. Every contribution, big or small, is precious to continue offering free content, improve the site, and personally help me with this important project.",
@@ -54,7 +60,12 @@ document.addEventListener("DOMContentLoaded", () => {
             alphabetLink: "Alphabet",
             aTranslation: `Traduction de`,
             HeroTitre: "Découvre toutes les sourates et l’alphabet arabe",
-            expSitePara1: "Bienvenue sur MyDeenBook.com, votre espace dédié à la découverte et à l’apprentissage de la belle langue arabe et des enseignements du Qur'an. Retrouvez ici toutes les sourates du Coran ainsi qu'un guide complet pour <a href=\"LearnArab/Alphabet/alphabet.html\">apprendre l’alphabet arabe</a> pour nourrir votre foi. Que vous soyez débutant ou déjà initié, MyDeenBook vous accompagne avec des ressources claires et accessibles. Faites de chaque visite une occasion de grandir.",
+            expSitePara1: "Bienvenue sur <strong> MyDeenBook.com </strong>, votre espace dédié à la découverte et à l’apprentissage de la belle langue arabe, de la lecture du Coran en ligne, et des enseignements sacrés.\n\
+            Retrouvez ici toutes les sourates du Coran en ligne avec traduction au choix, les sourates dans l'ordre de révélation ainsi que le Coran en audio pour une récitation claire et fidèle.\n\
+            Explorez notre guide complet pour <a href=\"LearnArab/Alphabet/alphabet.html\">apprendre l’alphabet arabe</a> facilement, idéal pour débutants et passionnés qui souhaitent approfondir leur compréhension.\n\
+            Que vous cherchiez une lecture coranique gratuite, une traduction coran en français ou écouter la récitation du Coran en ligne, MyDeenBook vous accompagne avec des ressources claires, accessibles et gratuites.\n\
+            Que vous soyez novice ou déjà initié, notre plateforme vous aide à apprendre le Coran en ligne, écouter des sourates, et découvrir le tafsir coranique pour nourrir votre foi et votre savoir.\n\
+            Faites de chaque visite une occasion de grandir dans la connaissance et la spiritualité.",
             donSection: {
                 donTitle: "Supporte le projet MyDeenBook et contribue à mon mariage",
                 donPara1: "Si ce site te plaît et t’aide dans ton apprentissage, tu peux soutenir son développement par un don. Chaque contribution, petite ou grande, est précieuse pour continuer à proposer du contenu gratuit, améliorer le site, et m’aider personnellement dans ce projet important.",
@@ -84,7 +95,17 @@ document.addEventListener("DOMContentLoaded", () => {
             alphabetLink: "Alphabet",
             aTranslation: `Übersetzung von`,
             HeroTitre: "Entdecke alle Suren und das arabische Alphabet",
-            expSitePara1: "Willkommen auf MyDeenBook.com, Ihrem Raum, der dem Entdecken und Lernen der schönen arabischen Sprache und den Lehren des Qur'an gewidmet ist. Hier finden Sie alle Suren des Korans sowie einen vollständigen Leitfaden zum Erlernen des <a href=\"LearnArab/Alphabet/alphabet.html\">arabischen Alphabets</a>, um Ihren Glauben zu stärken. Ob Anfänger oder Fortgeschrittener – MyDeenBook unterstützt Sie mit klaren und zugänglichen Ressourcen. Machen Sie jeden Besuch zu einer Gelegenheit, zu wachsen.",
+            expSitePara1: "Willkommen bei <strong>MyDeenBook.com</strong>, deinem Raum zur Entdeckung und zum Lernen der schönen arabischen Sprache,\n\
+            zum Online-Lesen des Korans und der heiligen Lehren.\n\
+            Finde hier alle Suren des Korans online mit wählbarer Übersetzung,  Die Suren in der Reihenfolge der Offenbarung sowie den Koran als Audio\n\
+            für eine klare und treue Rezitation.\n\
+            Erkunde unseren umfassenden Leitfaden zum <a href=\"LearnArab/Alphabet/alphabet.html\">Erlernen des arabischen Alphabets</a>,\n\
+            ideal für Anfänger und Interessierte, die ihr Verständnis vertiefen möchten.\n\
+            Ob du eine kostenlose Koranlesung, eine französische Koranübersetzung suchst oder die Rezitation online hören möchtest,\n\
+            MyDeenBook unterstützt dich mit klaren, zugänglichen und kostenlosen Ressourcen.\n\
+            Egal, ob du Anfänger oder bereits fortgeschritten bist, unsere Plattform hilft dir, den Koran online zu lernen, Suren anzuhören\n\
+            und den koranischen Tafsir zu entdecken, um deinen Glauben und dein Wissen zu stärken.\n\
+            Mach jeden Besuch zu einer Gelegenheit, in Wissen und Spiritualität zu wachsen.",
             donSection: {
                 donTitle: "Unterstütze das Projekt MyDeenBook und trage zu meiner Hochzeit bei",
                 donPara1: "Wenn dir diese Seite gefällt und dir beim Lernen hilft, kannst du ihre Entwicklung mit einer Spende unterstützen. Jeder Beitrag, ob klein oder groß, ist wertvoll, um weiterhin kostenlosen Inhalt anzubieten, die Seite zu verbessern und mich persönlich bei diesem wichtigen Projekt zu unterstützen.",
@@ -114,7 +135,18 @@ document.addEventListener("DOMContentLoaded", () => {
             alphabetLink: "Alfabeto",
             aTranslation: `Traducción de`,
             HeroTitre: "Descubre todas las suras y el alfabeto árabe",
-            expSitePara1: "Bienvenido a MyDeenBook.com, tu espacio dedicado al descubrimiento y aprendizaje del hermoso idioma árabe y las enseñanzas del Corán. Aquí encontrarás todas las suras del Corán y una guía completa para <a href=\"LearnArab/Alphabet/alphabet.html\">aprender el alfabeto árabe</a>  y fortalecer tu fe. Ya seas principiante o ya tengas conocimientos, MyDeenBook te acompaña con recursos claros y accesibles. Haz de cada visita una oportunidad para crecer.",
+            expSitePara1: "Bienvenido a <strong>MyDeenBook.com</strong>, tu espacio dedicado a descubrir y aprender la hermosa lengua árabe,\n\
+            la lectura del Corán en línea y las enseñanzas sagradas.\n\
+            Encuentra aquí todas las suras del Corán en línea con traducción a elegir, las suras en el orden de la revelació así como el Corán en audio\n\
+            para una recitación clara y fiel.\n\
+            Explora nuestra guía completa para <a href=\"LearnArab/Alphabet/alphabet.html\">aprender el alfabeto árabe</a> fácilmente,\n\
+            ideal para principiantes y entusiastas que desean profundizar su comprensión.\n\
+            Ya sea que busques una lectura gratuita del Corán, traducción al francés del Corán o escuchar la recitación del Corán en línea,\n\
+            MyDeenBook te acompaña con recursos claros, accesibles y gratuitos.\n\
+            Ya seas novato o ya iniciado, nuestra plataforma te ayuda a aprender el Corán en línea, escuchar suras,\n\
+            y descubrir el tafsir coránico para nutrir tu fe y tu conocimiento.\n\
+            Haz de cada visita una oportunidad para crecer en conocimiento y espiritualidad.",
+
             donSection: {
                 donTitle: "Apoya el proyecto MyDeenBook y contribuye a mi matrimonio",
                 donPara1: "Si te gusta este sitio y te ayuda en tu aprendizaje, puedes apoyar su desarrollo con una donación. Cada contribución, grande o pequeña, es valiosa para continuar ofreciendo contenido gratuito, mejorar el sitio y ayudarme personalmente con este importante proyecto.",
@@ -144,7 +176,17 @@ document.addEventListener("DOMContentLoaded", () => {
             alphabetLink: "Alfabeto",
             aTranslation: `Traduzione di`,
             HeroTitre: "Scopri tutte le sure e l'alfabeto arabo",
-            expSitePara1: "Benvenuto su MyDeenBook.com, il tuo spazio dedicato alla scoperta e all'apprendimento della bellissima lingua araba e degli insegnamenti del Corano. Qui troverai tutte le sure del Corano e una guida completa per <a href=\"LearnArab/Alphabet/alphabet.html\">imparare l'alfabeto arabo</a> e nutrire la tua fede. Che tu sia un principiante o già esperto, MyDeenBook ti accompagna con risorse chiare e accessibili. Fai di ogni visita un'opportunità di crescita.",
+            expSitePara1: "Benvenuto su <strong>MyDeenBook.com</strong>, il tuo spazio dedicato alla scoperta e all’apprendimento della bellissima lingua araba,\n\
+            alla lettura del Corano online e agli insegnamenti sacri.\n\
+            Trova qui tutte le sure del Corano online con traduzioni a scelta, le sure nell'ordine della rivelazione, oltre al Corano in audio\n\
+            per una recitazione chiara e fedele.\n\
+            Esplora la nostra guida completa per <a href=\"LearnArab/Alphabet/alphabet.html\">imparare l’alfabeto arabo</a> facilmente,\n\
+            ideale per principianti e appassionati che desiderano approfondire la loro comprensione.\n\
+            Che tu stia cercando una lettura coranica gratuita, una traduzione del Corano in francese o ascoltare la recitazione online,\n\
+            MyDeenBook ti accompagna con risorse chiare, accessibili e gratuite.\n\
+            Sia che tu sia un principiante o già esperto, la nostra piattaforma ti aiuta ad imparare il Corano online, ascoltare le sure\n\
+            e scoprire il tafsir coranico per nutrire la tua fede e la tua conoscenza.\n\
+            Fai di ogni visita un’occasione per crescere nella conoscenza e nella spiritualità.",
             donSection: {
                 donTitle: "Sostieni il progetto MyDeenBook e contribuisci al mio matrimonio",
                 donPara1: "Se ti piace questo sito e ti aiuta nel tuo apprendimento, puoi sostenere il suo sviluppo con una donazione. Ogni contributo, grande o piccolo, è prezioso per continuare a offrire contenuti gratuiti, migliorare il sito e aiutarmi personalmente in questo importante progetto.",
@@ -174,7 +216,17 @@ document.addEventListener("DOMContentLoaded", () => {
             alphabetLink: "Alfabeto",
             aTranslation: `Tradução de`,
             HeroTitre: "Descubra todas as suratas e o alfabeto árabe",
-            expSitePara1: "Bem-vindo ao MyDeenBook.com, seu espaço dedicado à descoberta e aprendizado do belo idioma árabe e dos ensinamentos do Alcorão. Aqui você encontrará todas as suratas do Alcorão e um guia completo para <a href=\"LearnArab/Alphabet/alphabet.html\">aprender o alfabeto árabe</a> e fortalecer sua fé. Seja você iniciante ou já familiarizado, o MyDeenBook apoia você com recursos claros e acessíveis. Faça de cada visita uma oportunidade de crescimento.",
+            expSitePara1: "Bem-vindo ao <strong>MyDeenBook.com</strong>, seu espaço dedicado à descoberta e ao aprendizado da bela língua árabe,\n\
+            à leitura do Alcorão online e aos ensinamentos sagrados.\n\
+            Encontre aqui todas as suratas do Alcorão online com tradução à escolha, as suras na ordem da revelação assim como o Alcorão em áudio\n\
+            para uma recitação clara e fiel.\n\
+            Explore nosso guia completo para <a href=\"LearnArab/Alphabet/alphabet.html\">aprender o alfabeto árabe</a> facilmente,\n\
+            ideal para iniciantes e entusiastas que desejam aprofundar sua compreensão.\n\
+            Se você procura uma leitura gratuita do Alcorão, tradução em francês ou ouvir a recitação do Alcorão online,\n\
+            MyDeenBook acompanha você com recursos claros, acessíveis e gratuitos.\n\
+            Quer seja iniciante ou já iniciado, nossa plataforma ajuda você a aprender o Alcorão online, ouvir suratas\n\
+            e descobrir o tafsir corânico para nutrir sua fé e seu conhecimento.\n\
+            Faça de cada visita uma oportunidade para crescer em conhecimento e espiritualidade.",
             donSection: {
                 donTitle: "Apoie o projeto MyDeenBook e contribua para meu casamento",
                 donPara1: "Se você gosta deste site e ele ajuda no seu aprendizado, você pode apoiar seu desenvolvimento com uma doação. Toda contribuição, grande ou pequena, é preciosa para continuar oferecendo conteúdo gratuito, melhorar o site e me ajudar pessoalmente neste importante projeto.",
@@ -204,7 +256,16 @@ document.addEventListener("DOMContentLoaded", () => {
             alphabetLink: "Alfabe",
             aTranslation: `tarafından çeviri`,
             HeroTitre: "Tüm sureleri ve Arap alfabesini keşfedin",
-            expSitePara1: "Güzel Arapça dilini ve Kur'an'ın öğretilerini keşfetmeye ve öğrenmeye adanmış alanınız olan MyDeenBook.com'a hoş geldiniz. Burada Kur'an'ın tüm surelerini ve inancınızı beslemek için <a href=\"LearnArab/Alphabet/alphabet.html\">Arap alfabesini</a> öğrenmeye yönelik eksiksiz bir rehber bulacaksınız. İster yeni başlıyor olun ister daha önce bilgi sahibi olun, MyDeenBook sizi net ve erişilebilir kaynaklarla destekler. Her ziyareti bir gelişim fırsatına dönüştürün.",
+            expSitePara1: "<strong>MyDeenBook.com</strong>’a hoş geldiniz, Arapça’nın güzel dilini keşfetmek ve öğrenmek,\n\
+            Kur’an-ı Kerim’i çevrimiçi okumak ve kutsal öğretileri takip etmek için özel alanınız.\n\
+            Tüm Kur’an surelerini çeviri seçenekleriyle, vahiy sırasına göre ve sesli olarak burada bulabilirsiniz; net ve doğru bir tilavet için.\n\
+            <a href=\"LearnArab/Alphabet/alphabet.html\">Arap alfabesini öğrenmek</a> için kapsamlı rehberimizi keşfedin,\n\
+            başlangıç seviyesindekiler ve bilgilerini derinleştirmek isteyenler için idealdir.\n\
+            Ücretsiz Kur’an okuması, Fransızca Kur’an çevirisi veya çevrimiçi Kur’an tilaveti dinlemek istiyorsanız,\n\
+            MyDeenBook size net, erişilebilir ve ücretsiz kaynaklarla eşlik eder.\n\
+            İster yeni başlayan olun ister daha deneyimli, platformumuz Kur’an’ı çevrimiçi öğrenmenize, sureleri dinlemenize ve\n\
+            imanınızı ve bilginizi beslemek için Kur’an tefsirini keşfetmenize yardımcı olur.\n\
+            Her ziyareti bilgi ve maneviyatta büyüme fırsatına dönüştürün.",
             donSection: {
                 donTitle: "MyDeenBook projesini destekleyin ve evliliğime katkıda bulunun",
                 donPara1: "Bu siteyi beğendiyseniz ve öğrenmenize yardımcı oluyorsa, gelişimini bağış yaparak destekleyebilirsiniz. Büyük ya da küçük her katkı, ücretsiz içerik sunmaya devam etmek, siteyi geliştirmek ve bu önemli projede bana kişisel olarak yardımcı olmak için değerlidir.",
@@ -234,7 +295,12 @@ document.addEventListener("DOMContentLoaded", () => {
             alphabetLink: "الحروف",
             aTranslation: `ترجمة`,
             HeroTitre: "اكتشف جميع السور والأبجدية العربية",
-            expSitePara1: "مرحبًا بك في MyDeenBook.com، مساحتك المخصصة لاكتشاف وتعلم اللغة العربية الجميلة وتعاليم القرآن الكريم. ستجد هنا جميع سور القرآن بالإضافة إلى دليل شامل لتعلم <a href=\"LearnArab/Alphabet/alphabet.html\">الأبجدية العربية</a> لتعزيز إيمانك. سواء كنت مبتدئًا أو لديك بعض المعرفة، فإن MyDeenBook يدعمك بموارد واضحة وسهلة الوصول. اجعل من كل زيارة فرصة للنمو.",
+            expSitePara1: "مرحبًا بكم في <strong>MyDeenBook.com</strong>، مساحتكم المخصصة لاكتشاف وتعلم اللغة العربية الجميلة، وقراءة القرآن الكريم عبر الإنترنت، والتعليمات المقدسة.\n\
+            اعثر هنا على جميع سور القرآن الكريم عبر الإنترنت مع ترجمات للاختيار منها، بالإضافة إلى القرآن الصوتي للتلاوة الواضحة والأمينة، والسور مرتبة حسب ترتيب النزول.\n\
+            استكشف دليلنا الكامل لـ <a href=\"LearnArab/Alphabet/alphabet.html\">تعلم الأبجدية العربية</a> بسهولة، وهو مثالي للمبتدئين والهواة الذين يرغبون في تعميق فهمهم.\n\
+            سواء كنت تبحث عن قراءة مجانية للقرآن، أو ترجمة للقرآن بالفرنسية، أو الاستماع إلى تلاوة القرآن عبر الإنترنت، يدعمك MyDeenBook بموارد واضحة، ومتاحة ومجانية.\n\
+            سواء كنت مبتدئًا أو متمرسًا، تساعدك منصتنا على تعلم القرآن عبر الإنترنت، والاستماع إلى السور، واكتشاف تفسير القرآن لتغذية إيمانك ومعرفتك.\n\
+            اجعل كل زيارة فرصة للنمو في المعرفة والروحانية.",
             donSection: {
                 donTitle: "ادعم مشروع MyDeenBook وساهم في زواجي",
                 donPara1: "إذا أعجبك هذا الموقع وساعدك في التعلم، يمكنك دعم تطويره بالتبرع. كل مساهمة، كبيرة كانت أو صغيرة، ثمينة للاستمرار في تقديم محتوى مجاني، وتحسين الموقع، ولمساعدتي شخصيًا في هذا المشروع المهم.",

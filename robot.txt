@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mydeenbook.com/sitemap.xml
