@@ -766,9 +766,6 @@ a:hover{
 @media (min-width: 1024px) {
     /* Exclure l'iPad Pro (1024x1366) */
     @media not all and (device-width: 1024px) and (device-height: 1366px) {
-        .settings-menu {
-            width: 18%; /* Change la largeur de .settings-menu à 20% pour les écrans larges */
-        }
         .signes-container {
             width: 80%; /* Change la largeur de .sourates à 50% pour les écrans larges */
         }
@@ -776,4 +773,10 @@ a:hover{
             width: 401px; /* Change la largeur de .surah à 100% pour les écrans larges */
         }
     }
+}
+
+@media (min-width: 1700px) {
+    .settings-menu {
+            width: 20%; /* Change la largeur de .settings-menu à 20% pour les écrans larges */
+        }
 }

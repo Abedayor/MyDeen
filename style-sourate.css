@@ -835,9 +835,6 @@ a:hover {
         .mushaf-pages {
             width: 35%; /* Change la largeur de .mushaf-pages à 35% pour les écrans larges et assez hauts sauf l'iPad Pro */
         }
-        .settings-menu {
-            width: 18%; /* Change la largeur de .settings-menu à 20% pour les écrans larges */
-        }
         .sourates {
             width: 80%; /* Change la largeur de .sourates à 50% pour les écrans larges */
         }
@@ -848,6 +845,12 @@ a:hover {
             width: 370px;
         }
     }
+}
+
+@media (min-width: 1700px) {
+    .settings-menu {
+            width: 20%; /* Change la largeur de .settings-menu à 20% pour les écrans larges */
+        }
 }
 
 /* Conteneur des boutons */

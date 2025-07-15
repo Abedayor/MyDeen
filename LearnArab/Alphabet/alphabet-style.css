@@ -904,11 +904,14 @@ a:hover{
 @media (min-width: 1024px) {
     /* Exclure l'iPad Pro (1024x1366) */
     @media not all and (device-width: 1024px) and (device-height: 1366px) {
-        .settings-menu {
-            width: 18%; /* Change la largeur de .settings-menu à 20% pour les écrans larges */
-        }
         .letter-container{
         width: 80%;
     }
     }
+}
+
+@media (min-width: 1700px) {
+    .settings-menu {
+            width: 20%; /* Change la largeur de .settings-menu à 20% pour les écrans larges */
+        }
 }
