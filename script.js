@@ -47,6 +47,20 @@ document.addEventListener("DOMContentLoaded", () => {
         SocialTitle: "Our Social Media",
         "btn-normal": "Mushaf Order",
         "btn-revelation": "Revelation Order",
+        "newsletter_title": "Newsletter",
+        "newsletter_subtitle": "Subscribe to our newsletter and stay updated.",
+        "email_label": "Enter your EMAIL",
+        "email_placeholder": "EMAIL",
+        "email_specification": "Provide your email address to subscribe. For e.g abc@xyz.com",
+        "captcha_specification": "Form secured by reCAPTCHA",
+        "submit_button": "SUBSCRIBE",
+        "error_message": "Your subscription could not be saved. Please try again.",
+        "success_message": "Your subscription has been successful.",
+        newsletterHeader: "Don't miss out!",
+        newsletterDescription: "Get our news, tips and exclusive offers first.",
+        newsletterSubtitle: "Join the MyDeenBook community.",
+        NewsletterButton: `Sign up now
+            <img src="images/arrow-right.svg" id="arrow-icon" alt="arrow" class="arrow-icon">`,
         },
         fr: {
             settings: "Paramètres",
@@ -82,6 +96,20 @@ document.addEventListener("DOMContentLoaded", () => {
             SocialTitle: "Nos réseaux sociaux",
             "btn-normal": "Ordre du Mushaf",
             "btn-revelation": "Ordre de révélation",
+            "newsletter_title": "Newsletter",
+            "newsletter_subtitle": "Abonnez-vous à notre newsletter et restez informé.",
+            "email_label": "Entrez votre EMAIL",
+            "email_placeholder": "EMAIL",
+            "email_specification": "Fournissez votre adresse email pour vous abonner. Par exemple abc@xyz.com",
+            "captcha_specification": "Formulaire sécurisé par reCAPTCHA",
+            "submit_button": "S'ABONNER",
+            "error_message": "Votre abonnement n'a pas pu être enregistré. Veuillez réessayer.",
+            "success_message": "Votre abonnement a été enregistré avec succès.",
+            newsletterDescription: "Recevez nos actualités, conseils et offres exclusives en avant-première.",
+            newsletterHeader: "Ne manquez plus rien !",
+            newsletterSubtitle: "Rejoignez la communauté MyDeenBook.",
+            NewsletterButton: `Je m'inscris dès maintenant
+            <img src="images/arrow-right.svg" id="arrow-icon" alt="arrow" class="arrow-icon">`,
             },
         de: {
             settings: "Einstellungen",
@@ -122,6 +150,20 @@ document.addEventListener("DOMContentLoaded", () => {
             SocialTitle: "Unsere sozialen Netzwerke",
             "btn-normal": "Mushaf-Reihenfolge",
             "btn-revelation": "Offenbarungsreihenfolge",
+            "newsletter_title": "Newsletter",
+            "newsletter_subtitle": "Abonnieren Sie unseren Newsletter und bleiben Sie auf dem Laufenden.",
+            "email_label": "Geben Sie Ihre E-MAIL ein",
+            "email_placeholder": "E-MAIL",
+            "email_specification": "Geben Sie Ihre E-Mail-Adresse zum Abonnieren an. Zum Beispiel abc@xyz.com",
+            "captcha_specification": "Formular durch reCAPTCHA gesichert",
+            "submit_button": "ABONNIEREN",
+            "error_message": "Ihr Abonnement konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.",
+            "success_message": "Ihr Abonnement war erfolgreich.",
+            newsletterHeader: "Verpassen Sie nichts mehr!",
+            newsletterDescription: "Erhalten Sie unsere Neuigkeiten, Tipps und exklusiven Angebote zuerst.",
+            newsletterSubtitle: "Treten Sie der MyDeenBook-Community bei.",
+            NewsletterButton: `Jetzt anmelden
+            <img src="images/arrow-right.svg" id="arrow-icon" alt="arrow" class="arrow-icon">`,
             },
         es: {
             settings: "Configuraciones",
@@ -163,7 +205,21 @@ document.addEventListener("DOMContentLoaded", () => {
             SocialTitle: "Nuestras redes sociales",
             "btn-normal": "Orden Mushaf",
             "btn-revelation": "Orden de revelación",
-        },
+            "newsletter_title": "Boletín",
+            "newsletter_subtitle": "Suscríbete a nuestro boletín y mantente informado.",
+            "email_label": "Introduce tu EMAIL",
+            "email_placeholder": "EMAIL",
+            "email_specification": "Proporciona tu correo electrónico para suscribirte. Por ejemplo abc@xyz.com",
+            "captcha_specification": "Formulario protegido por reCAPTCHA",
+            "submit_button": "SUSCRIBIRSE",
+            "error_message": "No se pudo guardar tu suscripción. Por favor, inténtalo de nuevo.",
+            "success_message": "Tu suscripción ha sido exitosa.",
+            newsletterHeader: "¡No te pierdas nada!",
+            newsletterDescription: "Recibe nuestras noticias, consejos y ofertas exclusivas primero.",
+            newsletterSubtitle: "Únete a la comunidad MyDeenBook.",
+            NewsletterButton: `Regístrate ahora
+            <img src="images/arrow-right.svg" id="arrow-icon" alt="arrow" class="arrow-icon">`,
+                },
         it: {
             settings: "Impostazioni",
             theme: "Tema",
@@ -203,6 +259,20 @@ document.addEventListener("DOMContentLoaded", () => {
         SocialTitle: "I nostri social",
         "btn-normal": "Ordine Mushaf",
         "btn-revelation": "Ordine di rivelazione",
+        "newsletter_title": "Newsletter",
+        "newsletter_subtitle": "Iscriviti alla nostra newsletter e resta aggiornato.",
+        "email_label": "Inserisci la tua EMAIL",
+        "email_placeholder": "EMAIL",
+        "email_specification": "Fornisci il tuo indirizzo email per iscriverti. Per esempio abc@xyz.com",
+        "captcha_specification": "Modulo protetto da reCAPTCHA",
+        "submit_button": "ISCRIVITI",
+        "error_message": "La tua iscrizione non è stata salvata. Per favore riprova.",
+        "success_message": "La tua iscrizione è avvenuta con successo.",
+        newsletterHeader: "Non perdere nulla!",
+        newsletterDescription: "Ricevi per primo le nostre novità, consigli e offerte esclusive.",
+        newsletterSubtitle: "Unisciti alla comunità di MyDeenBook.",
+        NewsletterButton: `Iscriviti ora
+            <img src="images/arrow-right.svg" id="arrow-icon" alt="arrow" class="arrow-icon">`,
         },
         pt: {
             settings: "Configurações",
@@ -242,7 +312,21 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             SocialTitle: "Nossas redes sociais",
             "btn-normal": "Ordem do Mushaf",
-            "btn-revelation": "Ordem da Revelação"
+            "btn-revelation": "Ordem da Revelação",
+            "newsletter_title": "Newsletter",
+            "newsletter_subtitle": "Inscreva-se na nossa newsletter e fique atualizado.",
+            "email_label": "Digite seu EMAIL",
+            "email_placeholder": "EMAIL",
+            "email_specification": "Forneça seu endereço de email para se inscrever. Por exemplo abc@xyz.com",
+            "captcha_specification": "Formulário protegido por reCAPTCHA",
+            "submit_button": "INSCREVER-SE",
+            "error_message": "Sua inscrição não pôde ser salva. Por favor, tente novamente.",
+            "success_message": "Sua inscrição foi bem-sucedida.",
+            newsletterHeader: "Não perca nada!",
+            newsletterDescription: "Receba nossas notícias, dicas e ofertas exclusivas primeiro.",
+            newsletterSubtitle: "Junte-se à comunidade MyDeenBook.",
+            NewsletterButton: `Inscreva-se agora
+            <img src="images/arrow-right.svg" id="arrow-icon" alt="arrow" class="arrow-icon">`,
         },
         tr: {
             settings: "Ayarlar",
@@ -282,6 +366,20 @@ document.addEventListener("DOMContentLoaded", () => {
             SocialTitle: "Sosyal ağlarımız",
             "btn-normal": "Mushaf Sırası",
             "btn-revelation": "Vahiy Sırası",
+            "newsletter_title": "Bülten",
+            "newsletter_subtitle": "Bültenimize abone olun ve güncel kalın.",
+            "email_label": "E-POSTANIZI girin",
+            "email_placeholder": "E-POSTA",
+            "email_specification": "Abone olmak için e-posta adresinizi girin. Örneğin abc@xyz.com",
+            "captcha_specification": "Form reCAPTCHA ile korunmaktadır",
+            "submit_button": "ABONE OL",
+            "error_message": "Aboneliğiniz kaydedilemedi. Lütfen tekrar deneyin.",
+            "success_message": "Aboneliğiniz başarıyla gerçekleşti.",
+            newsletterHeader: "Hiçbir şeyi kaçırmayın!",
+            newsletterDescription: "Öncelikle haberlerimizi, ipuçlarımızı ve özel teklifleri alın.",
+            newsletterSubtitle: "MyDeenBook topluluğuna katılın.",
+            NewsletterButton: `Şimdi kaydol
+            <img src="images/arrow-right.svg" id="arrow-icon" alt="arrow" class="arrow-icon">`,
         },
         ar: {
             settings: "الإعدادات",
@@ -317,12 +415,182 @@ document.addEventListener("DOMContentLoaded", () => {
             SocialTitle: "وسائل التواصل الاجتماعي الخاصة بنا",
             "btn-normal": "ترتيب المصحف",
             "btn-revelation": "ترتيب النزول",
+             "newsletter_title": "النشرة الإخبارية",
+            "newsletter_subtitle": "اشترك في نشرتنا الإخبارية وابقَ على اطلاع.",
+            "email_label": "أدخل بريدك الإلكتروني",
+            "email_placeholder": "البريد الإلكتروني",
+            "email_specification": "قدم عنوان بريدك الإلكتروني للاشتراك. مثلاً abc@xyz.com",
+            "captcha_specification": "النموذج محمي بواسطة reCAPTCHA",
+            "submit_button": "اشترك",
+            "error_message": "تعذر حفظ اشتراكك. يرجى المحاولة مرة أخرى.",
+            "success_message": "تم اشتراكك بنجاح.",
+            newsletterHeader: "لا تفوت شيئًا!",
+            newsletterDescription: "احصل على أخبارنا ونصائحنا وعروضنا الحصرية أولاً.",
+            newsletterSubtitle: "انضم إلى مجتمع MyDeenBook.",
+            NewsletterButton: `سجل الآن
+            <img src="images/arrow-right.svg" id="arrow-icon" alt="arrow" class="arrow-icon">`,
             }
         }
     
+    const brevoMessages = {
+        en: {
+            REQUIRED_CODE_ERROR_MESSAGE: 'Please choose a country code',
+            LOCALE: 'en',
+            EMAIL_INVALID_MESSAGE: 'The information provided is invalid. Please review the field format and try again.',
+            SMS_INVALID_MESSAGE: 'The information provided is invalid. Please review the field format and try again.',
+            REQUIRED_ERROR_MESSAGE: 'This field cannot be left blank.',
+            GENERIC_INVALID_MESSAGE: 'The information provided is invalid. Please review the field format and try again.',
+            translation: {
+            common: {
+                selectedList: '{quantity} list selected',
+                selectedLists: '{quantity} lists selected',
+                selectedOption: '{quantity} selected',
+                selectedOptions: '{quantity} selected',
+            },
+            },
+            AUTOHIDE: false,
+        },
+        fr: {
+            REQUIRED_CODE_ERROR_MESSAGE: 'Veuillez choisir un indicatif pays',
+            LOCALE: 'fr',
+            EMAIL_INVALID_MESSAGE: "Les informations fournies sont invalides. Veuillez vérifier le format du champ et réessayer.",
+            SMS_INVALID_MESSAGE: "Les informations fournies sont invalides. Veuillez vérifier le format du champ et réessayer.",
+            REQUIRED_ERROR_MESSAGE: 'Ce champ ne peut pas être laissé vide.',
+            GENERIC_INVALID_MESSAGE: "Les informations fournies sont invalides. Veuillez vérifier le format du champ et réessayer.",
+            translation: {
+            common: {
+                selectedList: '{quantity} liste sélectionnée',
+                selectedLists: '{quantity} listes sélectionnées',
+                selectedOption: '{quantity} sélectionné',
+                selectedOptions: '{quantity} sélectionnés',
+            },
+            },
+            AUTOHIDE: false,
+        },
+        de: {
+            REQUIRED_CODE_ERROR_MESSAGE: 'Bitte wählen Sie eine Ländervorwahl',
+            LOCALE: 'de',
+            EMAIL_INVALID_MESSAGE: 'Die angegebenen Informationen sind ungültig. Bitte überprüfen Sie das Format und versuchen Sie es erneut.',
+            SMS_INVALID_MESSAGE: 'Die angegebenen Informationen sind ungültig. Bitte überprüfen Sie das Format und versuchen Sie es erneut.',
+            REQUIRED_ERROR_MESSAGE: 'Dieses Feld darf nicht leer bleiben.',
+            GENERIC_INVALID_MESSAGE: 'Die angegebenen Informationen sind ungültig. Bitte überprüfen Sie das Format und versuchen Sie es erneut.',
+            translation: {
+            common: {
+                selectedList: '{quantity} Liste ausgewählt',
+                selectedLists: '{quantity} Listen ausgewählt',
+                selectedOption: '{quantity} ausgewählt',
+                selectedOptions: '{quantity} ausgewählt',
+            },
+            },
+            AUTOHIDE: false,
+        },
+        es: {
+            REQUIRED_CODE_ERROR_MESSAGE: 'Por favor, elija un código de país',
+            LOCALE: 'es',
+            EMAIL_INVALID_MESSAGE: 'La información proporcionada no es válida. Por favor, revise el formato y vuelva a intentarlo.',
+            SMS_INVALID_MESSAGE: 'La información proporcionada no es válida. Por favor, revise el formato y vuelva a intentarlo.',
+            REQUIRED_ERROR_MESSAGE: 'Este campo no puede estar vacío.',
+            GENERIC_INVALID_MESSAGE: 'La información proporcionada no es válida. Por favor, revise el formato y vuelva a intentarlo.',
+            translation: {
+            common: {
+                selectedList: '{quantity} lista seleccionada',
+                selectedLists: '{quantity} listas seleccionadas',
+                selectedOption: '{quantity} seleccionado',
+                selectedOptions: '{quantity} seleccionados',
+            },
+            },
+            AUTOHIDE: false,
+        },
+        it: {
+            REQUIRED_CODE_ERROR_MESSAGE: 'Si prega di scegliere un prefisso nazionale',
+            LOCALE: 'it',
+            EMAIL_INVALID_MESSAGE: "Le informazioni fornite non sono valide. Si prega di controllare il formato e riprovare.",
+            SMS_INVALID_MESSAGE: "Le informazioni fornite non sono valide. Si prega di controllare il formato e riprovare.",
+            REQUIRED_ERROR_MESSAGE: 'Questo campo non può essere lasciato vuoto.',
+            GENERIC_INVALID_MESSAGE: "Le informazioni fornite non sono valide. Si prega di controllare il formato e riprovare.",
+            translation: {
+            common: {
+                selectedList: '{quantity} lista selezionata',
+                selectedLists: '{quantity} liste selezionate',
+                selectedOption: '{quantity} selezionato',
+                selectedOptions: '{quantity} selezionati',
+            },
+            },
+            AUTOHIDE: false,
+        },
+        pt: {
+            REQUIRED_CODE_ERROR_MESSAGE: 'Por favor, escolha um código de país',
+            LOCALE: 'pt',
+            EMAIL_INVALID_MESSAGE: 'As informações fornecidas são inválidas. Por favor, revise o formato e tente novamente.',
+            SMS_INVALID_MESSAGE: 'As informações fornecidas são inválidas. Por favor, revise o formato e tente novamente.',
+            REQUIRED_ERROR_MESSAGE: 'Este campo não pode ficar vazio.',
+            GENERIC_INVALID_MESSAGE: 'As informações fornecidas são inválidas. Por favor, revise o formato e tente novamente.',
+            translation: {
+            common: {
+                selectedList: '{quantity} lista selecionada',
+                selectedLists: '{quantity} listas selecionadas',
+                selectedOption: '{quantity} selecionado',
+                selectedOptions: '{quantity} selecionados',
+            },
+            },
+            AUTOHIDE: false,
+        },
+        tr: {
+            REQUIRED_CODE_ERROR_MESSAGE: 'Lütfen bir ülke kodu seçin',
+            LOCALE: 'tr',
+            EMAIL_INVALID_MESSAGE: 'Sağlanan bilgiler geçersiz. Lütfen alan formatını kontrol edin ve tekrar deneyin.',
+            SMS_INVALID_MESSAGE: 'Sağlanan bilgiler geçersiz. Lütfen alan formatını kontrol edin ve tekrar deneyin.',
+            REQUIRED_ERROR_MESSAGE: 'Bu alan boş bırakılamaz.',
+            GENERIC_INVALID_MESSAGE: 'Sağlanan bilgiler geçersiz. Lütfen alan formatını kontrol edin ve tekrar deneyin.',
+            translation: {
+            common: {
+                selectedList: '{quantity} liste seçildi',
+                selectedLists: '{quantity} listeler seçildi',
+                selectedOption: '{quantity} seçildi',
+                selectedOptions: '{quantity} seçildi',
+            },
+            },
+            AUTOHIDE: false,
+        },
+        ar: {
+            REQUIRED_CODE_ERROR_MESSAGE: 'يرجى اختيار رمز الدولة',
+            LOCALE: 'ar',
+            EMAIL_INVALID_MESSAGE: 'المعلومات المقدمة غير صحيحة. يرجى مراجعة تنسيق الحقل والمحاولة مرة أخرى.',
+            SMS_INVALID_MESSAGE: 'المعلومات المقدمة غير صحيحة. يرجى مراجعة تنسيق الحقل والمحاولة مرة أخرى.',
+            REQUIRED_ERROR_MESSAGE: 'لا يمكن ترك هذا الحقل فارغًا.',
+            GENERIC_INVALID_MESSAGE: 'المعلومات المقدمة غير صحيحة. يرجى مراجعة تنسيق الحقل والمحاولة مرة أخرى.',
+            translation: {
+            common: {
+                selectedList: '{quantity} قائمة مختارة',
+                selectedLists: '{quantity} قوائم مختارة',
+                selectedOption: '{quantity} مختار',
+                selectedOptions: '{quantity} مختارات',
+            },
+            },
+            AUTOHIDE: false,
+        },
+        };
+
+        function applyBrevoMessages(lang) {
+        const messages = brevoMessages[lang] || brevoMessages['en'];
+
+        window.REQUIRED_CODE_ERROR_MESSAGE = messages.REQUIRED_CODE_ERROR_MESSAGE;
+        window.LOCALE = messages.LOCALE;
+        window.EMAIL_INVALID_MESSAGE = messages.EMAIL_INVALID_MESSAGE;
+        window.SMS_INVALID_MESSAGE = messages.SMS_INVALID_MESSAGE;
+        window.REQUIRED_ERROR_MESSAGE = messages.REQUIRED_ERROR_MESSAGE;
+        window.GENERIC_INVALID_MESSAGE = messages.GENERIC_INVALID_MESSAGE;
+        window.translation = messages.translation;
+        window.AUTOHIDE = messages.AUTOHIDE;
+        }
+
+
+
     function applyTranslations() {
         const lang = localStorage.getItem("language") || "en";
         const t = translations[lang];
+        
+        applyBrevoMessages(lang);
 
         if (lang === 'ar') {
             document.body.classList.add('lang-ar');
@@ -402,6 +670,44 @@ document.addEventListener("DOMContentLoaded", () => {
         const ChoixRevelation = document.getElementById('btn-revelation')
         if (ChoixRevelation) ChoixRevelation.textContent = t["btn-revelation"]
 
+        const newsletterTitle = document.getElementById("newsletter_title");
+        if (newsletterTitle) newsletterTitle.textContent = t["newsletter_title"];
+
+        const newsletterSubtitle = document.getElementById("newsletter_subtitle");
+        if (newsletterSubtitle) newsletterSubtitle.textContent = t["newsletter_subtitle"];
+
+        const emailLabel = document.getElementById("email_label");
+        if (emailLabel) emailLabel.textContent = t["email_label"];
+
+        const emailPlaceholder = document.getElementById("EMAIL");
+        if (emailPlaceholder) emailPlaceholder.placeholder = t["email_placeholder"];
+
+        const emailSpecification = document.getElementById("email_specification");
+        if (emailSpecification) emailSpecification.textContent = t["email_specification"];
+
+        const captchaSpecification = document.getElementById("captcha_specification");
+        if (captchaSpecification) captchaSpecification.textContent = t["captcha_specification"];
+
+        const submitButton = document.getElementById("submit_button");
+        if (submitButton) submitButton.textContent = t["submit_button"];
+
+        const errorMessage = document.getElementById("error_message");
+        if (errorMessage) errorMessage.textContent = t["error_message"];
+
+        const successMessage = document.getElementById("success_message");
+        if (successMessage) successMessage.textContent = t["success_message"];
+
+        const newsletterHeader = document.getElementById("newsletterHeader");
+        if (newsletterHeader) newsletterHeader.textContent = t.newsletterHeader;
+
+        const newsletterDescription = document.getElementById("newsletterDescription");
+        if (newsletterDescription) newsletterDescription.textContent = t.newsletterDescription;
+
+        const newsletterSousTitre = document.getElementById("newsletterSubtitle");
+        if (newsletterSousTitre) newsletterSousTitre.textContent = t.newsletterSubtitle;
+
+        const NewsletterButton = document.getElementById("NewsletterButton");
+        if (NewsletterButton) NewsletterButton.innerHTML = t.NewsletterButton;
 
         if (currentOrder === "normal") {
             fetchChapters(lang);
@@ -609,6 +915,18 @@ document.addEventListener("DOMContentLoaded", () => {
             // Affiche le message 'Aucun résultat' si rien trouvé
                 noResults.style.display = found ? "none" : "block";
             });
+        }
+    });
+
+    document.getElementById('NewsletterButton').addEventListener('click', function() {
+        const form = document.querySelector('.sib-form');
+        if (form) {
+            const currentDisplay = window.getComputedStyle(form).display;
+            if (currentDisplay === 'none') {
+                form.style.display = 'flex';
+            } else {
+                form.style.display = 'none';
+            }
         }
     });
 
