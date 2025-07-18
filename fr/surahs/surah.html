@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title class="title">MyDeenBook</title>
+  <link rel="stylesheet" href="../../assets/css/style-sourate.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Explorez toutes les sourates du Coran avec nos traductions en français et la lecture audio. Une interface simple pour apprendre et écouter facilement.">
+    <link rel="icon" href="../../assets/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.quran.com">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5X3E7WLV6Q"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-5X3E7WLV6Q');
+    </script>
+</head>
+<body>
+
+    <div class="top-bar">
+        <img id="homeButton" title="Retour Menu" src="../../assets/images/house-line.svg">
+        <div class="settings-container">
+            <img class="globe" src="../../assets/images/globe.svg" title="Languages">
+            <img src="../../assets/images/gear.svg" alt="" class="settings-icon" id="settingsIcon" title="Paramètres">
+        </div>
+        <div class="settings-menu" id="settingsMenu">
+            <div class="settings-fenetre">
+                <p id="settingsTitle">Paramètres</p>
+                <img src="../../assets/images/x.svg" alt="" title="Fermer" id="closeSettings" class="close-settings">
+            </div>
+            <div class="theme">
+                <div class="theme-title" id="themeLabel">Thème</div>
+                <div class="theme-options">
+                    <img id="darkModeToggle" src="../../assets/images/moon.svg" >
+                    <img id="sepiaModeToggle" src= "../../assets/images/sun.svg">
+                </div>
+            </div>
+        </div>
+        <div class="langue">
+            <div class="langue-options">
+                <div class="langue-option" id="en">  <p class="nom-langue">English</p></div>
+                <div class="langue-option" id="fr">  <p class="nom-langue">Français</p></div>
+                <div class="langue-option" id="ar">  <p class="nom-langue">العربية</p></div>
+                <div class="langue-option" id="de">  <p class="nom-langue">Deutsch</p></div>
+                <div class="langue-option" id="es">  <p class="nom-langue">Español</p></div>
+                <div class="langue-option" id="it">  <p class="nom-langue">Italiano</p></div>
+                <div class="langue-option" id="pt">  <p class="nom-langue">Português</p></div>
+                <div class="langue-option" id="tr">  <p class="nom-langue">Türkçe</p></div>
+            </div>
+        </div>
+    </div>
+
+  <div id="contentContainer">
+
+  <div id="verseContainer" style="display:none;">
+        <div id="surahTitle"></div>
+        <div id="verses" class="verses-container"></div>
+    </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h1 id="aboutTitle">À propos</h1>
+            <p id="aboutText">Application éducative dédiée à l'apprentissage de l'alphabet arabe et du Coran.</p>
+             <div class="nom-site">&copy; 2025 <a href="../index.html">MyDeenBook.com</a>.</div>
+        </div>
+        <div class="footer-section">
+            <h1 id="usefulLinks">Liens utiles</h1>
+            <ul>
+                <li><a id="alphabetLink" href="../arab/alphabet/alphabet.html">Alphabet</a></li>
+                <li><a href="../arab/tajweed/tajweed.html"  id="signesBtn" class="btn-signes">Tajweed</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <div id="socialMedia">
+                <h1 id="SocialTitle">Nos réseaux sociaux</h1>
+                
+                <div id="LinksContainer">
+                    <a id="tiktokLink" href="https://www.tiktok.com/@mydeenbookislam" target="_blank" rel="noopener noreferrer">
+                        <img id="tiktokLogo" src="../../assets/images/tiktok-logo.svg" alt="TikTok MyDeenBook" />
+                    </a>
+                    
+                    <a id="instagramLink" href="https://www.instagram.com/mydeenbooksite" target="_blank" rel="noopener noreferrer">
+                        <img id="instagramLogo" src="../../assets/images/instagram-logo.svg" alt="Instagram MyDeenBook" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </footer>
+
+  </div>
+
+  <div class="audio-bar hidden">
+        <audio id="audio"></audio>
+    
+        <div class="audio-controls">
+            <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+    
+                <input type="range" id="seek-bar" value="0" step="1" min="0" max="100">
+
+            </div>
+    
+            <div class="buttons">
+                <p id="current-time">00:00</p>
+                <img id="prev-btn" title="- 3sec" aria-label="- 3sec" src="../../assets/images/skip-back.svg" alt="flèche">
+                <button id="play-pause-btn" class="paused" title="Pause/Lancer">&#10073;&#10073;</button>
+                <div id="spinner" class="hidden"></div>
+                <img id="next-btn" title="+ 3sec" aria-label="+ 3sec" src="../../assets/images/skip-forward.svg" alt="fleche">
+                <img id="close-btn" title="Répéter" aria-label="Répéter" src="../../assets/images/x.svg" alt="fleche">
+                <p id="duration">00:00</p>
+            </div>
+        </div>
+        
+
+    </div>
+
+  <script src="../../assets/js/script-sourate.js"></script> 
+</body>
+</html>

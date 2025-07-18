@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyDeenBook - Alfabeto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="icon" href="../../../assets/images/logo.png" type="image/x-icon">
+    <meta name="description" content="Aprenda a língua árabe facilmente com nossos cursos interativos, incluindo gramática, vocabulário e pronúncia. Perfeito para iniciantes e avançados, nosso método online ajuda você a dominar o árabe rapidamente.">
+    <link rel="stylesheet" href="../../../assets/css/alphabet-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5X3E7WLV6Q"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-5X3E7WLV6Q');
+    </script>
+</head>
+<body>
+     <div id="topBar" class="top-bar">
+        <img id="homeButton" title="Voltar ao Menu" src="../../../assets/images/house-line.svg">
+        <div class="tawhid">لا إله إلا الله</div>
+        <div class="settings-container">
+            <img class="globe" src="../../../assets/images/globe.svg" title="Idiomas">
+            <img src="../../../assets/images/gear.svg" alt="" class="settings-icon" id="settingsIcon" title="Configurações">
+        </div>
+        <div class="settings-menu" id="settingsMenu">
+            <div class="settings-fenetre">
+                <p id="settingsTitle">Configurações</p>
+                <img src="../../../assets/images/x.svg" alt="" title="Fechar" id="closeSettings" class="close-settings">
+            </div>
+            <div class="theme">
+                <div class="theme-title" id="themeLabel">Tema</div>
+                <div class="theme-options">
+                    <img id="darkModeToggle" src="../../../assets/images/moon.svg" >
+                    <img id="sepiaModeToggle" src= "../../../assets/images/sun.svg">
+                </div>
+            </div>
+        </div>
+        <div class="langue">
+            <div class="langue-options">
+                <div class="langue-option" id="en">  <p class="nom-langue">English</p></div>
+                <div class="langue-option" id="fr">  <p class="nom-langue">Français</p></div>
+                <div class="langue-option" id="de">  <p class="nom-langue">Deutsch</p></div>
+                <div class="langue-option" id="es">  <p class="nom-langue">Español</p></div>
+                <div class="langue-option" id="it">  <p class="nom-langue">Italiano</p></div>
+                <div class="langue-option" id="pt">  <p class="nom-langue">Português</p></div>
+                <div class="langue-option" id="tr">  <p class="nom-langue">Türkçe</p></div>
+            </div>
+        </div>
+    </div> 
+
+    <div id="contentContainer">
+        <header>
+            <h1>MyDeenBook</h1>
+            <h2 id='text_header'>Alfabeto árabe</h2>
+        </header>
+
+        <section id="alphabet-section">
+        <!-- As letras serão inseridas aqui via JS -->
+        </section>
+
+        <section id="voyelles">
+            <h1>As vogais em árabe</h1>
+            <p>Em árabe, não existem letras para as vogais curtas: usa-se sinais diacríticos. Existem:</p>
+
+            <h2>As vogais curtas (harakât)</h2>
+            <ul>
+                <li><strong>Fatha</strong> : Som <em>/a/</em> <span class='arL'> ـَ </span> Exemplo : <p class='arL'>بَ</p> = « ba »</li>
+                <li><strong>Damma</strong> : Som <em>/u/</em> <span class='arL'> ـُ </span> Exemplo : <p class='arL'>بُ</p> = « bu »</li>
+                <li><strong>Kasra</strong> : Som <em>/i/</em> <span class='arL'> ـِ </span> Exemplo : <p class='arL'>بِ</p> = « bi »</li>
+            </ul>
+
+            <h2>Soukoun</h2>
+            <p>Marca a ausência de vogal.  <span class='arL'> ـْ </span> Exemplo : <span class='arL'>بْ</span> = « b » (consoante sozinha)</p>
+
+            <h2>Shadda</h2>
+            <p>Dobra a consoante.  <span class='arL'> ـّ </span> Exemplo : <span class='arL'>بّ</span> = « bb »</p>
+
+            <h2>As vogais longas</h2>
+            <ul>
+                <li><strong>Alif</strong> : Som longo « a »  <span class='arL'>ا</span> Exemplo : <span class='arL'>با</span> = « bā »</li>
+                <li><strong>Waw</strong> : Som longo « u »  <span class='arL'>و</span> Exemplo : <span class='arL'>بو</span> = « bū »</li>
+                <li><strong>Ya</strong> : Som longo « i »  <span class='arL'>ي</span> Exemplo : <span class='arL'>بي</span> = « bī »</li>
+            </ul>
+        </section>
+
+        <section id="place-letter-section">
+            <div id="place-letter">
+                <h1 id="letterTitle">Formas das letras conforme sua posição</h1>
+                <p id="SousTitre">
+                    De fato, em árabe cada letra tem 4 formas de ser escrita dependendo se está sozinha, no começo, no meio ou no fim de uma palavra
+                </p>
+            </div>
+        </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h1 id="aboutTitle">Sobre</h1>
+            <p id="aboutText">Aplicativo educativo dedicado ao aprendizado do alfabeto árabe e do Alcorão.</p>
+             <div class="nom-site">&copy; 2025 <a href="../../index.html">MyDeenBook.com</a>.</div>
+        </div>
+        <div class="footer-section">
+            <h1 id="usefulLinks">Links úteis</h1>
+            <ul>
+                <li><a id="homeB" href="../../index.html">Página inicial</a></li>
+                <li><a href="../tajweed/tajweed.html"  id="signesBtn" class="btn-signes">Tajweed</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <div id="socialMedia">
+                <h1 id="SocialTitle">Nossas redes sociais</h1>
+                
+                <div id="LinksContainer">
+                    <a id="tiktokLink" href="https://www.tiktok.com/@mydeenbookislam" target="_blank" rel="noopener noreferrer">
+                        <img id="tiktokLogo" src="../../../assets/images/tiktok-logo.svg" alt="TikTok MyDeenBook" />
+                    </a>
+                    
+                    <a id="instagramLink" href="https://www.instagram.com/mydeenbooksite" target="_blank" rel="noopener noreferrer">
+                        <img id="instagramLogo" src="../../../assets/images/instagram-logo.svg" alt="Instagram MyDeenBook" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </footer>
+    </div>
+
+    <script src="../../../assets/js/alphabet-script.js"></script>
+</body>
+</html>
