@@ -165,7 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const chapterData = await chapterRes.json();
             currentSurah.name_arabic = chapterData.chapter.name_arabic;
             currentSurah.name_simple = chapterData.chapter.name_simple;
-            document.title = `MyDeenBook - ${currentSurah.name_simple}`;
 
             // 📝 Traduction ID par langue
             const translationMap = {

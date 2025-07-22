@@ -1,28 +1,113 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title class="title">MyDeenBook</title>
-  <link rel="stylesheet" href="../../assets/css/style-sourate.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="description" content="Explorez toutes les sourates du Coran avec nos traductions en français et la lecture audio. Une interface simple pour apprendre et écouter facilement.">
-    <link rel="icon" href="../../assets/images/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://api.quran.com">
-    <!-- Google tag (gtag.js) -->
+    <meta charset="UTF-8" />
+    <title class="title">MyDeenBook – Sure del Corano con traduzione e audio</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <meta name="description" content="Scopri tutte le sure del Corano con testo arabo chiaro, traduzioni in italiano e recitazioni audio di alta qualità su MyDeenBook. Impara, ascolta e comprendi facilmente il Corano grazie alla nostra interfaccia intuitiva." />
+    <meta name="keywords" content="Sure Corano, traduzione Corano italiano, audio Corano, recitazione Corano, apprendimento islamico, Corano online, studio Corano, testo arabo Corano, tafsir Corano, Corano per principianti, Corano interattivo, MyDeenBook" />
+    <meta name="author" content="MyDeenBook" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="language" content="it" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="../../assets/images/logo.png" type="image/x-icon" />
+
+    <!-- Stili -->
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <link rel="stylesheet" href="../../assets/css/style-sourate.css" />
+
+    <!-- Preconnessioni per performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.quran.com" crossorigin />
+
+    <!-- Precaricamento risorse -->
+    <link rel="preload" href="../../assets/css/style-sourate.css" as="style" />
+    <link rel="preload" href="../../assets/js/script-sourate.js" as="script" />
+    
+    <!-- Precaricamento font -->
+    <link rel="preload" href="../../assets/fonts/Amiri-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+    <link rel="preload" href="../../assets/fonts/Amiri-Italic.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+    <link rel="preload" href="../../assets/fonts/UthmanicHafs_V22.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="//api.quran.com" />
+    <link rel="dns-prefetch" href="//www.google.com" />
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Open+Sans&display=swap" rel="stylesheet" />
+
+    <!-- URL canonica -->
+    <link rel="canonical" href="https://mydeenbook.com/it/surahs/surah.html" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mydeenbook.com/it/surahs/surah.html" />
+    <meta property="og:title" content="MyDeenBook – Sure del Corano con traduzione e audio" />
+    <meta property="og:description" content="Scopri tutte le sure del Corano con testo arabo chiaro, traduzioni in italiano e recitazioni audio di alta qualità su MyDeenBook. Impara e ascolta il Corano facilmente." />
+    <meta property="og:image" content="https://mydeenbook.com/assets/images/quran-surah-preview.jpg" />
+    <meta property="og:site_name" content="MyDeenBook" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Logo MyDeenBook" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:author" content="MyDeenBook" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="ar_AR" />
+    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:locale:alternate" content="pt_PT" />
+    <meta property="og:locale:alternate" content="tr_TR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://mydeenbook.com/it/surahs/surah.html" />
+    <meta name="twitter:title" content="MyDeenBook – Sure del Corano con traduzione e audio" />
+    <meta name="twitter:description" content="Scopri tutte le sure del Corano con testo arabo chiaro, traduzioni in italiano e recitazioni audio. Studia e ascolta il Corano facilmente su MyDeenBook." />
+    <meta name="twitter:image" content="https://mydeenbook.com/assets/images/logo2.png" />
+    <meta name="twitter:site" content="@MyDeenBook" />
+
+    <!-- Dati strutturati JSON-LD per SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "url": "https://mydeenbook.com/it/surahs/surah.html",
+        "name": "MyDeenBook – Sure del Corano con traduzione e audio",
+        "description": "Scopri tutte le sure del Corano con testo arabo chiaro, traduzioni in italiano e recitazioni audio di alta qualità su MyDeenBook. Impara, ascolta e comprendi facilmente il Corano grazie alla nostra interfaccia intuitiva.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "MyDeenBook",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://mydeenbook.com/assets/images/logo.png"
+            }
+        }
+    }
+    </script>
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5X3E7WLV6Q"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-5X3E7WLV6Q');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5X3E7WLV6Q');
     </script>
 </head>
+
 <body>
 
     <div class="top-bar">

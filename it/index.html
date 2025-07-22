@@ -1,51 +1,170 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="icon" href="../assets/images/logo2.png" type="image/x-icon">
-    <meta name="description" content="Apprenez le Coran, le Tajweed et la langue arabe facilement avec notre application éducative. Profitez des traductions en français et arabe, écoutez les récitations audios coraniques et découvrez un apprentissage multilingue accessible à tous.">
-    <title>MyDeenBook</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://sibforms.com">
-    <link rel="preconnect" href="https://api.quran.com">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
-    <!-- Google tag (gtag.js) -->
+    <title>MyDeenBook</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Learn the Quran, Tajweed, and the Arabic language easily with our educational app. Enjoy translations in French and Arabic, listen to Quranic audio recitations, and experience multilingual learning accessible to everyone." />
+    <meta name="keywords" content="Quran, Arabic alphabet, Tajweed, Quranic recitation, Quran translation, learn Arabic, Quran audio, Quran surahs, Quran tafsir, Islamic education" />
+    <meta name="author" content="MyDeenBook" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://mydeenbook.com" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Multilingual -->
+    <link rel="alternate" hreflang="fr" href="https://mydeenbook.com/fr/" />
+    <link rel="alternate" hreflang="en" href="https://mydeenbook.com" />
+    <link rel="alternate" hreflang="ar" href="https://mydeenbook.com/ar/" />
+    <link rel="alternate" hreflang="de" href="https://mydeenbook.com/de/" />
+    <link rel="alternate" hreflang="es" href="https://mydeenbook.com/es/" />
+    <link rel="alternate" hreflang="it" href="https://mydeenbook.com/it/" />
+    <link rel="alternate" hreflang="pt" href="https://mydeenbook.com/pt/" />
+    <link rel="alternate" hreflang="tr" href="https://mydeenbook.com/tr/" />
+    <link rel="alternate" hreflang="x-default" href="https://mydeenbook.com/" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/logo2.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="assets/images/logo2.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo2.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/logo2.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/logo2.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/logo2.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo2.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo2.png" />
+
+    <!-- Preconnect & dns-prefetch (pour optimiser les performances) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://sibforms.com" />
+    <link rel="preconnect" href="https://api.quran.com" />
+    <link rel="preconnect" href="https://www.google.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+    <link rel="preconnect" href="https://www.gstatic.com" />
+    <link rel="preconnect" href="https://www.recaptcha.net" />
+
+    <!-- Preload resources -->
+    <link rel="preload" href="assets/css/style.css" as="style" />
+    <link rel="preload" href="assets/js/script.js" as="script" />
+    <link rel="preload" href="assets/fonts/uthmani_hafs.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+    <link rel="preload" href="assets/fonts/Amiri-Italic.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+    <link rel="preload" href="assets/fonts/UthmanTN_v2-0.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="//sibforms.com" />
+    <link rel="dns-prefetch" href="//api.quran.com" />
+    <link rel="dns-prefetch" href="//www.google.com" />
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+    <link rel="dns-prefetch" href="//www.gstatic.com" />
+    <link rel="dns-prefetch" href="//www.recaptcha.net" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css" />
+
+    <!-- Scripts -->
+    <meta name="copyright" content="MyDeenBook" />
+    <meta name="generator" content="MyDeenBook" />
+
+    <!-- Fonts: Roboto personnalisé -->
+    <style>
+        @font-face {
+        font-family: 'Roboto';
+        font-display: swap;
+        src: url('https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2') format('woff2'),
+            url('https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+        }
+        @font-face {
+        font-family: 'Roboto';
+        font-display: swap;
+        src: url('https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2') format('woff2'),
+            url('https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff') format('woff');
+        font-weight: 600;
+        font-style: normal;
+        }
+        @font-face {
+        font-family: 'Roboto';
+        font-display: swap;
+        src: url('https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2') format('woff2'),
+            url('https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff') format('woff');
+        font-weight: 700;
+        font-style: normal;
+        }
+    </style>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="MyDeenBook" />
+    <meta property="og:description" content="Aplicación educativa dedicada al aprendizaje del alfabeto árabe y el Corán." />
+    <meta property="og:image" content="https://mydeenbook.com/assets/images/logo2.png" />
+    <meta property="og:url" content="https://mydeenbook.com/it/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MyDeenBook" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="MyDeenBook Logo" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:author" content="MyDeenBook" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:locale:alternate" content="ar_AR" />
+    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:locale:alternate" content="it_IT" />
+    <meta property="og:locale:alternate" content="pt_PT" />
+    <meta property="og:locale:alternate" content="tr_TR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MyDeenBook" />
+    <meta name="twitter:description" content="Aplicación educativa dedicada al aprendizaje del alfabeto árabe y el Corán." />
+    <meta name="twitter:image" content="https://mydeenbook.com/assets/images/logo2.png" />
+    <meta name="twitter:site" content="@MyDeenBook" />
+    <meta name="twitter:creator" content="@MyDeenBook" />
+    <meta name="twitter:domain" content="mydeenbook.com" />
+
+    <!-- Google Analytics (gtag) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5X3E7WLV6Q"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-5X3E7WLV6Q');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5X3E7WLV6Q');
     </script>
-    <style>
-    @font-face {
-        font-display: block;
-        font-family: Roboto;
-        src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
-    }
 
-    @font-face {
-        font-display: fallback;
-        font-family: Roboto;
-        font-weight: 600;
-        src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
-    }
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "MyDeenBook",
+        "url": "https://mydeenbook.com/it/",
+        "logo": "https://mydeenbook.com/assets/images/logo2.png",
+        "description": "Impara il Corano, il Tajweed e l'arabo facilmente con i nostri strumenti multilingue.",
+        "sameAs": [
+            "https://facebook.com/mydeenbook",
+            "https://instagram.com/mydeenbook"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "IT"
+        }
+        }
+    </script>
 
-    @font-face {
-        font-display: fallback;
-        font-family: Roboto;
-        font-weight: 700;
-        src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
-    }
-    </style>
-    <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 </head>
+
 <body>
     <div class="top-bar">
         <div class="tawhid">لا إله إلا الله</div>

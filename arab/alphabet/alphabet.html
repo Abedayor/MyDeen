@@ -3,23 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="title">MyDeenBook - Alphabet</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <title id="title">MyDeenBook – Learn the Arabic Alphabet Easily</title>
+
+    <!-- Favicon -->
     <link rel="icon" href="../../assets/images/logo.png" type="image/x-icon">
-    <meta name="description" content="Apprenez la langue arabe facilement avec nos cours interactifs, comprenant grammaire, vocabulaire et prononciation. Parfait pour débutants et avancés, notre méthode en ligne vous aide à maîtriser l’arabe rapidement.">
-    <link rel="stylesheet" href="../../assets/css/alphabet-style.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Google tag (gtag.js) -->
+
+    <!-- Preconnect & dns-prefetch (pour optimiser les performances) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.google.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+    <link rel="preconnect" href="https://www.gstatic.com" />
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../assets/css/alphabet-style.css">
+
+    <!-- Scripts -->
+    <meta name="copyright" content="MyDeenBook" />
+    <meta name="generator" content="MyDeenBook" />
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Learn the Arabic alphabet online with MyDeenBook's interactive lessons. Master pronunciation, grammar, and vocabulary with our beginner-friendly course.">
+    <meta name="keywords" content="Arabic alphabet, learn Arabic, Arabic for beginners, Arabic pronunciation, Arabic grammar, Arabic letters, online Arabic course, MyDeenBook Arabic, Quranic Arabic, Arabic script">
+    <meta name="author" content="MyDeenBook">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="language" content="en">
+
+    <!-- Preload resources -->
+    <link rel="preload" href="../../assets/css/alphabet-style.css" as="style" />
+    <link rel="preload" href="../../assets/js/alphabet-script.js" as="script" />
+    <link rel="preload" href="assets/fonts/uthmani_hafs.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+    <link rel="preload" href="assets/fonts/Amiri-Italic.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+    <link rel="preload" href="assets/fonts/Amiri-Regular" as="font" type="font/ttf" crossorigin="anonymous" />
+
+    <!-- Multilingual -->
+    <link rel="alternate" hreflang="fr" href="https://mydeenbook.com/fr/arab/alphabet/alphabet.html" />
+    <link rel="alternate" hreflang="en" href="https://mydeenbook.com/arab/alphabet/alphabet.html" />
+    <link rel="alternate" hreflang="de" href="https://mydeenbook.com/de/arab/alphabet/alphabet.html" />
+    <link rel="alternate" hreflang="es" href="https://mydeenbook.com/es/arab/alphabet/alphabet.html" />
+    <link rel="alternate" hreflang="it" href="https://mydeenbook.com/it/arab/alphabet/alphabet.html" />
+    <link rel="alternate" hreflang="pt" href="https://mydeenbook.com/pt/arab/alphabet/alphabet.html" />
+    <link rel="alternate" hreflang="tr" href="https://mydeenbook.com/tr/arab/alphabet/alphabet.html" />
+    <link rel="alternate" hreflang="x-default" href="https://mydeenbook.com/arab/alphabet/alphabet.html" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mydeenbook.com/arab/alphabet/alphabet.html" />
+    <meta property="og:title" content="MyDeenBook – Learn the Arabic Alphabet Easily" />
+    <meta property="og:description" content="Discover the Arabic alphabet with pronunciation guides, writing tips, and interactive audio. Start your Arabic journey with MyDeenBook today!" />
+    <meta property="og:image" content="https://mydeenbook.com/assets/images/quran-surah-preview.jpg" />
+    <meta property="og:site_name" content="MyDeenBook" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="MyDeenBook Logo" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:locale:alternate" content="ar_AR" />
+    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:locale:alternate" content="it_IT" />
+    <meta property="og:locale:alternate" content="pt_PT" />
+    <meta property="og:locale:alternate" content="tr_TR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://mydeenbook.com/arab/alphabet/alphabet.html" />
+    <meta name="twitter:title" content="MyDeenBook – Learn the Arabic Alphabet Easily" />
+    <meta name="twitter:description" content="Start learning the Arabic alphabet step by step with interactive audio and writing tools. Ideal for beginners and Quran learners." />
+    <meta name="twitter:image" content="https://mydeenbook.com/assets/images/logo2.png" />
+    <meta name="twitter:site" content="@MyDeenBook" />
+    <meta name="twitter:creator" content="@MyDeenBook" />
+    <meta name="twitter:domain" content="mydeenbook.com/arab/alphabet/alphabet.html" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://mydeenbook.com/arab/alphabet/alphabet.html" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "url": "https://mydeenbook.com/arab/alphabet/alphabet.html",
+        "name": "MyDeenBook – Learn the Arabic Alphabet Easily",
+        "description": "Learn the Arabic alphabet online with pronunciation, grammar, and vocabulary tools. Perfect for beginners and advanced learners.",
+        "publisher": {
+        "@type": "Organization",
+        "name": "MyDeenBook",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://mydeenbook.com/assets/images/logo.png"
+        }
+        }
+    }
+    </script>
+
+    <!-- Google Analytics / Tag Manager -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5X3E7WLV6Q"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-5X3E7WLV6Q');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5X3E7WLV6Q');
     </script>
 </head>
+
 <body>
      <div id="topBar" class="top-bar">
         <img id="homeButton" title="Retour Menu" src="../../assets/images/house-line.svg">

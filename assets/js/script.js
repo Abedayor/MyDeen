@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let allSurahs = [];
     let currentOrder = "normal";
 
+
     // --- INIT ---
     function applyActiveThemeClass() {
         const currentTheme = localStorage.getItem("theme") || "midnight-blue";
@@ -131,16 +132,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 let redirectPath = "";
 
                 if (selectedLang === "en") {
-                    // Redirige vers la racine si langue sélectionnée est l'anglais
-                    redirectPath = isInLangFolder
-                        ? `../index.html`
-                        : `index.html`;
-                } else {
-                    // Redirige vers un dossier langue si on passe en fr, ar, etc.
-                    redirectPath = isInLangFolder
-                        ? `../${selectedLang}/index.html`
-                        : `${selectedLang}/index.html`;
-                }
+                // Redirige vers la racine si la langue est l'anglais
+                redirectPath = isInLangFolder
+                    ? `../`
+                    : `/`;
+            } else {
+                // Redirige vers un dossier langue si on passe en fr, ar, etc.
+                redirectPath = isInLangFolder
+                    ? `../${selectedLang}/`
+                    : `/${selectedLang}/`;
+            }
 
                 window.location.href = redirectPath;
             });

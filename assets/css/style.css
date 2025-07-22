@@ -203,12 +203,6 @@ body {
 }
 
 @font-face {
-    font-family: 'SurahName';
-    src: url('../fonts/Amiri-Bold.ttf') format('truetype');
-    font-display: swap
-}
-
-@font-face {
     font-family: 'Uthmani';
     src: url('../fonts/uthmani_hafs.ttf') format('truetype');
     font-display: swap
@@ -217,12 +211,6 @@ body {
 @font-face {
     font-family: 'Uthmani-style';
     src: url('../fonts/UthmanTN_v2-0.ttf');
-    font-display: swap
-}
-
-@font-face {
-    font-family: 'Scheherazade';
-    src: url('../fonts/ScheherazadeNew-Regular.ttf') format('truetype');
     font-display: swap
 }
 
@@ -293,9 +281,75 @@ body {
     height: 100%;
 }
 
+.profil {
+    display: inline-block;
+    margin: 0 0.2vh;
+    padding: 0.2rem;
+    font-weight: bold;
+    height: 24px;
+    width: 24px;
+    font-size: 1.2rem;
+    filter:var(--color-svg-background);
+    cursor: pointer;
+    align-items: center;
+}
+
+.profil:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.profil-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    width: 200px;
+    right: 4%;
+    top: 5vh;
+    background-color: var(--color-background-elevated-new);
+    z-index: 999; 
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-jumbo);
+}
+
+.profil-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--color-background-elevated-new);
+    border-radius: 5px;
+}
+
+.profil-option {
+    display: flex;
+    width: 100%;
+    padding: 0.5vh 0;
+    color: var(--color-text-default);
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.profil-option:hover {
+    background-color: var(--color-background-alternative-faint);
+}
+
+.profil-option.active {
+    font-weight: bold;
+    color: var(--color-success-deep);
+}
+
+.option-profil {
+    margin: 0;
+    font-size: var(--font-size-normal-px);
+    padding: 0 2vh;
+    font-family: 'Amiri', serif;
+}
+
 .globe {
     display: inline-block;
-    border-radius: 50%;
     margin: 0 0.2vh;
     padding: 0.2rem;
     font-weight: bold;
@@ -333,7 +387,6 @@ body {
     right: 4%;
     top: 5vh;
     background-color: var(--color-background-elevated-new);
-    border-radius: var(--border-radius-circle);
     z-index: 999; 
     transition: all 0.3s ease;
     box-shadow: var(--shadow-jumbo);

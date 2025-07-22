@@ -1,23 +1,107 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="../../../assets/images/logo.png" type="image/x-icon">
-  <meta name="description" content="Domina las reglas del Tajweed para una recitación perfecta del Corán. Cursos completos, explicaciones claras y audios para aprender Tajweed en línea, ideal para todos los niveles.">
-  <title id="title">MyDeenBook - Tajweed</title>
-  <link rel="stylesheet" href="../../../assets/css/tawjeed.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5X3E7WLV6Q"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="MyDeenBook" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="icon" href="../../assets/images/logo2.png" type="image/x-icon" />
 
-    gtag('config', 'G-5X3E7WLV6Q');
-  </script>
+    <!-- Meta principales -->
+    <title id="title">MyDeenBook - Domina el Tajweed para una Recitación Perfecta del Corán</title>
+    <meta name="title" content="MyDeenBook - Domina el Tajweed para una Recitación Perfecta del Corán" />
+    <meta name="description" content="Domina las reglas del Tajweed para una recitación impecable del Corán. Cursos completos, explicaciones claras y recursos de audio, ideales para todos los niveles." />
+    <meta name="keywords" content="Tajweed, aprender Tajweed, recitación del Corán, Tajweed online, estudios islámicos, recitación en árabe, curso Tajweed MyDeenBook, reglas de Tajweed, Tajweed para principiantes" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mydeenbook.com/es/tajweed/tajweed.html" />
+    <meta property="og:title" content="MyDeenBook - Domina el Tajweed para una Recitación Perfecta del Corán" />
+    <meta property="og:description" content="Aprende las reglas del Tajweed con guías en audio y lecciones estructuradas. ¡Empieza hoy a recitar el Corán con confianza!" />
+    <meta property="og:image" content="https://mydeenbook.com/assets/images/tajweed-preview.jpg" />
+    <meta property="og:image:alt" content="Vista previa de las lecciones de Tajweed" />
+    <meta property="og:site_name" content="MyDeenBook" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:locale:alternate" content="it_IT" />
+    <meta property="og:locale:alternate" content="pt_PT" />
+    <meta property="og:locale:alternate" content="tr_TR" />
+    <meta property="og:locale:alternate" content="ar_AR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://mydeenbook.com/es/tajweed/tajweed.html" />
+    <meta name="twitter:title" content="MyDeenBook - Domina el Tajweed para una Recitación Perfecta del Corán" />
+    <meta name="twitter:description" content="Aprende Tajweed con cursos interactivos, lecciones en audio y consejos prácticos. Perfecciona tu recitación del Corán con MyDeenBook." />
+    <meta name="twitter:image" content="https://mydeenbook.com/assets/images/logo2.png" />
+    <meta name="twitter:site" content="@MyDeenBook" />
+    <meta name="twitter:creator" content="@MyDeenBook" />
+
+    <!-- Canonical & hreflang -->
+    <link rel="canonical" href="https://mydeenbook.com/es/tajweed/tajweed.html" />
+    <link rel="alternate" hreflang="en" href="https://mydeenbook.com/arab/tajweed/tajweed.html" />
+    <link rel="alternate" hreflang="fr" href="https://mydeenbook.com/fr/tajweed/tajweed.html" />
+    <link rel="alternate" hreflang="de" href="https://mydeenbook.com/de/tajweed/tajweed.html" />
+    <link rel="alternate" hreflang="es" href="https://mydeenbook.com/es/tajweed/tajweed.html" />
+    <link rel="alternate" hreflang="it" href="https://mydeenbook.com/it/tajweed/tajweed.html" />
+    <link rel="alternate" hreflang="pt" href="https://mydeenbook.com/pt/tajweed/tajweed.html" />
+    <link rel="alternate" hreflang="tr" href="https://mydeenbook.com/tr/tajweed/tajweed.html" />
+    <link rel="alternate" hreflang="ar" href="https://mydeenbook.com/ar/tajweed/tajweed.html" />
+    <link rel="alternate" hreflang="x-default" href="https://mydeenbook.com/es/tajweed/tajweed.html" />
+
+    <!-- Fuentes y CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../assets/css/tawjeed.css" />
+
+    <!-- Preloads para rendimiento -->
+    <link rel="preload" href="../../../assets/css/tawjeed.css" as="style" />
+    <link rel="preload" href="../../../assets/js/tajweed.js" as="script" />
+    <link rel="preload" href="../../../assets/fonts/uthmani_hafs.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../../../assets/fonts/Amiri-Italic.ttf" as="font" type="font/ttf" crossorigin />
+
+    <!-- JSON-LD: Organización -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "MyDeenBook",
+        "url": "https://mydeenbook.com",
+        "logo": "https://mydeenbook.com/assets/images/logo2.png",
+        "sameAs": [
+            "https://www.facebook.com/MyDeenBook",
+            "https://www.twitter.com/MyDeenBook",
+            "https://www.instagram.com/MyDeenBook"
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: Página -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Aprender Tajweed - MyDeenBook",
+        "description": "Domina las reglas del Tajweed para una recitación impecable del Corán. Cursos, audios y explicaciones paso a paso para ayudarte a leer correctamente el Corán.",
+        "url": "https://mydeenbook.com/es/tajweed/tajweed.html",
+        "inLanguage": "es"
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5X3E7WLV6Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-5X3E7WLV6Q');
+    </script>
 </head>
 <body>
   <div id="topBar" class="top-bar">
