@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
-
 :root{
     /* FONT SIZES */
 --font-size-xsmall-dangerous: 0.625rem;     /* 10px */
@@ -153,7 +150,7 @@
   --color-text-faded: #97a1ae;
   --color-text-faded-new: #a0aab8;
   --color-text-inverse: #111821;
-  --color-text-link: #7aa7dd;
+  --color-text-link: #6f977c;
   --color-success-faint-link: #29b37f;
   --color-text-warning: #f4c542;
   --color-text-error: #f16a6a;
@@ -187,6 +184,18 @@
 @font-face {
     font-family: 'Uthmani';
     src: url('../fonts/uthmani_hafs.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tajawal';
+    src: url("../fonts/Tajawal-Medium.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cinzel';
+    src: url("../fonts/Cinzel-Black.ttf");
     font-display: swap;
 }
 
