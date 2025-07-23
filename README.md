@@ -40,11 +40,7 @@
 - Fully dynamic interface (no frameworks)
 - Native HTML5 audio support
 - Integration with Qur'an API (e.g. Qur’an Cloud) or manual verse data
-
-## 📸 Preview
-
-> Interface in development. Screenshots coming soon.
-
+  
 ## 🚧 Upcoming Features
 
 - **Favorites** system for saving verses
