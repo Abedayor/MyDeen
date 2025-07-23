@@ -54,7 +54,7 @@
     <link rel="preload" href="../assets/css/style.css" as="style" />
     <link rel="preload" href="../assets/js/script.js" as="script" />
     <link rel="preload" href="../assets/fonts/uthmani_hafs.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
-    <link rel="preload" href="../assets/fonts/Amiri-Italic.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+    <link rel="preload" href="../assets/fonts/Amiri-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
     <link rel="preload" href="../assets/fonts/UthmanTN_v2-0.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
 
     <!-- DNS Prefetch -->
@@ -70,7 +70,12 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="../assets/css/style.css" />
-    <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css" />
+    <link
+    rel="stylesheet"
+    href="https://sibforms.com/forms/end-form/build/sib-styles.css"
+    media="print"
+    onload="this.media='all'">
+
 
     <!-- Scripts -->
     <meta name="copyright" content="MyDeenBook" />
@@ -424,7 +429,7 @@
 
     <script src="../assets/js/script.js"></script>
     <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+    <script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
     <script>
         window.REQUIRED_CODE_ERROR_MESSAGE = 'Lütfen bir ülke kodu seçin';
         window.LOCALE = 'en';

@@ -264,10 +264,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById('btn-normal').addEventListener('click', () => {
         if (currentOrder === "normal") {
-            console.log('Déjà en ordre normal : pas de changement');
             return;
         }
-        console.log('Retour à l\'ordre normal');
         currentOrder = "normal";
         const lang = document.documentElement.getAttribute("lang") || "en";
         fetchChapters(lang);
@@ -277,10 +275,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById('btn-revelation').addEventListener('click', () => {
         if (currentOrder === "revelation") {
-            console.log('Déjà en ordre de révélation : pas de changement');
             return;
         }
-        console.log('Passage à l\'ordre de révélation');
         currentOrder = "revelation";
         const lang = document.documentElement.getAttribute("lang") || "en";
         fetchChaptersByRevelationOrder(lang);
