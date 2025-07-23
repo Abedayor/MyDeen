@@ -206,7 +206,7 @@ body {
 
 @font-face {
     font-family: 'Amiri';
-    src: url('../fonts/Amiri-Italic.ttf') format('truetype');
+    src: url('../fonts/Amiri-Regular.ttf') format('truetype');
     font-display: swap
 }
 

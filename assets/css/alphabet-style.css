@@ -205,12 +205,6 @@
     font-display: swap
 }
 
-@font-face {
-    font-family: 'Amiri';
-    src: url('../fonts/Amiri-Italic.ttf') format('truetype');
-    font-display: swap
-}
-
 ::-webkit-scrollbar {
     width: 0.8rem;
     background: none;
@@ -369,7 +363,7 @@
     margin: 0;
     font-size: var(--font-size-normal-px);
     padding: 0 2vh;
-    font-family: 'Amiri', serif;
+    font-family: 'Amir', serif;
 }
 
 .langue-option:hover {
