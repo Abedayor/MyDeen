@@ -389,15 +389,15 @@ document.addEventListener("DOMContentLoaded", () => {
             nameFrench.classList.add("name-french");
             nameFrench.textContent = ` ${surah.revelation_order} : ${surah.translated_name.name}`;
 
-            const verseCount = document.createElement("div");
-            verseCount.classList.add("verse-count");
-            verseCount.textContent = `${surah.verses_count} Ayahs`;
+            const revelationPlace = document.createElement("div");
+            verseCount.classList.add("revelation-place");
+            verseCount.textContent = `${surah.revelation_place}`;
 
             line1.appendChild(namePhonetic);
             line1.appendChild(nameArabic);
 
             line2.appendChild(nameFrench);
-            line2.appendChild(verseCount);
+            line2.appendChild();
 
             content.appendChild(line1);
             content.appendChild(line2);
