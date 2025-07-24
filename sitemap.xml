@@ -9,23 +9,23 @@
 
 <url>
   <loc>https://mydeenbook.com/</loc>
-  <lastmod>2025-07-18T00:47:31+00:00</lastmod>
+  <lastmod>2025-07-24T10:33:32+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://mydeenbook.com/arab/alphabet/alphabet.html</loc>
-  <lastmod>2025-07-18T00:47:31+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://mydeenbook.com/index.html</loc>
-  <lastmod>2025-07-18T00:47:31+00:00</lastmod>
+  <lastmod>2025-07-24T10:33:32+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://mydeenbook.com/arab/tajweed/tajweed.html</loc>
-  <lastmod>2025-07-18T00:47:31+00:00</lastmod>
+  <lastmod>2025-07-24T10:33:32+00:00</lastmod>
   <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mydeenbook.com/index.html</loc>
+  <lastmod>2025-07-24T10:33:32+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 
 
