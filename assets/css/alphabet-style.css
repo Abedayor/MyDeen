@@ -129,10 +129,10 @@
   --color-secondary-medium: #4f6173;
   --color-secondary-deep: #1c252f;
 
-  --color-success-faded: #f0e5cd;
-  --color-success-faint: #c2a983;
-  --color-success-medium: #b19873;
-  --color-success-deep: #8a6d00;;
+      --color-success-faded:  #8ec59f;  /* crème vanille très doux */
+    --color-success-faint:  #79a386;  /* jaune pastel chaud */
+    --color-success-medium: #698f75;  /* doré doux, style miel clair */
+    --color-success-deep:   #587461;
 
 
   --color-error-faded: #3a2a2a;

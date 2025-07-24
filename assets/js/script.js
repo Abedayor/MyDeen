@@ -390,14 +390,14 @@ document.addEventListener("DOMContentLoaded", () => {
             nameFrench.textContent = ` ${surah.revelation_order} : ${surah.translated_name.name}`;
 
             const revelationPlace = document.createElement("div");
-            verseCount.classList.add("revelation-place");
-            verseCount.textContent = `${surah.revelation_place}`;
+            revelationPlace.classList.add("revelation-place");
+            revelationPlace.textContent = `${UpperCasePlaceTranslation(surah.revelation_place)}`;
 
             line1.appendChild(namePhonetic);
             line1.appendChild(nameArabic);
 
             line2.appendChild(nameFrench);
-            line2.appendChild();
+            line2.appendChild(revelationPlace);
 
             content.appendChild(line1);
             content.appendChild(line2);
@@ -427,6 +427,36 @@ document.addEventListener("DOMContentLoaded", () => {
         if (place === "makkah") return "مكية";
         if (place === "madinah") return "مدنية";
         return "—";
+    }
+
+    function UpperCasePlaceTranslation(place) {
+        const lang = document.documentElement.getAttribute("lang") || "en";
+        if (!place) return "—";
+        place = place.toLowerCase();
+        const l = lang.toLowerCase();
+
+        const translations = {
+            makkah: {
+                en: "Macca",
+                fr: "La Mecque",
+                es: "La Meca",
+                it: "La Mecca",
+                de: "Mekka",
+                pt: "Meca",
+                tr: "Mekke"
+            },
+            madinah: {
+                en: "Madinah",
+                fr: "Madinah",
+                es: "Medina",
+                it: "Medina",
+                de: "Medina",
+                pt: "Medina",
+                tr: "Medine"
+            }
+        };
+
+        return translations[place]?.[l] || "—";
     }
 
 
