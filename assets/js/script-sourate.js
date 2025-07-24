@@ -55,42 +55,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const translations = {
         en: {
             "play-audio-btn": "Play Audio",
-            "play-audio-btn-paused": "Resume Audio",
+            "play-audio-btn-paused": "Pause Audio",
             "aTranslation": "Translation by",
         },
         fr: {
             "play-audio-btn": "Lire l'audio",
-            "play-audio-btn-paused": "Reprendre l'audio",
+            "play-audio-btn-paused": "Arrêter l'audio",
             "aTranslation": "Traduction par",
         },
         de: {
             "play-audio-btn": "Audio abspielen",
-            "play-audio-btn-paused": "Audio fortsetzen",
+            "play-audio-btn-paused": "Audio stoppen",
             "aTranslation": "Übersetzung von",
         },
         es: {
             "play-audio-btn": "Reproducir audio",
-            "play-audio-btn-paused": "Reanudar audio",
+            "play-audio-btn-paused": "Detener el audio",
             "aTranslation": "Traducción por",
         },
         it: {
             "play-audio-btn": "Riproduci audio",
-            "play-audio-btn-paused": "Riprendi audio",
+            "play-audio-btn-paused": "Interrompere l'audio",
             "aTranslation": "Traduzione di",
         },
         pt: {
             "play-audio-btn": "Reproduzir áudio",
-            "play-audio-btn-paused": "Retomar áudio",
+            "play-audio-btn-paused": "Parar o áudio",
             "aTranslation": "Tradução por",
         },
         tr: {
             "play-audio-btn": "Sesli Okumayı Başlat",
-            "play-audio-btn-paused": "Sesli Okumayı Devam Ettir",
+            "play-audio-btn-paused": "Sesi durdur",
             "aTranslation": "Çeviri",
         },
         ar: {
             "play-audio-btn": "تشغيل الصوت",
-            "play-audio-btn-paused": "استئناف الصوت",
+            "play-audio-btn-paused": "إيقاف الصوت",
              "aTranslation": "ترجمة من", 
         }
     };
