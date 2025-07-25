@@ -45,77 +45,80 @@
 }
 
 [data-theme="mydeen"] {
-    /* Couleurs primaires : bleu profond + accents sable */
-    --color-primary-faded: #e6f0f8;
-    --color-primary-faint: #b3d4ea;
-    --color-primary-medium: #256d85;
-    --color-primary-deep: #194c5c;
+  /* === Couleurs primaires : Vert doux === */
+  --color-primary-faded: #f0f5f2;     /* vert très pâle */
+  --color-primary-faint: #c8d9d0;     /* vert clair désaturé */
+  --color-primary-medium: #698f75;    /* couleur principale */
+  --color-primary-deep: #4a6a58;      /* vert profond/gris */
 
-    --color-secondary-faded: #f7f3ed;
-    --color-secondary-faint: #e4d9c7;
-    --color-secondary-medium: #c4b6a3;
-    --color-secondary-deep: #a49379;
+  /* === Couleurs secondaires : Gris neutres === */
+  --color-secondary-faded: #f9faf9;
+  --color-secondary-faint: #e3e7e4;
+  --color-secondary-medium: #c1c9c4;
+  --color-secondary-deep: #8e9993;
 
-    /* Couleurs de succès, warning, erreur */
-    --color-success-faded: #f0e5cd;
-    --color-success-faint: #c2a983;
-    --color-success-medium: #b19873;
-    --color-success-deep: #ac9574;
+  /* === Succès, erreur, avertissement === */
+  --color-success-faded: #caebd8;
+  --color-success-faint: #81b893;
+  --color-success-medium: #99c0a4;
+  --color-success-deep: #62776c;
 
-    --color-error-faded: #fbeaea;
-    --color-error-faint: #f5a8a8;
-    --color-error-medium: #e14c4c;
-    --color-error-deep: #9f1e1e;
+  --color-error-faded: #fcecec;
+  --color-error-faint: #f5a5a5;
+  --color-error-medium: #e14c4c;
+  --color-error-deep: #9f1e1e;
 
-    --color-warning-faded: #fff7e0;
-    --color-warning-faint: #ffe9a8;
-    --color-warning-medium: #e2b600;
-    --color-warning-deep: #8a6d00;
+  --color-warning-faded: #fffbea;
+  --color-warning-faint: #ffecab;
+  --color-warning-medium: #e2b600;
+  --color-warning-deep: #8a6d00;
 
-    --scrollbar-background: #fefce8;         /* Jaune pâle très clair, doux pour le fond */
-    --scrollbar-thumb: #facc15;              /* Jaune doré (équilibre entre lumineux et visible) */
-    --scrollbar-thumb-hover: #f1bf67;        /* Orange doux au survol */
-    --scrollbar-thumb-active: #b45309; 
+  /* === Scrollbar : Vert/Gris doux === */
+  --scrollbar-background: #f2f5f3;
+  --scrollbar-thumb: #a4c2b1;
+  --scrollbar-thumb-hover: #89ac98;
+  --scrollbar-thumb-active: #5e7f6d;
 
-    /* Texte */
-    --color-text-default: #1e1e1e;
-    --color-text-faded: #5f5f5f;
-    --color-text-inverse: #ffffff;
-    --color-text-link: #256d85;
-    --color-success-faint-link: #3b82f6;
-    --color-text-warning: #8a6d00;
-    --color-text-error: #9f1e1e;
-    --color-text-black: #000000;
-    --color-text-white: #ffffff;
-    --color-text-gray: #6c757d;
+  /* === Texte === */
+  --color-text-default: #1e1e1e;
+  --color-text-faded: #5f5f5f;
+  --color-text-inverse: #ffffff;
+  --color-text-link: #86648f;
+  --color-success-faint-link: #993b99;
+  --color-text-warning: #8a6d00;
+  --color-text-error: #9f1e1e;
+  --color-text-black: #000000;
+  --color-text-white: #ffffff;
+  --color-text-gray: #7c7c7c;
 
-    /* Fonds */
-    --color-background-default: #f3e7d9;
-    --color-background-elevated: #ffffff;
-    --color-background-elevated-new: #ffffff;
-    --color-background-alternative-faded: #f4f1eb;
-    --color-background-alternative-faint: #d3cbbc;
-    --color-background-alternative-medium: #e0dbd2;
-    --color-background-alternative-deep: #c2bbae;
-    --color-background-inverse: #1e1e1e;
-    --color-background-backdrop: rgba(0, 0, 0, 0.4);
-    --color-background-lighten: rgba(255, 255, 255, 0.8);
+  /* === Fonds === */
+  --color-background-default: #f2fff2;
+  --color-background-elevated: #e5f5ec;
+  --color-background-elevated-new: #e5f5ec;
+  --color-background-alternative-faded: #e9f1eb;
+  --color-background-alternative-faint: #cbe0d3;
+  --color-background-alternative-medium: #b1cebe;
+  --color-background-alternative-deep: #91ad9f;
+  --color-background-inverse: #1e1e1e;
+  --color-background-backdrop: rgba(0, 0, 0, 0.4);
+  --color-background-lighten: rgba(255, 255, 255, 0.85);
 
-    /* Borders et ombres */
-    --color-borders-hairline: #d9d3c7;
-    --color-highlight: var(--color-primary-medium);
-    --shadow-small: 0 1px 2px rgba(0, 0, 0, 0.08);
-    --shadow-normal: 0 2px 4px rgba(0, 0, 0, 0.1);
-    --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-large: 0 6px 12px rgba(0, 0, 0, 0.12);
-    --shadow-xlarge: 0 8px 20px rgba(0, 0, 0, 0.14);
-    --shadow-jumbo: 0 12px 32px rgba(0, 0, 0, 0.16);
-    --shadow-hover: 0 16px 32px rgba(0, 0, 0, 0.18);
-    --shadow-sticky: 0 8px 16px -8px rgba(0, 0, 0, 0.1);
-    --shadow-strong: 0 0 8px rgba(0, 0, 0, 0.3);
+  /* === Bordures & ombres === */
+  --color-borders-hairline: #d8e1dc;
+  --color-highlight: var(--color-primary-medium);
+  --shadow-small: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-normal: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-large: 0 6px 12px rgba(0, 0, 0, 0.12);
+  --shadow-xlarge: 0 8px 20px rgba(0, 0, 0, 0.14);
+  --shadow-jumbo: 0 12px 32px rgba(0, 0, 0, 0.16);
+  --shadow-hover: 0 16px 32px rgba(0, 0, 0, 0.18);
+  --shadow-sticky: 0 8px 16px -8px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 0 8px rgba(0, 0, 0, 0.25);
 
-    --background-image : #a7905f;
-    --color-svg-background: invert(0)
+  /* === Divers === */
+  --background-image: #dce7e0;
+  --color-svg-background: invert(0);
 }
 
 [data-theme=midnight-blue] {
@@ -552,7 +555,7 @@ body {
 }
 
 .theme img.active{
-    background: var(--color-background-elevated-new) ;
+    background: var(--color-success-medium) ;
     border-radius: 50rem;
 }
 
@@ -970,12 +973,13 @@ a:hover {
     flex-wrap: wrap;
     direction: ltr;
     justify-content: center;
-    gap: 1.37597rem;
+    gap: 2vh;
     width: 100%;
     max-width: 1256px;
     margin: 0 auto;
     padding: 20px 0;
     margin-top: 1rem;
+    margin-left: 1vh;
     border-top: 2px solid var(--color-borders-hairline);
     transition: all 0.3s ease;
 }
@@ -1093,7 +1097,8 @@ a:hover {
 }
 
 .surah:hover .name-french, 
-.surah:hover .verse-count {
+.surah:hover .verse-count,
+.surah:hover .revelation-place{
     color: var(--color-success-medium);
     transition: color 0.3s ease-in-out;
 }
@@ -1109,6 +1114,9 @@ a:hover {
     @media not all and (device-width: 1024px) and (device-height: 1366px) {
         .main-content{
             width: fit-content;
+        }
+        .sourates{
+            gap: 1.37597rem;
         }
         .no-results{
             width: 1252px;
