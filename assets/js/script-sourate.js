@@ -157,6 +157,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // 🔁 Charger les versets (lecture et traduction)
     async function loadSurahVerses(surahId) {
+        const loader = document.getElementById("loader");
+        loader.classList.remove("hidden");
+
         const lang = document.documentElement.getAttribute("lang") || "en";
         currentSurah = { id: Number(surahId) };
         viewMode = "translation";
@@ -266,6 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // 🚀 Init interface + affichage
             initSettingsMenuEvents();
+            loader.classList.add('hidden');
             displayVerses();
 
     }
