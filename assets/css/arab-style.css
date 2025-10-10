@@ -60,8 +60,8 @@
    /* === Succès, erreur, avertissement === */
   --color-success-faded: #caebd8;
   --color-success-faint: #81b893;
-  --color-success-medium: #99c0a4;
-  --color-success-deep: #62776c;
+  --color-success-medium: #86648f;
+  --color-success-deep: #86648f;
 
   --color-error-faded: #fcecec;
   --color-error-faint: #f5a5a5;
@@ -1173,6 +1173,40 @@ a:hover {
     color: var(--color-text-default) !important;
     transform: scale(1.05);
 }
+
+#faq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    color: var(--color-text-default);
+    border-top: 2px solid var(--color-borders-hairline);
+}
+
+#faq h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#faq .faq-item {
+    width: 100%;
+    max-width: 800px;
+}
+
+#faq .faq-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    color: var(--color-success-medium);
+}
+
+#faq .faq-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text-faded);
+}
+
 
 .footer {
     display: block;
