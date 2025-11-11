@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let allSurahs = [];
     let currentOrder = "normal";
 
-
     // --- INIT ---
     function applyActiveThemeClass() {
         const currentTheme = localStorage.getItem("theme") || "midnight-blue";
@@ -197,14 +196,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 noResults.style.display = found ? "none" : "block";
             });
-        }
-    });
-
-    document.getElementById('NewsletterButton').addEventListener('click', function () {
-        const form = document.querySelector('.sib-form');
-        if (form) {
-            const currentDisplay = window.getComputedStyle(form).display;
-            form.style.display = currentDisplay === 'none' ? 'flex' : 'none';
         }
     });
 
