@@ -3,30 +3,31 @@
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+              http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
 <url>
-  <loc>https://mydeenbook.com/</loc>
+  <loc>https://www.mydeenbook.com/</loc>
   <lastmod>2025-07-24T10:33:32+00:00</lastmod>
   <priority>1.00</priority>
 </url>
+
 <url>
-  <loc>https://mydeenbook.com/arab/alphabet/alphabet.html</loc>
+  <loc>https://www.mydeenbook.com/arab/alphabet/alphabet.html</loc>
   <lastmod>2025-07-24T10:33:32+00:00</lastmod>
   <priority>0.80</priority>
 </url>
+
 <url>
-  <loc>https://mydeenbook.com/arab/tajweed/tajweed.html</loc>
+  <loc>https://www.mydeenbook.com/arab/tajweed/tajweed.html</loc>
   <lastmod>2025-07-24T10:33:32+00:00</lastmod>
   <priority>0.80</priority>
 </url>
+
 <url>
-  <loc>https://mydeenbook.com/index.html</loc>
+  <loc>https://www.mydeenbook.com/index.html</loc>
   <lastmod>2025-07-24T10:33:32+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-
 
 </urlset>

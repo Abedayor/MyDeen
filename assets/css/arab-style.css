@@ -1,12 +1,12 @@
 :root{
     /* FONT SIZES */
-    --font-size-xsmall-dangerous: 0.625rem;     /* 10px */
-    --font-size-xsmall: 0.75rem;                /* 12px */
-    --font-size-small: 0.875rem;                /* 14px */
-    --font-size-normal: 1rem;                   /* 16px */
-    --font-size-large: 1.125rem;                /* 18px */
-    --font-size-xlarge: 1.5rem;                 /* 24px */
-    --font-size-jumbo: 2.25rem;                 /* 36px */
+    --font-size-xsmall-dangerous: 0.625rem;     
+    --font-size-xsmall: 0.75rem;                
+    --font-size-small: 0.875rem;                
+    --font-size-normal: 1rem;                   
+    --font-size-large: 1.125rem;                
+    --font-size-xlarge: 1.5rem;                 
+    --font-size-jumbo: 2.25rem;                 
 
     --font-size-xsmall-px: 12px;
     --font-size-small-px: 14px;
@@ -35,151 +35,155 @@
 
     /* BORDER RADII */
     --border-radius-sharp: 0;
-    --border-radius-default: 0.375rem;          /* 6px */
+    --border-radius-default: 0.375rem;          
     --border-radius-medium-px: 12px;
     --border-radius-rounded: 18px;
     --border-radius-pill: 9999px;
     --border-radius-circle: 50%;
     --border-radius-circle-small: 32px;
-
 }
 
 [data-theme="mydeen"] {
-  /* === Couleurs primaires : Vert doux === */
-  --color-primary-faded: #f0f5f2;     /* vert très pâle */
-  --color-primary-faint: #c8d9d0;     /* vert clair désaturé */
-  --color-primary-medium: #698f75;    /* couleur principale */
-  --color-primary-deep: #4a6a58;      /* vert profond/gris */
+    /* === Couleurs primaires : Vert doux pastel === */
+    --color-primary-faded: #f4f8f6;
+    --color-primary-faint: #d9ede5;
+    --color-primary-medium: #6aa583;
+    --color-primary-deep: #497b63;
 
-  /* === Couleurs secondaires : Gris neutres === */
-  --color-secondary-faded: #f9faf9;
-  --color-secondary-faint: #e3e7e4;
-  --color-secondary-medium: #c1c9c4;
-  --color-secondary-deep: #8e9993;
+    /* === Couleurs secondaires : neutres doux === */
+    --color-secondary-faded: #f7f8f7;
+    --color-secondary-faint: #e3e8e6;
+    --color-secondary-medium: #b8c4be;
+    --color-secondary-deep: #8b998f;
 
-   /* === Succès, erreur, avertissement === */
-  --color-success-faded: #caebd8;
-  --color-success-faint: #81b893;
-  --color-success-medium: #86648f;
-  --color-success-deep: #86648f;
+    /* === Succès, erreur, avertissement === */
+    --color-success-faded: #daf3e2;
+    --color-success-faint: #9bd4b2;
+    --color-success-medium: #6aa583;
+    --color-success-deep: #447b5a;
 
-  --color-error-faded: #fcecec;
-  --color-error-faint: #f5a5a5;
-  --color-error-medium: #e14c4c;
-  --color-error-deep: #9f1e1e;
+    --color-error-faded: #fbeaea;
+    --color-error-faint: #f5b5b5;
+    --color-error-medium: #e56a6a;
+    --color-error-deep: #b23a3a;
 
-  --color-warning-faded: #fffbea;
-  --color-warning-faint: #ffecab;
-  --color-warning-medium: #e2b600;
-  --color-warning-deep: #8a6d00;
+    --color-warning-faded: #fff9e6;
+    --color-warning-faint: #ffe9a8;
+    --color-warning-medium: #f2c94c;
+    --color-warning-deep: #b38a00;
 
-  /* === Scrollbar : Vert/Gris doux === */
-  --scrollbar-background: #f2f5f3;
-  --scrollbar-thumb: #a4c2b1;
-  --scrollbar-thumb-hover: #89ac98;
-  --scrollbar-thumb-active: #5e7f6d;
+    /* === Scrollbar === */
+    --scrollbar-background: #edf3f0;
+    --scrollbar-thumb: #a8c5b1;
+    --scrollbar-thumb-hover: #7ea88f;
+    --scrollbar-thumb-active: #5b7b69;
 
-  /* === Texte === */
-  --color-text-default: #1e1e1e;
-  --color-text-faded: #5f5f5f;
-  --color-text-inverse: #ffffff;
-  --color-text-link: #86648f;
-  --color-success-faint-link: #993b99;
-  --color-text-warning: #8a6d00;
-  --color-text-error: #9f1e1e;
-  --color-text-black: #000000;
-  --color-text-white: #ffffff;
-  --color-text-gray: #7c7c7c;
+    /* === Texte === */
+    --color-text-default: #1f1f1f;
+    --color-text-faded: #5a5a5a;
+    --color-text-inverse: #ffffff;
+    --color-text-link: #558a6c;
+    --color-success-faint-link: #77b78f;
+    --color-text-warning: #b38a00;
+    --color-text-error: #9f1e1e;
 
-  /* === Fonds === */
-  --color-background-default: #f2fff2;
-  --color-background-elevated: #e5f5ec;
-  --color-background-elevated-new: #e5f5ec;
-  --color-background-alternative-faded: #e9f1eb;
-  --color-background-alternative-faint: #cbe0d3;
-  --color-background-alternative-medium: #b1cebe;
-  --color-background-alternative-deep: #91ad9f;
-  --color-background-inverse: #1e1e1e;
-  --color-background-backdrop: rgba(0, 0, 0, 0.4);
-  --color-background-lighten: rgba(255, 255, 255, 0.85);
+    /* === Fonds === */
+    --color-background-default: #f4f8f6;
+    --color-background-elevated: #e9f1ed;
+    --color-background-elevated-new: #e1ece4;
+    --color-background-alternative-faded: #f0f5f2;
+    --color-background-alternative-faint: #d9ede5;
+    --color-background-alternative-medium: #b8d8c5;
+    --color-background-alternative-deep: #90b49c;
+    --color-background-inverse: #1f1f1f;
+    --color-background-backdrop: rgba(0,0,0,0.3);
+    --color-background-lighten: rgba(255,255,255,0.9);
 
-  /* === Bordures & ombres === */
-  --color-borders-hairline: #d8e1dc;
-  --color-highlight: var(--color-primary-medium);
-  --shadow-small: 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-normal: 0 2px 4px rgba(0, 0, 0, 0.08);
-  --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-large: 0 6px 12px rgba(0, 0, 0, 0.12);
-  --shadow-xlarge: 0 8px 20px rgba(0, 0, 0, 0.14);
-  --shadow-jumbo: 0 12px 32px rgba(0, 0, 0, 0.16);
-  --shadow-hover: 0 16px 32px rgba(0, 0, 0, 0.18);
-  --shadow-sticky: 0 8px 16px -8px rgba(0, 0, 0, 0.08);
-  --shadow-strong: 0 0 8px rgba(0, 0, 0, 0.25);
+    /* === Bordures & ombres === */
+    --color-borders-hairline: #d3ded6;
+    --color-highlight: var(--color-primary-medium);
+    --shadow-small: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-normal: 0 2px 6px rgba(0,0,0,0.1);
+    --shadow-medium: 0 4px 12px rgba(0,0,0,0.12);
+    --shadow-large: 0 6px 18px rgba(0,0,0,0.14);
+    --shadow-xlarge: 0 8px 24px rgba(0,0,0,0.16);
+    --shadow-jumbo: 0 12px 32px rgba(0,0,0,0.18);
+    --shadow-hover: 0 16px 32px rgba(0,0,0,0.2);
+    --shadow-sticky: 0 8px 16px -8px rgba(0,0,0,0.08);
+    --shadow-strong: 0 0 8px rgba(0,0,0,0.25);
 
-  /* === Divers === */
-  --background-image: #dce7e0;
-  --color-svg-background: invert(0);
+    /* === Divers === */
+    --background-image: linear-gradient(145deg, #f4f8f6, #e9f1ed);
+    --color-svg-background: invert(0);
 }
 
+/* ====================== Thème sombre modernisé ====================== */
 [data-theme=midnight-blue] {
-    --color-primary-faded: #232f3e;
-    --color-primary-faint: #2e3d4f;
-    --color-primary-medium: #3d5268;
-    --color-primary-deep: #1d2733;
+    /* === Couleurs primaires : Bleu doux profond === */
+    --color-primary-faded: #1f2a38;
+    --color-primary-faint: #2c3a4c;
+    --color-primary-medium: #3f5470;
+    --color-primary-deep: #1b2430;
 
-    --color-secondary-faded: #2a353f;
-    --color-secondary-faint: #3b4b5a;
-    --color-secondary-medium: #4f6173;
-    --color-secondary-deep: #1c252f;
+    /* === Couleurs secondaires : neutres gris-bleu === */
+    --color-secondary-faded: #222b34;
+    --color-secondary-faint: #2f3b48;
+    --color-secondary-medium: #4a5a6c;
+    --color-secondary-deep: #151d24;
 
-    --color-success-faded:  #8ec59f;  /* crème vanille très doux */
-    --color-success-faint:  #79a386;  /* jaune pastel chaud */
-    --color-success-medium: #698f75;  /* doré doux, style miel clair */
-    --color-success-deep:   #587461;
-    
+    /* === Succès, erreur, avertissement === */
+    --color-success-faded: #8ec59f;
+    --color-success-faint: #6fae85;
+    --color-success-medium: #4f9170;
+    --color-success-deep: #3b7154;
+
     --color-error-faded: #3a2a2a;
     --color-error-faint: #734747;
     --color-error-medium: #d65757;
     --color-error-deep: #912f2f;
 
-    --scrollbar-background: #1f1f1f;        /* Fond discret, légèrement plus clair que le fond global */
-    --scrollbar-thumb: #3a3a3a;             /* Gris neutre, visible mais sobre */
-    --scrollbar-thumb-hover: #555555;       /* Un peu plus clair au survol */
-    --scrollbar-thumb-active: #777777;      
+    --color-warning-faded: #fff3cc;
+    --color-warning-faint: #ffdb80;
+    --color-warning-medium: #f4c542;
+    --color-warning-deep: #b38a00;
 
-    --color-text-default-new: #dbe0e6;
-    --color-text-default: #e8ecf1;
-    --color-text-faded: #97a1ae;
-    --color-text-faded-new: #a0aab8;
+    /* === Scrollbar === */
+    --scrollbar-background: #1f2228;
+    --scrollbar-thumb: #3b3e44;
+    --scrollbar-thumb-hover: #55585e;
+    --scrollbar-thumb-active: #77787d;
+
+    /* === Texte === */
+    --color-text-default: #e2e6ec;
+    --color-text-faded: #a0aab8;
     --color-text-inverse: #111821;
-    --color-text-link: #6f977c;
+    --color-text-link: #6fae85;
     --color-success-faint-link: #29b37f;
     --color-text-warning: #f4c542;
     --color-text-error: #f16a6a;
-    --color-text-black: #000;
-    --color-text-white: #fff;
-    --color-text-gray: #8e98a3;
 
-    --color-background-default: #1c1f25;
-    --color-background-elevated: #242931;
-    --color-background-elevated-new: #232931;
-    --color-background-alternative-faded: #222831;
-    --color-background-alternative-faint: #2c333e;
-    --color-background-alternative-medium: #303949;
-    --color-background-alternative-deep: #13171d;
+    /* === Fonds === */
+    --color-background-default: #1f242c;
+    --color-background-elevated: #262c36;
+    --color-background-elevated-new: #2a313c;
+    --color-background-alternative-faded: #222930;
+    --color-background-alternative-faint: #2b343e;
+    --color-background-alternative-medium: #394552;
+    --color-background-alternative-deep: #12171d;
     --color-background-inverse: #f3f5f7;
-    --color-background-backdrop: rgba(0, 0, 0, .65);
-    --color-background-lighten: rgba(255, 255, 255, .025);
+    --color-background-backdrop: rgba(0,0,0,0.55);
+    --color-background-lighten: rgba(255,255,255,0.02);
 
-    --color-borders-hairline: #343c48;
-    --color-highlight: #6c7685;
+    /* === Bordures & ombres === */
+    --color-borders-hairline: #343a44;
+    --color-highlight: #3f5470;
+    --shadow-small: 0 2px 4px rgba(0,0,0,0.25);
+    --shadow-normal: 0 4px 8px rgba(0,0,0,0.3);
+    --shadow-medium: 0 4px 12px rgba(0,0,0,0.4);
+    --shadow-large: 0 6px 18px rgba(0,0,0,0.5);
 
-    --shadow-small: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    --shadow-normal: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    --shadow-medium: 0px 4px 12px rgba(0, 0, 0, 0.4);
-    --shadow-large: 0px 6px 18px rgba(0, 0, 0, 0.5);
-
-    --background-image: #0c0c0c;
+    /* === Divers === */
+    --background-image: linear-gradient(145deg, #1f242c, #262c36);
     --color-svg-background: invert(1);
 }
 
